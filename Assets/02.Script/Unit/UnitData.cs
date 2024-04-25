@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitData
+[CreateAssetMenu(fileName = "Unit Data", menuName ="Unit/Unit Data" , order = int.MaxValue)]
+public class UnitData : ScriptableObject
 {
 
     public int unitID { get; set; }
@@ -17,4 +18,7 @@ public class UnitData
     public int unitPrice { get; set; }
 
     public int unitType { get; set; }
+
+    public GameObject prefab;
+
 }
