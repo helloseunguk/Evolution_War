@@ -7,6 +7,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class ETMPro : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
