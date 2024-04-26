@@ -14,13 +14,16 @@ public class Managers : MonoBehaviour
             return s_Instance;
         }
     }
-    private SpawnManager spawnManager;
-    private UnitManager unitManager;
 
     SpawnManager spawn = new SpawnManager();
     UnitManager unit = new UnitManager();
-    public static SpawnManager Spawn => Instance.spawnManager;
-    public static UnitManager Unit => Instance.unitManager;
+    StringManager stringManager = new StringManager();
+
+
+    public static SpawnManager Spawn => Instance.spawn;
+    public static UnitManager Unit => Instance.unit;
+    public static StringManager String => Instance.stringManager; 
+
     static void Init() 
     {
         if (s_Instance == null)
@@ -34,10 +37,5 @@ public class Managers : MonoBehaviour
             s_Instance = go.GetComponent<Managers>();
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        spawnManager = new SpawnManager();
-        unitManager = new UnitManager();
-    }
+
 }
