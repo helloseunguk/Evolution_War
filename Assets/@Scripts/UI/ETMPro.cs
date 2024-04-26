@@ -12,7 +12,7 @@ public class ETMPro : MonoBehaviour
     [OnValueChanged("SetEditString")]
     public int stringID = -1;
 
-    public Define.EFONT_TYPE fontType = Define.EFONT_TYPE.None;
+    public Define.EFONT_TYPE fontType = Define.EFONT_TYPE.ENONE;
     public TMP_Text text;
     public Define.StringFileType strFileType = Define.StringFileType.Normal;
 
@@ -27,8 +27,10 @@ public class ETMPro : MonoBehaviour
         {
             if(stringID != -1 && isSetText == false)
             {
-                //text.text = Managers.String
+                text.text = Managers.String.GetString(stringID, strFileType);
             }
+            text.font = StringManager.GetFont(fontType);
+            text.fontMaterial = StringManager.GetMaterial(fontType);
         }
     }
     // Start is called before the first frame update
