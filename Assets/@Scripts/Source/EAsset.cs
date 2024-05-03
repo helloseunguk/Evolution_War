@@ -18,13 +18,13 @@ public class EAsset
             {
                 isRet = true;
                 retObj = ret;
-            }, lifeCount).TimeoutWithoutException(TimeSpan.FromSeconds(5));
+            }, lifeCount).TimeoutWithoutException(System.TimeSpan.FromSeconds(5));
             await UniTask.WaitWhile(() => !isRet, PlayerLoopTiming.Update, cancellationToken);
             return retObj;
         }
-        catch (Exception e)
+        catch (System.Exception e)
         {
-            Console.WriteLine(e);
+            Debug.Log(e);
             return null;
         }
 #elif UNITY_EDITOR
