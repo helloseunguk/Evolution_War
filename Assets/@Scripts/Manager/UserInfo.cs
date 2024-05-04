@@ -7,6 +7,7 @@ static public class UserInfo
 {
     static int userCurUnitLevel;
     public static List<Unit> Units = new List<Unit>();
+    public static string accountID;
     static public int GetCurUnitLevel()
     {
         return userCurUnitLevel;    

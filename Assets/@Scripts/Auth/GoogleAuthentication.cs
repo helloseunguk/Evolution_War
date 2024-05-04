@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Google;
 using TMPro;
 using UniRx;
+using UnityEngine.SceneManagement;
 public class GoogleAuthentication : MonoBehaviour
 {
     public string imageURL;
@@ -39,6 +40,7 @@ public class GoogleAuthentication : MonoBehaviour
         {
             OnSignOut();
         });
+  
     }
 
     public void OnSignIn()
@@ -47,11 +49,10 @@ public class GoogleAuthentication : MonoBehaviour
         GoogleSignIn.Configuration.UseGameSignIn = false;
         GoogleSignIn.Configuration.RequestIdToken = true;
         GoogleSignIn.Configuration.RequestEmail = true;
-
         GoogleSignIn.DefaultInstance.SignIn().ContinueWith(
-          OnAuthenticationFinished,TaskScheduler.Default);
+          OnAuthenticationFinished);
     }
-    internal void OnAuthenticationFinished(Task<GoogleSignInUser> task)
+    public void OnAuthenticationFinished(Task<GoogleSignInUser> task)
     {
         if (task.IsFaulted)
         {
@@ -76,17 +77,28 @@ public class GoogleAuthentication : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Welcome: " + task.Result.DisplayName + "!");
+            UnityMainThreadDispatcher.Instance().Enqueue(() =>
+            {
+                Debug.Log("로그인4");
+                Debug.Log("로그인 성공" + task.Result.IdToken);
+                UserInfo.accountID = task.Result.IdToken;
+                //  loginPanel.SetActive(false);
+                userNameTxt.text = "" + task.Result.DisplayName;
+                userEmailTxt.text = "" + task.Result.Email;
 
-            //userNameTxt.text = "" + task.Result.DisplayName;
-            //userEmailTxt.text = "" + task.Result.Email;
+                imageURL = task.Result.ImageUrl.ToString();
+                StartCoroutine(LoadProfilePic());
+                profilePanel.SetActive(true);
+            });
 
-            //imageURL = task.Result.ImageUrl.ToString();
-            //loginPanel.SetActive(false);
-            //profilePanel.SetActive(true);
-            //StartCoroutine(LoadProfilePic());
+  
+       
+        
+            //
         }
     }
+
+
     IEnumerator LoadProfilePic() 
     {
         WWW www = new WWW(imageURL);
@@ -96,10 +108,12 @@ public class GoogleAuthentication : MonoBehaviour
     }
     public void OnSignOut()
     {
+        Debug.Log("로그아웃");
         userNameTxt.text = "";
         userEmailTxt.text = "" ;
 
         imageURL = "";
+
         loginPanel.SetActive(true);
         profilePanel.SetActive(false);
         Debug.LogError("Calling SignOut");
