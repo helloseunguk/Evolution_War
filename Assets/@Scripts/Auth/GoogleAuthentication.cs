@@ -40,7 +40,15 @@ public class GoogleAuthentication : MonoBehaviour
         {
             OnSignOut();
         });
-  
+        if (PlayerPrefs.HasKey("UserToken"))
+        {
+            userNameTxt.text = PlayerPrefs.GetString("UserName");
+            userEmailTxt.text = PlayerPrefs.GetString("UserEmail");
+            imageURL = PlayerPrefs.GetString("UserImageURL");
+            StartCoroutine(LoadProfilePic());
+            //loginPanel.SetActive(false);
+            //profilePanel.SetActive(true);
+        }
     }
 
     public void OnSignIn()
@@ -81,6 +89,11 @@ public class GoogleAuthentication : MonoBehaviour
             {
                 Debug.Log("로그인4");
                 Debug.Log("로그인 성공" + task.Result.IdToken);
+                PlayerPrefs.SetString("UserToken", task.Result.IdToken);
+                PlayerPrefs.SetString("UserName", task.Result.DisplayName);
+                PlayerPrefs.SetString("UserEmail", task.Result.Email);
+                PlayerPrefs.SetString("UserImageURL", task.Result.ImageUrl.ToString());
+                PlayerPrefs.Save();
                 UserInfo.accountID = task.Result.IdToken;
                 //  loginPanel.SetActive(false);
                 userNameTxt.text = "" + task.Result.DisplayName;
@@ -117,6 +130,11 @@ public class GoogleAuthentication : MonoBehaviour
         loginPanel.SetActive(true);
         profilePanel.SetActive(false);
         Debug.LogError("Calling SignOut");
+        PlayerPrefs.DeleteKey("UserToken");
+        PlayerPrefs.DeleteKey("UserName");
+        PlayerPrefs.DeleteKey("UserEmail");
+        PlayerPrefs.DeleteKey("UserImageURL");
+        PlayerPrefs.Save();
         GoogleSignIn.DefaultInstance.SignOut();
     }
   

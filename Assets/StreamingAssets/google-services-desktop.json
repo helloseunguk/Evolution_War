@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "448669070254",
+    "firebase_url": "https://evolutionwar-13ba2-default-rtdb.firebaseio.com",
+    "project_id": "evolutionwar-13ba2",
+    "storage_bucket": "evolutionwar-13ba2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448669070254:android:f08abd9f8ed262b46ace3f",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.EvolutionWar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAFDpafHE0XjM-deFuwRMaCL-sCDRrg3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

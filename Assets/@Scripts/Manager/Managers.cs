@@ -19,12 +19,14 @@ public class Managers : MonoBehaviour
     UnitManager unit = new UnitManager();
     StringManager stringManager = new StringManager();
     ResourceManager resourceManager = new ResourceManager();
-
+    AuthManager authManager = new AuthManager();
 
     public static SpawnManager Spawn => Instance.spawn;
     public static UnitManager Unit => Instance.unit;
     public static StringManager String => Instance.stringManager; 
     public static ResourceManager Resource => Instance.resourceManager;
+    public static AuthManager AuthManager => Instance.authManager;
+
     static void Init() 
     {
         if (s_Instance == null)
