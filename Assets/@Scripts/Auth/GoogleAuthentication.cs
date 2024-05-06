@@ -23,6 +23,8 @@ public class GoogleAuthentication : MonoBehaviour
     public Button logInBtn;
     public Button logOutBtn;
 
+    public FireAuth fireAuth;
+
     // Defer the configuration creation until Awake so the web Client ID
     // Can be set via the property inspector in the Editor.
     void Awake()
@@ -49,8 +51,12 @@ public class GoogleAuthentication : MonoBehaviour
             //loginPanel.SetActive(false);
             //profilePanel.SetActive(true);
         }
+        Managers.Data.WriteNewUser("ÇÑ½Â¿í", "2131232");
     }
-
+    private void Start()
+    {
+        
+    }
     public void OnSignIn()
     {
         GoogleSignIn.Configuration = configuration;
@@ -102,6 +108,7 @@ public class GoogleAuthentication : MonoBehaviour
                 imageURL = task.Result.ImageUrl.ToString();
                 StartCoroutine(LoadProfilePic());
                 profilePanel.SetActive(true);
+
             });
 
   

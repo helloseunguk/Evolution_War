@@ -14,6 +14,12 @@ Library: C:\Users\HAN\Documents\GitHub\Evolution_War\Temp\BurstOutput\tempburstl
 --assembly-defines=Cinemachine;
 --assembly-defines=DOTween;
 --assembly-defines=DOTweenPro;
+--assembly-defines=Firebase.App;
+--assembly-defines=Firebase.Auth;
+--assembly-defines=Firebase.Database;
+--assembly-defines=Firebase.Platform;
+--assembly-defines=Firebase.TaskExtension;
+--assembly-defines=Google.MiniJson;
 --assembly-defines=IngameDebugConsole.Runtime;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
@@ -69,6 +75,12 @@ Library: C:\Users\HAN\Documents\GitHub\Evolution_War\Temp\BurstOutput\tempburstl
 --assembly-defines=Cinemachine;
 --assembly-defines=DOTween;
 --assembly-defines=DOTweenPro;
+--assembly-defines=Firebase.App;
+--assembly-defines=Firebase.Auth;
+--assembly-defines=Firebase.Database;
+--assembly-defines=Firebase.Platform;
+--assembly-defines=Firebase.TaskExtension;
+--assembly-defines=Google.MiniJson;
 --assembly-defines=IngameDebugConsole.Runtime;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
