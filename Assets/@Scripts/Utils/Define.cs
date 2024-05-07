@@ -12,6 +12,14 @@ public class Define
         MainScene = 3,
 
     }
+    public enum AuthType 
+    {
+        None = 0,
+        Authenticated = 1,  //로그인 상태
+        UnAuthenticated = 2,//로그인 되지않은 상태
+
+
+    }
     public enum SoundType
     {
         Master =0,
@@ -27,13 +35,13 @@ public class Define
         PointerUp = 2,
         Click = 3,
     }
-    public enum AuthType
-    {
-        None = 0,
-        GuestAuth = 1, //게스트
-        GoogleAuth = 2, //구글
-        AppleAuth = 3, //애플
-    }
+    //public enum AuthType
+    //{
+    //    None = 0,
+    //    GuestAuth = 1, //게스트
+    //    GoogleAuth = 2, //구글
+    //    AppleAuth = 3, //애플
+    //}
     public enum MarketType 
     {
         None = 0,

@@ -4,32 +4,36 @@ using UnityEngine;
 using Firebase;
 using Firebase.Database;
 
+
 public partial class DataManager 
 {
 
     public DatabaseReference reference;
-    public void Init() 
+
+    public void Init()
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
-       
     }
-    public void TestUserDataSave(string userName, string userId)
-    {
 
+    public void OnSaveUserData(UserData userData)
+    {
+        string jsonData = JsonUtility.ToJson(userData);
+        SaveUserDataToFirebase(userData.id, jsonData); // userData의 id를 key로 사용
     }
-    public void WriteNewUser(string name, string id)
-    {
-        UserData user = new UserData(name, id);
-        string json = JsonUtility.ToJson(user);
 
-        Debug.Log("WriteNewUser");
-        string key = reference.Child("usersInfo").Push().Key;
-
-       reference.Child("usersInfo").Child(key).SetRawJsonValueAsync(json);
-    }
-    public void UpdateUserName(string userId, string name)
+    private void SaveUserDataToFirebase(string userId, string jsonData)
     {
-       reference.Child("usersInfo").Child(userId).Child("username").SetValueAsync(name);
+        reference.Child("users").Child(userId).SetRawJsonValueAsync(jsonData).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error saving user data: " + task.Exception);
+            }
+            else
+            {
+                Debug.Log("User data saved successfully!");
+            }
+        });
     }
 
 }

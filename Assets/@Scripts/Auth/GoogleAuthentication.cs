@@ -29,29 +29,29 @@ public class GoogleAuthentication : MonoBehaviour
     // Can be set via the property inspector in the Editor.
     void Awake()
     {
-        configuration = new GoogleSignInConfiguration
-        {
-            WebClientId = webClientId,
-            RequestIdToken = true
-        };
-        logInBtn.OnClickAsObservable().Subscribe(_ => 
-        {
-            OnSignIn();
-        });
-        logOutBtn.OnClickAsObservable().Subscribe(_ => 
-        {
-            OnSignOut();
-        });
-        if (PlayerPrefs.HasKey("UserToken"))
-        {
-            userNameTxt.text = PlayerPrefs.GetString("UserName");
-            userEmailTxt.text = PlayerPrefs.GetString("UserEmail");
-            imageURL = PlayerPrefs.GetString("UserImageURL");
-            StartCoroutine(LoadProfilePic());
-            //loginPanel.SetActive(false);
-            //profilePanel.SetActive(true);
-        }
-        Managers.Data.WriteNewUser("ÇÑ½Â¿í", "2131232");
+        //configuration = new GoogleSignInConfiguration
+        //{
+        //    WebClientId = webClientId,
+        //    RequestIdToken = true
+        //};
+        //logInBtn.OnClickAsObservable().Subscribe(_ => 
+        //{
+        //    OnSignIn();
+        //});
+        //logOutBtn.OnClickAsObservable().Subscribe(_ => 
+        //{
+        //    OnSignOut();
+        //});
+        //if (PlayerPrefs.HasKey("UserToken"))
+        //{
+        //    userNameTxt.text = PlayerPrefs.GetString("UserName");
+        //    userEmailTxt.text = PlayerPrefs.GetString("UserEmail");
+        //    imageURL = PlayerPrefs.GetString("UserImageURL");
+        //    StartCoroutine(LoadProfilePic());
+        //    //loginPanel.SetActive(false);
+        //    //profilePanel.SetActive(true);
+        //}
+        //Managers.Data.WriteNewUser("ÇÑ½Â¿í", "2131232");
     }
     private void Start()
     {
