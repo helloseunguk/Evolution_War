@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: -6008720101072349797}
   - component: {fileID: -7456865384446668128}
   m_Layer: 6
-  m_Name: Egglet
+  m_Name: Egglet_1
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

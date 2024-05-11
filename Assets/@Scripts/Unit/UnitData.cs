@@ -6,17 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Unit Data", menuName ="Unit/Unit Data" , order = int.MaxValue)]
 public class UnitData : ScriptableObject
 {
-    public int unitID { get; set; }
-
-
-    public string unitName;
-
-   public string unitDescription { get; set; }
-
-    public int unitPrice { get; set; }
-
-    public int unitType { get; set; }
-
-    public GameObject prefab;
+    public int grade;
+    public int level;
+    public int hp;
+    public int damage;
+    public int speed;
 
 }

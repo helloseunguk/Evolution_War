@@ -22,13 +22,13 @@ public class SpawnManager
                                                 spawnPosition.z + randomOffset.y);
         }
 
-        GameObject unitObj = GameObject.Instantiate(_unit.prefab, spawnPosition, Quaternion.identity);
+     //   GameObject unitObj = GameObject.Instantiate(_unit.prefab, spawnPosition, Quaternion.identity);
 
-        Unit unit = new Unit(_unit, unitObj);
+    //    Unit unit = new Unit(_unit, unitObj);
 
-        UserInfo.AddUnitData(unit);
-        Managers.Unit.RegisterGameObject(unit, unitObj);
-        unitObj.name = _unit.unitName;
+       // UserInfo.AddUnitData(unit);
+      //  Managers.Unit.RegisterGameObject(unit, unitObj);
+     
 
 
         //À¯´Ö ÀçÈ°¿ë

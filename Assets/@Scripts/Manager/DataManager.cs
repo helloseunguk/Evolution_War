@@ -10,8 +10,10 @@ public partial class DataManager
     {
         reference = FirebaseDatabase.DefaultInstance.RootReference;
         userDataFilePath = Path.Combine(Application.persistentDataPath, "userData.json");
-      //  LoadUserData();
-        await LocalDBCreate();
+
+         LoadDataFromJson();
+
+          await LocalDBCreate();
         
     }
 }

@@ -1,0 +1,72 @@
+[
+  {
+    "Grade": 1,
+    "Level": 1,
+    "Hp": 10,
+    "Damage": 2,
+    "Speed": 1
+  },
+  {
+    "Grade": 1,
+    "Level": 2,
+    "Hp": 11,
+    "Damage": 3,
+    "Speed": 1
+  },
+  {
+    "Grade": 1,
+    "Level": 3,
+    "Hp": 12,
+    "Damage": 4,
+    "Speed": 1
+  },
+  {
+    "Grade": 1,
+    "Level": 4,
+    "Hp": 13,
+    "Damage": 5,
+    "Speed": 1
+  },
+  {
+    "Grade": 1,
+    "Level": 5,
+    "Hp": 15,
+    "Damage": 7,
+    "Speed": 1
+  },
+  {
+    "Grade": 2,
+    "Level": 1,
+    "Hp": 16,
+    "Damage": 8,
+    "Speed": 1
+  },
+  {
+    "Grade": 2,
+    "Level": 2,
+    "Hp": 17,
+    "Damage": 9,
+    "Speed": 1
+  },
+  {
+    "Grade": 2,
+    "Level": 3,
+    "Hp": 18,
+    "Damage": 10,
+    "Speed": 1
+  },
+  {
+    "Grade": 2,
+    "Level": 4,
+    "Hp": 19,
+    "Damage": 11,
+    "Speed": 1
+  },
+  {
+    "Grade": 2,
+    "Level": 5,
+    "Hp": 20,
+    "Damage": 12,
+    "Speed": 1
+  }
+]

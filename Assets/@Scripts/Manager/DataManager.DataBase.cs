@@ -17,7 +17,6 @@ public partial class DataManager
 
     public DatabaseReference reference;
 
- 
     public async Task LocalDBCreate()
     {
         string filePath = string.Empty;
