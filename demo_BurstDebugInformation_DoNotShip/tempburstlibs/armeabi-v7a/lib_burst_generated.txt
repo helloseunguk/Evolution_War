@@ -21,6 +21,7 @@ Library: C:\Users\HAN\Documents\GitHub\Evolution_War\Temp\BurstOutput\tempburstl
 --assembly-defines=Firebase.TaskExtension;
 --assembly-defines=Google.MiniJson;
 --assembly-defines=IngameDebugConsole.Runtime;
+--assembly-defines=Mono.Data.Sqlite;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
 --assembly-defines=Sirenix.OdinInspector.Attributes;
@@ -29,9 +30,11 @@ Library: C:\Users\HAN\Documents\GitHub\Evolution_War\Temp\BurstOutput\tempburstl
 --assembly-defines=Sirenix.Utilities;
 --assembly-defines=System.Configuration;
 --assembly-defines=System.Core;
+--assembly-defines=System.Data;
 --assembly-defines=System;
 --assembly-defines=System.Numerics;
 --assembly-defines=System.Runtime.CompilerServices.Unsafe;
+--assembly-defines=System.Transactions;
 --assembly-defines=System.Xml;
 --assembly-defines=UniRx;
 --assembly-defines=UniTask.Addressables;
@@ -82,6 +85,7 @@ Library: C:\Users\HAN\Documents\GitHub\Evolution_War\Temp\BurstOutput\tempburstl
 --assembly-defines=Firebase.TaskExtension;
 --assembly-defines=Google.MiniJson;
 --assembly-defines=IngameDebugConsole.Runtime;
+--assembly-defines=Mono.Data.Sqlite;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
 --assembly-defines=Sirenix.OdinInspector.Attributes;
@@ -90,9 +94,11 @@ Library: C:\Users\HAN\Documents\GitHub\Evolution_War\Temp\BurstOutput\tempburstl
 --assembly-defines=Sirenix.Utilities;
 --assembly-defines=System.Configuration;
 --assembly-defines=System.Core;
+--assembly-defines=System.Data;
 --assembly-defines=System;
 --assembly-defines=System.Numerics;
 --assembly-defines=System.Runtime.CompilerServices.Unsafe;
+--assembly-defines=System.Transactions;
 --assembly-defines=System.Xml;
 --assembly-defines=UniRx;
 --assembly-defines=UniTask.Addressables;

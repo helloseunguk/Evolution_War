@@ -21,6 +21,7 @@ public class MainSceneUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(UserInfo.userData.gold + "cur Gold");
         UpdateUI();
         UserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
                 .Subscribe(_ => UpdateUI());
@@ -29,7 +30,12 @@ public class MainSceneUI : MonoBehaviour
             Managers.Spawn.SpawnUnit(unit, spawnPosition.position, true);
             UpdateUI();
         });
-        specialSummonBtn.OnClickAsObservable().Subscribe(_ => Debug.Log("胶其既 家券") );
+        specialSummonBtn.OnClickAsObservable().Subscribe(_ => {
+            Debug.Log("胶其既 家券");
+            UserInfo.userData.gold += 100;
+            UserInfo.userData.gem += 50;
+
+        });
         mergeBtn.OnClickAsObservable().Subscribe(_ => 
         {
             Managers.Spawn.MergeUnit();
@@ -39,9 +45,8 @@ public class MainSceneUI : MonoBehaviour
     private void UpdateUI() 
     {
         unitCountText.SetText(UserInfo.GetUnitListData().Count.ToString());
-        // totalPowerText.SetText(ComputeTotalPower().ToString());
-        // ownGoldText.SetText(UserInfo.Gold.ToString());
-        // ownGemText.SetText(UserInfo.Gems.ToString());
-        // ownTicketText.SetText(UserInfo.Tickets.ToString());
+        ownGoldText.SetText(UserInfo.userData.gold.ToString());
+        ownGemText.SetText(UserInfo.userData.gem.ToString());
+        ownTicketText.SetText(UserInfo.userData.ticket.ToString());
     }
 }

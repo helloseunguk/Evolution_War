@@ -44,5 +44,8 @@ public class Managers : MonoBehaviour
             Data.Init();
         }
     }
-
+    private void OnApplicationQuit()
+    {
+        Data.OnApplicationQuit();
+    }
 }

@@ -26,7 +26,7 @@ public class SpawnManager
 
         Unit unit = new Unit(_unit, unitObj);
 
-        UserInfo.SetUnitData(unit);
+        UserInfo.AddUnitData(unit);
         Managers.Unit.RegisterGameObject(unit, unitObj);
         unitObj.name = _unit.unitName;
 

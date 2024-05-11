@@ -32,7 +32,7 @@ static public class UserInfo
             Units.Remove(unit);
         }
     }
-    static public void SetUnitData(Unit unit) 
+    static public void AddUnitData(Unit unit) 
     {
         if(unit != null)
             Units.Add(unit);
