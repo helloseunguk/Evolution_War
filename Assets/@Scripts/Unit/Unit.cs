@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class Unit 
 {
-  public UnitData Data { get; private set; }
-    public GameObject GameObject { get; private set; }
-
+    //UnitData 랩핑(스크립터블은 해쉬코드가 모두 같기때문)
+  public UnitData Data { get; set; }
     public int unitLevel { get; set; }
     public int unitGrade { get; set; }
-    public Unit(UnitData data, GameObject gameObject)
+    public Unit(UnitData data)
     {
         Data = data;
-        GameObject = gameObject;
     }
 
-    public void MoveTo(Vector3 position)
-    {
-        GameObject.transform.position = position;
-    }
 }

@@ -41,7 +41,6 @@ public partial class DataManager
         {
             unitSO = ScriptableObject.CreateInstance<UnitData>();
             AssetDatabase.CreateAsset(unitSO, assetPath);
-            Debug.Log("Created new ScriptableObject at: " + assetPath);
         }
 
         unitSO.grade = data.grade;

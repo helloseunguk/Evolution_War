@@ -294,8 +294,9 @@ GameObject:
   - component: {fileID: 7610133508921096079}
   - component: {fileID: -6008720101072349797}
   - component: {fileID: -7456865384446668128}
+  - component: {fileID: 595956332173414243}
   m_Layer: 6
-  m_Name: Egglet_1
+  m_Name: unit_1
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,6 +393,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
+--- !u!114 &595956332173414243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610133508913661007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b32e7376837d2348831869159ac4b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitData: {fileID: 11400000, guid: c6d160b63dcf94543a534a3adac7db1f, type: 2}
 --- !u!1 &7610133508913661013
 GameObject:
   m_ObjectHideFlags: 0
