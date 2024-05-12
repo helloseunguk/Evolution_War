@@ -24,7 +24,8 @@ public class SpawnManager
                                                 spawnPosition.z + randomOffset.y);
         }
 
-       
+
+        Debug.Log("grade" + _unit.grade + "level" + _unit.level);
 
         Addressables.LoadAssetAsync<GameObject>($"unit_{_unit.grade}").Completed += handle =>
         {
@@ -76,12 +77,20 @@ public class SpawnManager
         }
         //Dotween으로 두 유닛위치를 보간처리하고 Position까지 1정도 남았을때 비활성화
         Vector3 midPosition = Vector3.Lerp(unitObj1.transform.position, unitObj2.transform.position, 0.5f);
-        unitObj1.transform.DOMove(midPosition, 1.0f).OnComplete(() => 
+        unitObj1.transform.DOMove(midPosition, 0.5f).OnComplete(() => 
         {
             unitObj1.SetActive(false);
+
+            var unitList = UserInfo.GetUnitScriptData();
+            int nextLevel = (unit1.Data.grade - 1) * 5 + unit1.Data.level + 1;
+            int unitGrade = (nextLevel-1) / 5 + 1;  // 매 5 레벨마다 등급이 1씩 증가
+            int unitLevel = (nextLevel-1) % 5 + 1;  // 레벨은 1에서 5까지 반복
+
+            var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
+    
             SpawnUnit(unitData, midPosition,false);
         });
-        unitObj2.transform.DOMove(midPosition, 1.0f).OnComplete(() =>
+        unitObj2.transform.DOMove(midPosition, 0.5f).OnComplete(() =>
         {
             unitObj2.SetActive(false);
         });

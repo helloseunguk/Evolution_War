@@ -7,6 +7,7 @@ static public class UserInfo
 {
     static int userCurUnitLevel;
     public static List<Unit> Units = new List<Unit>();
+    public static List<UnitData> unitDatas = new List<UnitData>();
     public static string accountID;
     public static UserData userData = new UserData();
     static public int GetCurUnitLevel()
@@ -17,6 +18,14 @@ static public class UserInfo
     static public List<Unit> GetUnitListData()
     {
         return Units;
+    }
+    static public List<UnitData> GetUnitScriptData() 
+    {
+        return unitDatas;
+    }
+    static public void SetUnitScriptData(List<UnitData> _unitDatas)
+    {
+        unitDatas = _unitDatas;
     }
     static public void UpdateUnitListData(List<Unit> unitList) 
     {
