@@ -48,7 +48,7 @@ public partial class DataManager
         unitSO.hp = data.hp;
         unitSO.damage = data.damage;
         unitSO.speed = data.speed;
-
+        unitSO.color = data.color;
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(unitSO);
         UnityEditor.AssetDatabase.SaveAssets();

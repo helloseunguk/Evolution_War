@@ -16,7 +16,6 @@ public class SpawnManager
             return;
 
         unitData = _unit;
-
         if (isRandomPosition)
         {
             Vector2 randomOffset = Random.insideUnitCircle * 10;  // 반경 10 이내의 랜덤 벡터 생성
@@ -34,6 +33,15 @@ public class SpawnManager
                 GameObject unitPrefab = handle.Result;
                 unitPrefab.GetComponent<UnitAgent>().unitData = unitData;
                 var obj = GameObject.Instantiate(unitPrefab, spawnPosition, Quaternion.identity);
+                Color colorValue;
+                if(UnityEngine.ColorUtility.TryParseHtmlString(_unit.color,out colorValue))
+                {
+                    Renderer renderer = obj.GetComponentInChildren<Renderer>();
+                    if(renderer != null)
+                    {
+                        renderer.material.color = colorValue;
+                    }
+                }
                 var unit = new Unit(_unit);
                 UserInfo.AddUnitData(unit);
                 Managers.Unit.RegisterGameObject(unit, obj);
@@ -68,11 +76,8 @@ public class SpawnManager
         }
         //Dotween으로 두 유닛위치를 보간처리하고 Position까지 1정도 남았을때 비활성화
         Vector3 midPosition = Vector3.Lerp(unitObj1.transform.position, unitObj2.transform.position, 0.5f);
-        Debug.Log("Before Move: " + unitObj1.transform.position + ", " + unitObj2.transform.position);
         unitObj1.transform.DOMove(midPosition, 1.0f).OnComplete(() => 
         {
-
-
             unitObj1.SetActive(false);
             SpawnUnit(unitData, midPosition,false);
         });

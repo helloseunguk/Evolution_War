@@ -17,3 +17,4 @@ MonoBehaviour:
   hp: 17
   damage: 9
   speed: 1
+  color: '#228B22'

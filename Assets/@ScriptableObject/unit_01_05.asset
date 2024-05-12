@@ -17,3 +17,4 @@ MonoBehaviour:
   hp: 15
   damage: 7
   speed: 1
+  color: '#FFD700'

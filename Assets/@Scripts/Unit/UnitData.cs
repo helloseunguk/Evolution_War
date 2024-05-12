@@ -11,5 +11,5 @@ public class UnitData : ScriptableObject
     public int hp;
     public int damage;
     public int speed;
-
+    public string color;
 }
