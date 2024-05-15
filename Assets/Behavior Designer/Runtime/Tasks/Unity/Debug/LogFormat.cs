@@ -25,9 +25,9 @@ namespace BehaviorDesigner.Runtime.Tasks.Unity.UnityDebug
             var paramsArray = buildParamsArray();
             // Log the text and return success
             if (logError.Value) {
-                Debug.LogErrorFormat(textFormat.Value, paramsArray);
+                UnityEngine.Debug.LogErrorFormat(textFormat.Value, paramsArray);
             } else {
-                Debug.LogFormat(textFormat.Value, paramsArray);
+                UnityEngine.Debug.LogFormat(textFormat.Value, paramsArray);
             }
             return TaskStatus.Success;
         }
