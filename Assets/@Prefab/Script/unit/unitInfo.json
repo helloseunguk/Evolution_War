@@ -78,5 +78,125 @@
     "Damage": 12,
     "Speed": 1,
     "Color": "#FFD700"
+  },
+  {
+    "Grade": 3,
+    "Level": 1,
+    "Hp": 30,
+    "Damage": 15,
+    "Speed": 1,
+    "Color": "#90EE90"
+  },
+  {
+    "Grade": 3,
+    "Level": 2,
+    "Hp": 35,
+    "Damage": 17,
+    "Speed": 1,
+    "Color": "#228B22"
+  },
+  {
+    "Grade": 3,
+    "Level": 3,
+    "Hp": 40,
+    "Damage": 19,
+    "Speed": 1,
+    "Color": "#ADD8E6"
+  },
+  {
+    "Grade": 3,
+    "Level": 4,
+    "Hp": 45,
+    "Damage": 20,
+    "Speed": 1,
+    "Color": "#00008B"
+  },
+  {
+    "Grade": 3,
+    "Level": 5,
+    "Hp": 50,
+    "Damage": 22,
+    "Speed": 1,
+    "Color": "#FFD700"
+  },
+  {
+    "Grade": 4,
+    "Level": 1,
+    "Hp": 60,
+    "Damage": 24,
+    "Speed": 1,
+    "Color": "#90EE90"
+  },
+  {
+    "Grade": 4,
+    "Level": 2,
+    "Hp": 70,
+    "Damage": 25,
+    "Speed": 1,
+    "Color": "#228B22"
+  },
+  {
+    "Grade": 4,
+    "Level": 3,
+    "Hp": 80,
+    "Damage": 27,
+    "Speed": 1,
+    "Color": "#ADD8E6"
+  },
+  {
+    "Grade": 4,
+    "Level": 4,
+    "Hp": 90,
+    "Damage": 29,
+    "Speed": 1,
+    "Color": "#00008B"
+  },
+  {
+    "Grade": 4,
+    "Level": 5,
+    "Hp": 100,
+    "Damage": 30,
+    "Speed": 1,
+    "Color": "#FFD700"
+  },
+  {
+    "Grade": 5,
+    "Level": 1,
+    "Hp": 115,
+    "Damage": 33,
+    "Speed": 1,
+    "Color": "#90EE90"
+  },
+  {
+    "Grade": 5,
+    "Level": 2,
+    "Hp": 130,
+    "Damage": 35,
+    "Speed": 1,
+    "Color": "#228B22"
+  },
+  {
+    "Grade": 5,
+    "Level": 3,
+    "Hp": 145,
+    "Damage": 38,
+    "Speed": 1,
+    "Color": "#ADD8E6"
+  },
+  {
+    "Grade": 5,
+    "Level": 4,
+    "Hp": 160,
+    "Damage": 41,
+    "Speed": 1,
+    "Color": "#00008B"
+  },
+  {
+    "Grade": 5,
+    "Level": 5,
+    "Hp": 180,
+    "Damage": 45,
+    "Speed": 1,
+    "Color": "#FFD700"
   }
 ]

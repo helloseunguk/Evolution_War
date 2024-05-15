@@ -49,56 +49,66 @@ public class SpawnManager
             }
         };
     }
-    public void MergeUnit() 
+    public void MergeUnit()
     {
-        //UserInfo.GetUnitList()로 현재 유저가 보유한 유닛 리스트를 받아온다
+        // Get the list of units the user currently owns
         var units = UserInfo.GetUnitListData();
-        if (units.Count <2)
+        if (units.Count < 2)
         {
             return;
         }
-        //해당 리스트에서 가장 레벨 및 등급이 낮은 유닛 2개를 찾고 조건이 같다면 두 유닛 사이의 Position을 찾는다
-        var sortUnits = units.OrderBy(_ => _.Data.level).ThenBy(_ => _.Data.grade).ToList();
 
-        var unit1 = sortUnits[0];
-        var unit2 = sortUnits[1];
+        // Sort units by grade and level
+        var sortUnits = units.OrderBy(_ => _.Data.grade).ThenBy(_ => _.Data.level).ToList();
 
-        if (unit1.Data.level != unit2.Data.level)
-            return;
-        if (unit1.Data.grade != unit2.Data.grade)
-            return;
-
-        var unitObj1 = Managers.Unit.GetUnitObject(unit1);
-        var unitObj2 = Managers.Unit.GetUnitObject(unit2);
-
-        if (unitObj1 == null || unitObj2 == null)
+        // Iterate through the sorted list to find the first pair of units that can be merged
+        for (int i = 0; i < sortUnits.Count - 1; i++)
         {
-            return;
+            var unit1 = sortUnits[i];
+            var unit2 = sortUnits[i + 1];
+
+            if (unit1.Data.level == unit2.Data.level && unit1.Data.grade == unit2.Data.grade)
+            {
+                var unitObj1 = Managers.Unit.GetUnitObject(unit1);
+                var unitObj2 = Managers.Unit.GetUnitObject(unit2);
+
+                if (unitObj1 == null || unitObj2 == null)
+                {
+                    continue;
+                }
+
+                // Calculate the midpoint position for interpolation
+                Vector3 midPosition = Vector3.Lerp(unitObj1.transform.position, unitObj2.transform.position, 0.5f);
+
+                // Move the first unit to the midpoint and disable it
+                unitObj1.transform.DOMove(midPosition, 0.5f).OnComplete(() =>
+                {
+                    unitObj1.SetActive(false);
+
+                    // Get the new unit data based on the merged unit's level and grade
+                    var unitList = Managers.Data.GetUnitInfoScript();
+                    int nextLevel = (unit1.Data.grade - 1) * 5 + unit1.Data.level + 1;
+                    int unitGrade = (nextLevel - 1) / 5 + 1; // Increase grade every 5 levels
+                    int unitLevel = (nextLevel - 1) % 5 + 1; // Level cycles from 1 to 5
+
+                    var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
+
+                    // Spawn the new unit at the midpoint position
+                    SpawnUnit(unitData, midPosition, false);
+                });
+
+                // Move the second unit to the midpoint and disable it
+                unitObj2.transform.DOMove(midPosition, 0.5f).OnComplete(() =>
+                {
+                    Debug.Log("dd");
+                    unitObj2.SetActive(false);
+                });
+
+                // Remove the merged units from the list
+                units.Remove(unit1);
+                units.Remove(unit2);
+                break; // Exit the loop after merging a pair
+            }
         }
-        //Dotween으로 두 유닛위치를 보간처리하고 Position까지 1정도 남았을때 비활성화
-        Vector3 midPosition = Vector3.Lerp(unitObj1.transform.position, unitObj2.transform.position, 0.5f);
-        unitObj1.transform.DOMove(midPosition, 0.5f).OnComplete(() => 
-        {
-            unitObj1.SetActive(false);
-
-            var unitList = UserInfo.GetUnitScriptData();
-            int nextLevel = (unit1.Data.grade - 1) * 5 + unit1.Data.level + 1;
-            int unitGrade = (nextLevel-1) / 5 + 1;  // 매 5 레벨마다 등급이 1씩 증가
-            int unitLevel = (nextLevel-1) % 5 + 1;  // 레벨은 1에서 5까지 반복
-
-            var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
-    
-            SpawnUnit(unitData, midPosition,false);
-        });
-        unitObj2.transform.DOMove(midPosition, 0.5f).OnComplete(() =>
-        {
-            unitObj2.SetActive(false);
-        });
-   
-
-        var unitListData = UserInfo.GetUnitListData();
-        unitListData.Remove(unit1);
-        unitListData.Remove(unit2);
-
     }
 }

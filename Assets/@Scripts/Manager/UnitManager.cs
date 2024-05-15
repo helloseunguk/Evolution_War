@@ -11,7 +11,6 @@ public class UnitManager
         if(unitData != null & unitObj != null)
         {
             unitGameObjectDict[unitData] = unitObj;
-            Debug.Log(unitGameObjectDict);
         }
     }
     public GameObject GetUnitObject(Unit unitData)

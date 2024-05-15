@@ -9,7 +9,7 @@ public class MainSceneUI : MonoBehaviour
     public Button summonBtn;
     public Button specialSummonBtn;
     public Button mergeBtn;
-    public List<UnitData> unitList;
+
     public Transform spawnPosition;
 
     public TMP_Text unitCountText;
@@ -24,7 +24,7 @@ public class MainSceneUI : MonoBehaviour
     {
         
         UpdateUI();
-        UserInfo.SetUnitScriptData(unitList);
+        var unitList = Managers.Data.GetUnitInfoScript();
         UserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
                 .Subscribe(_ => UpdateUI());
         summonBtn.OnClickAsObservable().Subscribe(_ =>
@@ -32,7 +32,6 @@ public class MainSceneUI : MonoBehaviour
             int unitGrade = (UserInfo.userData.level - 1) / 5 + 1;  // 매 5 레벨마다 등급이 1씩 증가
             int unitLevel = (UserInfo.userData.level - 1) % 5 + 1;  // 레벨은 1에서 5까지 반복
 
-  
             var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
 
 

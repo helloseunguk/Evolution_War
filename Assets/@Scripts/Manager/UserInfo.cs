@@ -19,11 +19,7 @@ static public class UserInfo
     {
         return Units;
     }
-    static public List<UnitData> GetUnitScriptData() 
-    {
-        return unitDatas;
-    }
-    static public void SetUnitScriptData(List<UnitData> _unitDatas)
+    static public void SetUnitData(List<UnitData> _unitDatas)
     {
         unitDatas = _unitDatas;
     }

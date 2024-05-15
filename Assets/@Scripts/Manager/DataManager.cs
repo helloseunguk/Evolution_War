@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Firebase.Database;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,8 +13,12 @@ public partial class DataManager
         userDataFilePath = Path.Combine(Application.persistentDataPath, "userData.json");
 
          LoadDataFromJson();
-
+        await LoadScript();
           await LocalDBCreate();
         
+    }
+    public async UniTask LoadScript()
+    {
+        await LoadAllParser();
     }
 }
