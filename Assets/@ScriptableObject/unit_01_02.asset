@@ -18,3 +18,5 @@ MonoBehaviour:
   damage: 3
   speed: 1
   color: '#228B22'
+  attackSpeed: 1
+  attackRange: 5

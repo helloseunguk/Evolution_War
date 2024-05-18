@@ -49,6 +49,8 @@ public partial class DataManager
         unitSO.damage = data.damage;
         unitSO.speed = data.speed;
         unitSO.color = data.color;
+        unitSO.attackSpeed = data.attackSpeed;
+        unitSO.attackRange = data.attackRange;
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(unitSO);
         UnityEditor.AssetDatabase.SaveAssets();

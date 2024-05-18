@@ -1,0 +1,220 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.26f1 (7298b473bc1a) revision 7510196'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'ko' Physical Memory: 65307 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+D:\Unity_Engines\2020.3.26f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/My_Documents/Unity Asset/Frank_Warrior/Assets/Frank_Warrior
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+3080
+Successfully changed project path to: D:/My_Documents/Unity Asset/Frank_Warrior/Assets/Frank_Warrior
+D:/My_Documents/Unity Asset/Frank_Warrior/Assets/Frank_Warrior
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 33.11 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.26f1 (7298b473bc1a)
+[Subsystems] Discovering subsystems at path D:/Unity_Engines/2020.3.26f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/My_Documents/Unity Asset/Frank_Warrior/Assets/Frank_Warrior/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2080 (ID=0x1e87)
+    Vendor:   
+    VRAM:     8010 MB
+    Driver:   30.0.15.1179
+Initialize mono
+Mono path[0] = 'D:/Unity_Engines/2020.3.26f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity_Engines/2020.3.26f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Unity_Engines/2020.3.26f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56004
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity_Engines/2020.3.26f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001034 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 30.00 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.456 seconds
+Domain Reload Profiling:
+	ReloadAssembly (456ms)
+		BeginReloadAssembly (25ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (0ms)
+		EndReloadAssembly (383ms)
+			LoadAssemblies (24ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (129ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (144ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (30ms)
+				BeforeProcessingInitializeOnLoad (7ms)
+				ProcessInitializeOnLoadAttributes (76ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002460 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.833 seconds
+Domain Reload Profiling:
+	ReloadAssembly (834ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (14ms)
+		EndReloadAssembly (673ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (232ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (251ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (48ms)
+				ProcessInitializeOnLoadAttributes (187ms)
+				ProcessInitializeOnLoadMethodAttributes (9ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1503 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.1 MB.
+System memory in use after: 69.1 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1937.
+Total: 2.328000 ms (FindLiveObjects: 0.184300 ms CreateObjectMapping: 0.035800 ms MarkObjects: 2.054300 ms  DeleteObjects: 0.052500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Run_F.FBX
+  artifactKey: Guid(589c3ff70fa93e443938e7b8615024d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Run_F.FBX using Guid(589c3ff70fa93e443938e7b8615024d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77079ce7f84115219ff74077455c7d54') in 0.060486 seconds 
+  Import took 0.063367 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_BR.FBX
+  artifactKey: Guid(f8eb8016ec2e0b247acf7c916f6eae56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_BR.FBX using Guid(f8eb8016ec2e0b247acf7c916f6eae56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8df2ad0f8470ca42118b446cfc8c93eb') in 0.011116 seconds 
+  Import took 0.013432 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000129 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_FR.FBX
+  artifactKey: Guid(84db2624e6f09104f958cfbb503b5c96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_FR.FBX using Guid(84db2624e6f09104f958cfbb503b5c96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fa8e7222390aa68c9756840d30ffca7') in 0.011126 seconds 
+  Import took 0.013270 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.202574 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_FL.FBX
+  artifactKey: Guid(a12905d5371a20747aaa670a0bfc178b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_FL.FBX using Guid(a12905d5371a20747aaa670a0bfc178b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a7233359eb087f786248729ee1982e2') in 0.011706 seconds 
+  Import took 0.014336 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.000467 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Run_BR.FBX
+  artifactKey: Guid(b9c70d69d9987554fa9e312b9f94d745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Run_BR.FBX using Guid(b9c70d69d9987554fa9e312b9f94d745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5c0af86bc4bbbf0ffca59f68d552153') in 0.011007 seconds 
+  Import took 0.014280 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.370509 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Run_BL.FBX
+  artifactKey: Guid(f4988d5f85529cd4fa4f2d02209f2afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Run_BL.FBX using Guid(f4988d5f85529cd4fa4f2d02209f2afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1833cd599638b6cd7acdb3edae620f7') in 0.011313 seconds 
+  Import took 0.013720 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.380550 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_B.FBX
+  artifactKey: Guid(0db1c51b629b6b34c8692aff77e858b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_B.FBX using Guid(0db1c51b629b6b34c8692aff77e858b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a592212ececaa2cb7960cd64c2c89ace') in 0.010533 seconds 
+  Import took 0.013034 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.367043 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_BL.FBX
+  artifactKey: Guid(a5becb2406dd3594d9cb7d0f20b65ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_BL.FBX using Guid(a5becb2406dd3594d9cb7d0f20b65ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c7d1175cac88d87dd10d9a673922125') in 0.010669 seconds 
+  Import took 0.013120 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.761208 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Run_R.FBX
+  artifactKey: Guid(e14c381eba99bec488a65b27a80596d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Run_R.FBX using Guid(e14c381eba99bec488a65b27a80596d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a48105432992113866c6518ac9e05b06') in 0.010621 seconds 
+  Import took 0.013489 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.729784 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_F.FBX
+  artifactKey: Guid(75c51d554ef74ea4aa748435bd84e6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_F.FBX using Guid(75c51d554ef74ea4aa748435bd84e6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b3cde2bc2b7219fc7379eaaa89dfd43') in 0.011071 seconds 
+  Import took 0.013461 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.909986 seconds.
+  path: Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_F.FBX
+  artifactKey: Guid(75c51d554ef74ea4aa748435bd84e6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/FBX Animation/Root_Motion/Frank_RPG_Warrior_8Way_Walk_F.FBX using Guid(75c51d554ef74ea4aa748435bd84e6f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9e3d460945a6e412bc14086721abf19') in 0.008030 seconds 
+  Import took 0.010372 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
