@@ -44,7 +44,8 @@ public class SpawnManager
                     }
                 }
                 var unit = new Unit(_unit);
-                UserInfo.AddUnitData(unit);
+
+                    UserInfo.AddUnitData(unit);
                 Managers.Unit.RegisterGameObject(unit, obj);
             }
         };
@@ -106,7 +107,9 @@ public class SpawnManager
 
                 // Remove the merged units from the list
                 units.Remove(unit1);
+                UserInfo.RemoveUnitData(unit1);
                 units.Remove(unit2);
+                UserInfo.RemoveUnitData(unit2);
                 break; // Exit the loop after merging a pair
             }
         }

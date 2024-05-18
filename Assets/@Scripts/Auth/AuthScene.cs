@@ -28,10 +28,10 @@ public class AuthScene : MonoBehaviour
     public IReadOnlyReactiveProperty<Define.AuthType> AuthState => authState;
 
 
-
+    FirebaseAuth auth;
     private void Start()
     {
-
+        auth = FirebaseAuth.DefaultInstance;
         googleBtn.OnClickAsObservable().Subscribe(_ =>
         {
             OnClickGoogleLogin();
@@ -65,7 +65,8 @@ public class AuthScene : MonoBehaviour
                 case Define.AuthType.Authenticated:
                     // Managers.Data.DBConnectionCheck();
                     Managers.Data.LoadUserData();
-        
+                    UserInfo.userData.name = auth.CurrentUser.UserId;
+                    UserInfo.userData.id = auth.CurrentUser.UserId;
                     //      await Managers.Data.SaveUserDataToLocal(UserInfo.userData);
 
                     startPanel.SetActive(true);
@@ -87,7 +88,6 @@ userID.gameObject.SetActive(false);
     }
     void OnClickLoginAnonymouse() 
     {
-        FirebaseAuth auth = FirebaseAuth.DefaultInstance;
         auth.SignInAnonymouslyAsync().ContinueWith(task => {
             if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
             {
@@ -97,6 +97,8 @@ userID.gameObject.SetActive(false);
                 {
                     Debug.Log("게스트 로그인 성공");
                     userID.text = task.Result.User.UserId;
+                    UserInfo.userData.name = task.Result.User.UserId;
+                    UserInfo.userData.id = task.Result.User.UserId;
                     SetAuthState(Define.AuthType.Authenticated);
 
                 });
@@ -106,7 +108,6 @@ userID.gameObject.SetActive(false);
     }
     void OnClickLogout() 
     {
-        FirebaseAuth auth = FirebaseAuth.DefaultInstance;
         auth.SignOut();
         Debug.Log("User has been logged out.");
         Managers.Data.DeleteUserDataFile();
@@ -154,14 +155,14 @@ userID.gameObject.SetActive(false);
     }
     void CheckLogin() 
     {
-        FirebaseAuth auth = FirebaseAuth.DefaultInstance;
         if (auth.CurrentUser != null)
         {
             // 사용자가 이미 로그인되어 있음
             UserInfo.userData.id = auth.CurrentUser.UserId;
 
             Debug.Log("User is already logged in as " + auth.CurrentUser.UserId);
-
+            UserInfo.userData.name = auth.CurrentUser.UserId;
+            UserInfo.userData.id = auth.CurrentUser.UserId;
             userID.text = auth.CurrentUser.UserId;
             SetAuthState(Define.AuthType.Authenticated);
         }
@@ -170,9 +171,5 @@ userID.gameObject.SetActive(false);
             SetAuthState(Define.AuthType.UnAuthenticated);
             Debug.Log("No user is currently logged in.");
         }
-    }
-    void GetDatabase() 
-    {
-       
     }
 }

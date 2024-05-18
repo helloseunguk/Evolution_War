@@ -4,6 +4,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.CompilerServices;
 public class MainSceneUI : MonoBehaviour
 {
     public Button summonBtn;
@@ -22,11 +23,13 @@ public class MainSceneUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Init();
         UpdateUI();
         var unitList = Managers.Data.GetUnitInfoScript();
+
         UserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
                 .Subscribe(_ => UpdateUI());
+
         summonBtn.OnClickAsObservable().Subscribe(_ =>
         {
             int unitGrade = (UserInfo.userData.level - 1) / 5 + 1;  // 매 5 레벨마다 등급이 1씩 증가
@@ -57,5 +60,23 @@ public class MainSceneUI : MonoBehaviour
         ownGemText.SetText(UserInfo.userData.gem.ToString());
         ownTicketText.SetText(UserInfo.userData.ticket.ToString());
         userLevelText.SetText(UserInfo.userData.level.ToString());
+    }
+    private void Init()
+    {
+        List<UnitData> unitsToRemove = new List<UnitData>();
+
+        foreach (var unit in UserInfo.userData.unitList)
+        {
+            // 유닛을 스폰
+            Managers.Spawn.SpawnUnit(unit, spawnPosition.position, true);
+            // 제거할 유닛을 임시 리스트에 추가
+            unitsToRemove.Add(unit);
+        }
+
+        // 모든 유닛을 스폰한 후, 임시 리스트에서 unitList에서 제거
+        foreach (var unit in unitsToRemove)
+        {
+            UserInfo.userData.unitList.Remove(unit);
+        }
     }
 }

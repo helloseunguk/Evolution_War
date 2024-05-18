@@ -100,7 +100,7 @@ public class GoogleAuthentication : MonoBehaviour
                 PlayerPrefs.SetString("UserEmail", task.Result.Email);
                 PlayerPrefs.SetString("UserImageURL", task.Result.ImageUrl.ToString());
                 PlayerPrefs.Save();
-                UserInfo.accountID = task.Result.IdToken;
+                UserInfo.userData.id = task.Result.IdToken;
                 //  loginPanel.SetActive(false);
                 userNameTxt.text = "" + task.Result.DisplayName;
                 userEmailTxt.text = "" + task.Result.Email;

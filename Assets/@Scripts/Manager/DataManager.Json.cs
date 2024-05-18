@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
+using System.Linq;
 
 public partial class DataManager
 {
@@ -21,6 +22,8 @@ public partial class DataManager
             Debug.LogError("UserData is null, not saving to file.");
             return;
         }
+        UserInfo.RemoveDefaultUnits();
+
 
         string json = JsonConvert.SerializeObject(UserInfo.userData, Formatting.Indented);
         File.WriteAllText(userDataFilePath, json);
@@ -55,6 +58,7 @@ public partial class DataManager
         // JSON으로 변환 후 파일에 저장
         SaveUserData();
     }
+
     public void DeleteUserDataFile()
     {
         if (File.Exists(userDataFilePath))
