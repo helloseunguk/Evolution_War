@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AI;
@@ -8,8 +9,15 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class BattleManager
 {
+    public ReactiveProperty<bool> isArrived = new ReactiveProperty<bool>();
+    public void InitBattleHero(Vector3 battlePosition)
+    {
+        var hero = UserInfo.userHero;
+        hero.transform.position = battlePosition;
+    }
     public void InitBattleUnit(Vector3 battlePosition)
     {
+        isArrived.Value = false;
         //생성할 범위
         const float gridWidth = 30f; 
         const float gridHeight = 20f; 
@@ -32,6 +40,10 @@ public class BattleManager
         float startZ = battlePosition.z - (gridHeight / 2) + (unitSpacingZ / 2);
 
         int unitIndex = 0;
+
+        Managers.Camera.ActivateCamera("MonsterCamera");
+        Managers.Camera.SetCameraTarget(Managers.Unit.GetUnitObject(units[0]).transform, Managers.Unit.GetUnitObject(units[0]).transform);
+       
         foreach (var unit in units)
         {
             var unitObj = Managers.Unit.GetUnitObject(unit);

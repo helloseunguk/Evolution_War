@@ -23,7 +23,9 @@ public class MainSceneUI : MonoBehaviour
 
     public GameObject lobbyCamera;
     public GameObject battleCamera;
-    public GameObject baaltePosition;
+    public GameObject battlePosition;
+
+    public GameObject hero;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,8 @@ public class MainSceneUI : MonoBehaviour
 
         UserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
                 .Subscribe(_ => UpdateUI());
+
+        UserInfo.userHero = hero;
 
         summonBtn.OnClickAsObservable().Subscribe(_ =>
         {
@@ -58,10 +62,9 @@ public class MainSceneUI : MonoBehaviour
         }).AddTo(this);
         battleBtn.OnClickAsObservable().Subscribe(_ => 
         {
-            battleCamera.SetActive(true);
-            lobbyCamera.SetActive(false);
-            Managers.Battle.InitBattleUnit(baaltePosition.transform.position);
-            Managers.Battle.InitBattleEnemy(baaltePosition.transform.position);
+            Managers.Battle.InitBattleHero(battlePosition.transform.position);
+            Managers.Battle.InitBattleUnit(battlePosition.transform.position);
+            Managers.Battle.InitBattleEnemy(battlePosition.transform.position);
         }).AddTo(this);
     }
     private void UpdateUI() 

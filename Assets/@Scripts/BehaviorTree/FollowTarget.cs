@@ -20,6 +20,7 @@ public class FollowTarget : UnitAction
     {
         if (target.Value == null)
         {
+      
             animator.SetBool("isRun", false);
             return TaskStatus.Failure;  // 타겟이 없으면 실패
         }
@@ -28,6 +29,7 @@ public class FollowTarget : UnitAction
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
         navMeshAgent.isStopped = false;
+        animator.SetBool("isIdle", false);
         animator.SetBool("isRun", true);
         // 타겟을 따라가기 위해 목적지 설정
         navMeshAgent.SetDestination(target.Value.transform.position);

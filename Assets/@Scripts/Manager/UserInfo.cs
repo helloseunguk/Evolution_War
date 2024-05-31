@@ -11,7 +11,12 @@ static public class UserInfo
 
     public static UserData userData = new UserData();
 
+    public static GameObject userHero;
 
+    static public GameObject GetUserHero() 
+    {
+        return userHero;
+    }
     //유저가 보유하고있는 유닛의 정보를 받아옴
     static public List<Unit> GetUnitListData()
     {
