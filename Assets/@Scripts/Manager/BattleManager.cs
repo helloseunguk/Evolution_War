@@ -41,8 +41,9 @@ public class BattleManager
 
         int unitIndex = 0;
 
-        Managers.Camera.ActivateCamera("MonsterCamera");
-        Managers.Camera.SetCameraTarget(Managers.Unit.GetUnitObject(units[0]).transform, Managers.Unit.GetUnitObject(units[0]).transform);
+        Managers.Camera.ActivateDollyCart("BattleCamera");
+      //  Managers.Camera.ActivateCamera("BattleCamera");
+     //   Managers.Camera.SetCameraTarget(Managers.Unit.GetUnitObject(units[0]).transform, Managers.Unit.GetUnitObject(units[0]).transform);
        
         foreach (var unit in units)
         {
@@ -58,17 +59,9 @@ public class BattleManager
 
                 Vector3 targetPosition = new Vector3(posX, startY, posZ);
 
-                // NavMeshAgent를 이용해 유닛을 목표 위치로 이동
-                NavMeshAgent navMeshAgent = unitObj.GetComponent<NavMeshAgent>();
-                if (navMeshAgent != null)
-                {
-                    navMeshAgent.SetDestination(targetPosition);
-                }
-                else
-                {
-                    Debug.LogWarning("NavMeshAgent가 유닛에 없습니다: " + unitObj.name);
-                }
 
+                //   unitObj.transform.position = targetPosition;
+                unitObj.GetComponent<NavMeshAgent>().Warp(targetPosition);
                 // Reset the unit's rotation
              //   unitObj.transform.rotation = Quaternion.Euler(0, -90, 0);
 
