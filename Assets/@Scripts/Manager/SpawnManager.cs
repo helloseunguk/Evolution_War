@@ -8,14 +8,10 @@ using UnityEngine.AddressableAssets;
 
 public class SpawnManager 
 {
-    UnitData unitData;
-
-    public void SpawnUnit(UnitData _unit,Vector3 spawnPosition,bool isRandomPosition) 
+    public void SpawnUnit(UnitData _unit, Vector3 spawnPosition, bool isRandomPosition, Transform parent = null)
     {
         if (_unit == null)
             return;
-
-        unitData = _unit;
         if (isRandomPosition)
         {
             Vector2 randomOffset = Random.insideUnitCircle * 10;  // 반경 10 이내의 랜덤 벡터 생성
@@ -24,33 +20,32 @@ public class SpawnManager
                                                 spawnPosition.z + randomOffset.y);
         }
 
-
-        Debug.Log("grade" + _unit.grade + "level" + _unit.level);
-
         Addressables.LoadAssetAsync<GameObject>($"unit_{_unit.grade}").Completed += handle =>
         {
             if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
             {
                 GameObject unitPrefab = handle.Result;
-                unitPrefab.GetComponent<UnitAgent>().unitData = unitData;
-                var obj = GameObject.Instantiate(unitPrefab, spawnPosition, Quaternion.identity);
+
+                unitPrefab.GetComponent<UnitAgent>().unitData = _unit;
+                var obj = GameObject.Instantiate(unitPrefab, spawnPosition, Quaternion.identity, parent); // 부모 Transform을 설정합니다.
                 Color colorValue;
-                if(UnityEngine.ColorUtility.TryParseHtmlString(_unit.color,out colorValue))
+                if (UnityEngine.ColorUtility.TryParseHtmlString(_unit.color, out colorValue))
                 {
                     Renderer renderer = obj.GetComponentInChildren<Renderer>();
-                    if(renderer != null)
+                    if (renderer != null)
                     {
                         renderer.material.color = colorValue;
                     }
                 }
                 var unit = new Unit(_unit);
 
-                    UserInfo.AddUnitData(unit);
+                UserInfo.AddUnitData(unit);
                 Managers.Unit.RegisterGameObject(unit, obj);
             }
         };
     }
-    public void MergeUnit()
+
+    public void MergeUnit(Transform parent = null)
     {
         // Get the list of units the user currently owns
         var units = UserInfo.GetUnitListData();
@@ -95,7 +90,7 @@ public class SpawnManager
                     var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
 
                     // Spawn the new unit at the midpoint position
-                    SpawnUnit(unitData, midPosition, false);
+                    SpawnUnit(unitData, midPosition, false, parent);
                 });
 
                 // Move the second unit to the midpoint and disable it

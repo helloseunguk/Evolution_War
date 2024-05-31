@@ -4,17 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTarget : Action
+public class AttackTarget : UnitAction
 {
-    public SharedGameObject target;
-    private Animator animator;
     private float attackInterval = 1.0f;
     private float nextAttackTime = 0.0f;
 
     public override void OnAwake()
     {
+        base.OnAwake();
         attackInterval = GetComponent<UnitAgent>().unitData.attackSpeed;
-        animator = GetComponent<Animator>();
     }
     public override TaskStatus OnUpdate()
     {

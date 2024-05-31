@@ -5,15 +5,15 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 using UnityEngine.AI;
 
-public class FollowTarget : Action
+public class FollowTarget : UnitAction
 {
-    public SharedGameObject target;  // 따라갈 타겟 오브젝트
-    private NavMeshAgent navMeshAgent;
-    private Animator animator;
-    public override void OnAwake()
+
+    public override void OnStart()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        if (!navMeshAgent.enabled)
+        {
+            navMeshAgent.enabled = true;
+        }
     }
 
     public override TaskStatus OnUpdate()
@@ -22,6 +22,10 @@ public class FollowTarget : Action
         {
             animator.SetBool("isRun", false);
             return TaskStatus.Failure;  // 타겟이 없으면 실패
+        }
+        if(navMeshAgent == null)
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
         }
         navMeshAgent.isStopped = false;
         animator.SetBool("isRun", true);

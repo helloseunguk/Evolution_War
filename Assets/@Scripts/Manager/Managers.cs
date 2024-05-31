@@ -21,6 +21,7 @@ public class Managers : MonoBehaviour
     ResourceManager resourceManager = new ResourceManager();
     AuthManager authManager = new AuthManager();
     DataManager data = new DataManager();
+    BattleManager battle = new BattleManager();
 
     public static SpawnManager Spawn => Instance.spawn;
     public static UnitManager Unit => Instance.unit;
@@ -28,6 +29,7 @@ public class Managers : MonoBehaviour
     public static ResourceManager Resource => Instance.resourceManager;
     public static AuthManager AuthManager => Instance.authManager;
     public static DataManager Data => Instance.data;
+    public static BattleManager Battle => Instance.battle;
 
     static void Init() 
     {

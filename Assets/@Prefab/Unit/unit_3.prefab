@@ -247,7 +247,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &109304192557094567
 MonoBehaviour:
@@ -262,6 +262,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitData: {fileID: 11400000, guid: 001a47d76c6c2bd4a9c4c693d8a8db27, type: 2}
+  hp: 0
+  speed: 0
+  damage: 0
+  target:
+    mIsShared: 0
+    mIsGlobal: 0
+    mIsDynamic: 0
+    mName: 
+    mToolTip: 
+    mPropertyMapping: 
+    mPropertyMappingOwner: {fileID: 0}
+    mValue: {fileID: 0}
 --- !u!1 &1734572081990470154
 GameObject:
   m_ObjectHideFlags: 0

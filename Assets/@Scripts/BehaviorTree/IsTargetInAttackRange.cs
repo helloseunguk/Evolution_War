@@ -5,15 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class IsTargetInAttackRange : Conditional
+public class IsTargetInAttackRange : UnitConditional
 {
-    public SharedGameObject target;
     private float attackRange;
-    private NavMeshAgent navMeshAgent;
     public override void OnAwake()
     {
+        base.OnAwake();
         attackRange = GetComponent<UnitAgent>().unitData.attackRange;
-        navMeshAgent = GetComponent<NavMeshAgent>();
     }
     public override TaskStatus OnUpdate()
     {

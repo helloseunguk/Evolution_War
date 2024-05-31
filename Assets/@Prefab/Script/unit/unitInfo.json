@@ -36,7 +36,7 @@
     "Damage": 5,
     "Speed": 1,
     "Color": "#00008B",
-    "AttackRange": 5.0,
+    "AttackRange": 6.0,
     "AttackSpeed": 1.0
   },
   {
@@ -46,7 +46,7 @@
     "Damage": 7,
     "Speed": 1,
     "Color": "#FFD700",
-    "AttackRange": 5.0,
+    "AttackRange": 6.0,
     "AttackSpeed": 1.0
   },
   {
@@ -56,7 +56,7 @@
     "Damage": 8,
     "Speed": 1,
     "Color": "#90EE90",
-    "AttackRange": 5.0,
+    "AttackRange": 6.0,
     "AttackSpeed": 1.0
   },
   {
@@ -66,7 +66,7 @@
     "Damage": 9,
     "Speed": 1,
     "Color": "#228B22",
-    "AttackRange": 5.0,
+    "AttackRange": 6.0,
     "AttackSpeed": 1.0
   },
   {
@@ -76,7 +76,7 @@
     "Damage": 10,
     "Speed": 1,
     "Color": "#ADD8E6",
-    "AttackRange": 5.0,
+    "AttackRange": 6.0,
     "AttackSpeed": 1.0
   },
   {
@@ -86,7 +86,7 @@
     "Damage": 11,
     "Speed": 1,
     "Color": "#00008B",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -96,7 +96,7 @@
     "Damage": 12,
     "Speed": 1,
     "Color": "#FFD700",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -106,7 +106,7 @@
     "Damage": 15,
     "Speed": 1,
     "Color": "#90EE90",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -116,7 +116,7 @@
     "Damage": 17,
     "Speed": 1,
     "Color": "#228B22",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -126,7 +126,7 @@
     "Damage": 19,
     "Speed": 1,
     "Color": "#ADD8E6",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -136,7 +136,7 @@
     "Damage": 20,
     "Speed": 1,
     "Color": "#00008B",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -146,7 +146,7 @@
     "Damage": 22,
     "Speed": 1,
     "Color": "#FFD700",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -156,7 +156,7 @@
     "Damage": 24,
     "Speed": 1,
     "Color": "#90EE90",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -166,7 +166,7 @@
     "Damage": 25,
     "Speed": 1,
     "Color": "#228B22",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -176,7 +176,7 @@
     "Damage": 27,
     "Speed": 1,
     "Color": "#ADD8E6",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -186,7 +186,7 @@
     "Damage": 29,
     "Speed": 1,
     "Color": "#00008B",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -196,7 +196,7 @@
     "Damage": 30,
     "Speed": 1,
     "Color": "#FFD700",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -206,7 +206,7 @@
     "Damage": 33,
     "Speed": 1,
     "Color": "#90EE90",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -216,7 +216,7 @@
     "Damage": 35,
     "Speed": 1,
     "Color": "#228B22",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -226,7 +226,7 @@
     "Damage": 38,
     "Speed": 1,
     "Color": "#ADD8E6",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -236,7 +236,7 @@
     "Damage": 41,
     "Speed": 1,
     "Color": "#00008B",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   },
   {
@@ -246,7 +246,7 @@
     "Damage": 45,
     "Speed": 1,
     "Color": "#FFD700",
-    "AttackRange": 5.0,
+    "AttackRange": 7.0,
     "AttackSpeed": 1.0
   }
 ]

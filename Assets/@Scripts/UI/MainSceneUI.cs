@@ -10,8 +10,9 @@ public class MainSceneUI : MonoBehaviour
     public Button summonBtn;
     public Button specialSummonBtn;
     public Button mergeBtn;
+    public Button battleBtn;
 
-    public Transform spawnPosition;
+    public Transform spawnTransform;
 
     public TMP_Text unitCountText;
     public TMP_Text totalPowerText;
@@ -19,6 +20,10 @@ public class MainSceneUI : MonoBehaviour
     public TMP_Text ownGemText;
     public TMP_Text ownTicketText;
     public TMP_Text userLevelText;
+
+    public GameObject lobbyCamera;
+    public GameObject battleCamera;
+    public GameObject baaltePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -37,21 +42,27 @@ public class MainSceneUI : MonoBehaviour
 
             var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
 
-
-            Managers.Spawn.SpawnUnit(unitData,spawnPosition.position,true);
+            Managers.Spawn.SpawnUnit(unitData, spawnTransform.position, true, spawnTransform);
             UpdateUI();
-        });
+        }).AddTo(this);
         specialSummonBtn.OnClickAsObservable().Subscribe(_ => {
             Debug.Log("스페셜 소환");
             UserInfo.userData.gold += 100;
             UserInfo.userData.gem += 50;
             UserInfo.userData.level += 1;
-        });
+        }).AddTo(this);
         mergeBtn.OnClickAsObservable().Subscribe(_ => 
         {
-            Managers.Spawn.MergeUnit();
+            Managers.Spawn.MergeUnit(spawnTransform);
             UpdateUI();
-        });
+        }).AddTo(this);
+        battleBtn.OnClickAsObservable().Subscribe(_ => 
+        {
+            battleCamera.SetActive(true);
+            lobbyCamera.SetActive(false);
+            Managers.Battle.InitBattleUnit(baaltePosition.transform.position);
+            Managers.Battle.InitBattleEnemy(baaltePosition.transform.position);
+        }).AddTo(this);
     }
     private void UpdateUI() 
     {
@@ -59,7 +70,7 @@ public class MainSceneUI : MonoBehaviour
         ownGoldText.SetText(UserInfo.userData.gold.ToString());
         ownGemText.SetText(UserInfo.userData.gem.ToString());
         ownTicketText.SetText(UserInfo.userData.ticket.ToString());
-        userLevelText.SetText(UserInfo.userData.level.ToString());
+    //    userLevelText.SetText(UserInfo.userData.level.ToString());
     }
     private void Init()
     {
@@ -68,7 +79,7 @@ public class MainSceneUI : MonoBehaviour
         foreach (var unit in UserInfo.userData.unitList)
         {
             // 유닛을 스폰
-            Managers.Spawn.SpawnUnit(unit, spawnPosition.position, true);
+            Managers.Spawn.SpawnUnit(unit, spawnTransform.position, true, spawnTransform);
             // 제거할 유닛을 임시 리스트에 추가
             unitsToRemove.Add(unit);
         }
