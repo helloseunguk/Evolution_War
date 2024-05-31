@@ -1,21 +1,40 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class CameraManager 
 {
     private Dictionary<string, CinemachineVirtualCamera> cameras;
     private CinemachineVirtualCameraBase activeCamera;
+    private CinemachineDollyCart dollyCart;
+    private CinemachineSmoothPath dollyTrack;
+
     public void RegistAllCamera() 
     {
         cameras = new Dictionary<string, CinemachineVirtualCamera>();
 
         // 씬에 있는 모든 CinemachineVirtualCamera를 찾아 등록
         CinemachineVirtualCamera[] foundCameras = GameObject.FindObjectsOfType<CinemachineVirtualCamera>();
+        dollyCart = GameObject.FindObjectOfType<CinemachineDollyCart>();
+        dollyTrack = GameObject.FindObjectOfType<CinemachineSmoothPath>();
+        dollyCart.ObserveEveryValueChanged(_1 => _1.m_Position).Subscribe(_ =>
+        {
+            if (_ >= dollyTrack.PathLength) Managers.Battle.isArrived.Value = true;
+        });
+
         foreach (var cam in foundCameras)
         {
             cameras.Add(cam.name, cam);
+        }
+    }
+    public void ActivateDollyCart(string cameraName)
+    {
+        if (dollyCart != null && cameras.ContainsKey(cameraName))
+        {
+            ActivateCamera(cameraName);
+            dollyCart.m_Speed = 5;
         }
     }
     public void ActivateCamera(string cameraName)
