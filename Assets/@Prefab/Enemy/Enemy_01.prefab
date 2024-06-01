@@ -3433,6 +3433,7 @@ MonoBehaviour:
   damage: 0
   attackRange: 0
   attackSpeed: 0
+  isTeam: 0
   target:
     mIsShared: 0
     mIsGlobal: 0

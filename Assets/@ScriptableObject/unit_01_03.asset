@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grade: 1
   level: 3
-  hp: 12
+  hp: 36
   damage: 4
   speed: 1
   color: '#ADD8E6'
