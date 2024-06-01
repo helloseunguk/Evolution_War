@@ -10,8 +10,10 @@ public class UnitConditional : Conditional
     public SharedGameObject target;  // Å½ÁöµÈ Å¸°Ù ¿ÀºêÁ§Æ®
     public NavMeshAgent navMeshAgent;
 
-    public override void OnAwake()
+    public override void OnStart()
     {
+        base.OnStart();
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
+
 }

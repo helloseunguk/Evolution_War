@@ -11,8 +11,7 @@ public class UnitBase : MonoBehaviour
     public int damage;
     public float attackRange;
     public float attackSpeed;
-
-
+    public bool isTeam ;
     virtual public void Start()
     {
         hp = unitData.hp;
@@ -27,6 +26,10 @@ public class UnitBase : MonoBehaviour
         hp -= damageAmount;
         if(hp <= 0)
         {
+            if(isTeam)
+                Managers.Battle.teamUnitList.Remove(this);
+            else
+                Managers.Battle.enemyUnitList.Remove(this);
             Destroy(gameObject);
         }
     }

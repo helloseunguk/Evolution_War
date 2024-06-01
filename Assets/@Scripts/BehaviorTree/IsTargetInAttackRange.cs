@@ -8,10 +8,11 @@ using UnityEngine.AI;
 public class IsTargetInAttackRange : UnitConditional
 {
     private float attackRange;
-    public override void OnAwake()
+
+    public override void OnStart()
     {
-        base.OnAwake();
-        attackRange = GetComponent<UnitAgent>().unitData.attackRange;
+        base.OnStart();
+        attackRange = GetComponent<UnitBase>().attackRange;
     }
     public override TaskStatus OnUpdate()
     {
@@ -19,7 +20,7 @@ public class IsTargetInAttackRange : UnitConditional
         {
             return TaskStatus.Failure;
         }
-
+     
         if (Vector3.Distance(transform.position, target.Value.transform.position) <= attackRange)
         {
             navMeshAgent.isStopped = true;

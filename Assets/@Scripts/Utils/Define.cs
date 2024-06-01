@@ -131,4 +131,18 @@ public class Define
         ChineseTraditional = 41, //´ë¸¸
         Unknown = 42,
     }
+    public enum FadeDirection
+    {
+        None= 0,
+        FadeIn = 1,
+        FadeOut =2,
+    }
+    public enum FadeArrowType
+    {
+        None = 0,
+        UpArrow = 1,
+        DownArrow = 2,
+        LeftArrow = 3,
+        RightArrow = 4,
+    }
 }

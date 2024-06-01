@@ -62,6 +62,8 @@ public class MainSceneUI : MonoBehaviour
         }).AddTo(this);
         battleBtn.OnClickAsObservable().Subscribe(_ => 
         {
+            Debug.Log("배틀 시작");
+            Managers.Battle.isStart.Value = true;
             Managers.Battle.InitBattleHero(battlePosition.transform.position);
             Managers.Battle.InitBattleUnit(battlePosition.transform.position);
             Managers.Battle.InitBattleEnemy(battlePosition.transform.position);
