@@ -24,9 +24,10 @@ public class IsTargetInRange : UnitConditional
             Collider closestCollider = null;
             float closestDistance = Mathf.Infinity;
 
+           
             foreach (var collider in hitColliders)
             {
-                if (collider.CompareTag(targetTag))
+                if (collider.CompareTag(targetTag) )
                 {
                     float distance = Vector3.Distance(transform.position, collider.transform.position);
                     if (distance < closestDistance)
@@ -38,6 +39,7 @@ public class IsTargetInRange : UnitConditional
             }
             if (closestCollider != null)
             {
+               // closestCollider.GetComponent<UnitAgent>().isTargeting = true;
                 target.Value = closestCollider.gameObject;  // 가장 가까운 타겟 설정
                 GetComponent<UnitAgent>().SetTarget(target.Value);
                 return TaskStatus.Success;  // 조건 성공

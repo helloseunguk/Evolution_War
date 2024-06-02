@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
@@ -14,20 +13,20 @@ public class BattleManager
 
     public ReactiveCollection<UnitBase> teamUnitList = new ReactiveCollection<UnitBase>();
     public ReactiveCollection<UnitBase> enemyUnitList = new ReactiveCollection<UnitBase>();
+    const float offsetDistance = 75f;  // 두 팀 사이의 총 간격이 150f가 되도록 설정
 
     public void InitBattleHero(Vector3 battlePosition)
     {
         var hero = UserInfo.userHero;
         hero.transform.position = battlePosition;
     }
+
     public void InitBattleUnit(Vector3 battlePosition)
     {
         isArrived.Value = false;
-        //생성할 범위
-        const float gridWidth = 30f; 
-        const float gridHeight = 20f;
+        const float gridWidth = 150f;
+        const float gridHeight = 75f;
 
-        //유닛 정렬
         var units = UserInfo.GetUnitListData();
         teamUnitList.Clear();
         foreach (var unit in units.OrderBy(_ => _.Data.grade).ThenBy(_ => _.Data.level))
@@ -39,11 +38,9 @@ public class BattleManager
         }
         int unitCount = teamUnitList.Count;
 
-        //유닛 보유 수에 맞춰 가로 세로 폭 정함
         int columns = Mathf.CeilToInt(Mathf.Sqrt(unitCount * (gridWidth / gridHeight)));
         int rows = Mathf.CeilToInt((float)unitCount / columns);
 
-        // 유닛간의 폭
         float unitSpacingX = gridWidth / columns;
         float unitSpacingZ = gridHeight / rows;
 
@@ -51,11 +48,12 @@ public class BattleManager
         float startY = battlePosition.y;
         float startZ = battlePosition.z - (gridHeight / 2) + (unitSpacingZ / 2);
 
+        // 팀의 시작 위치를 중심에서 오른쪽으로 offsetDistance 만큼 이동
+        Vector3 teamStartPosition = new Vector3(startX + offsetDistance / 2, startY, startZ);
+
         int unitIndex = 0;
 
         Managers.Camera.ActivateDollyCart("BattleCamera");
-        //  Managers.Camera.ActivateCamera("BattleCamera");
-        //   Managers.Camera.SetCameraTarget(Managers.Unit.GetUnitObject(units[0]).transform, Managers.Unit.GetUnitObject(units[0]).transform);
 
         foreach (var unitBase in teamUnitList)
         {
@@ -65,11 +63,11 @@ public class BattleManager
                 int currentRow = unitIndex / columns;
                 int currentColumn = unitIndex % columns;
 
-                float posX = startX + (currentRow * unitSpacingX);
-                float posZ = startZ + (currentColumn * unitSpacingZ);
+                float posX = teamStartPosition.x + (currentRow * unitSpacingX);
+                float posZ = teamStartPosition.z + (currentColumn * unitSpacingZ);
 
                 Vector3 targetPosition = new Vector3(posX, startY, posZ);
-
+                unitObj.transform.rotation = Quaternion.Euler(0, 90, 0);  // -90도 회전
                 unitObj.GetComponent<NavMeshAgent>().Warp(targetPosition);
                 unitIndex++;
             }
@@ -78,9 +76,8 @@ public class BattleManager
 
     public void InitBattleEnemy(Vector3 battlePosition)
     {
-        const float gridWidth = 30f;
-        const float gridHeight = 20f;
-        const float offsetDistance = 30f;
+        const float gridWidth = 150f;
+        const float gridHeight = 75f;
 
         var units = UserInfo.GetUnitListData();
         enemyUnitList.Clear();
@@ -96,7 +93,8 @@ public class BattleManager
         float startY = battlePosition.y;
         float startZ = battlePosition.z - (gridHeight / 2) + (unitSpacingZ / 2);
 
-        Vector3 offsetPosition = new Vector3(startX - offsetDistance, startY, startZ);
+        // 적의 시작 위치를 중심에서 왼쪽으로 offsetDistance 만큼 이동
+        Vector3 enemyStartPosition = new Vector3(startX - offsetDistance / 2, startY, startZ);
 
         int unitIndex = 0;
         for (int i = 0; i < unitCount; i++)
@@ -104,8 +102,8 @@ public class BattleManager
             int currentRow = unitIndex / columns;
             int currentColumn = unitIndex % columns;
 
-            float posX = offsetPosition.x + (currentRow * unitSpacingX);
-            float posZ = offsetPosition.z + (currentColumn * unitSpacingZ);
+            float posX = enemyStartPosition.x + (currentRow * unitSpacingX);
+            float posZ = enemyStartPosition.z + (currentColumn * unitSpacingZ);
 
             Vector3 enemyPosition = new Vector3(posX, startY, posZ);
 
@@ -117,7 +115,7 @@ public class BattleManager
 
                     var enemyObj = GameObject.Instantiate(enemyPrefab, enemyPosition, Quaternion.Euler(0, 90, 0));
                     var unitData = Managers.Data.GetUnitInfoScript().Find(_ => _.grade == 1 && _.level == 2);
-                    var unitAgent = enemyObj.GetComponent<UnitAgent>(); // 또는 기존 컴포넌트 참조
+                    var unitAgent = enemyObj.GetComponent<UnitAgent>();
                     unitAgent.isTeam = false;
                     unitAgent.unitData = unitData;
                     enemyUnitList.Add(unitAgent);

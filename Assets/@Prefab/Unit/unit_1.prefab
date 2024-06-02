@@ -393,7 +393,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!114 &595956332173414243
 MonoBehaviour:
@@ -413,6 +413,8 @@ MonoBehaviour:
   damage: 0
   attackRange: 0
   attackSpeed: 0
+  isTeam: 0
+  isTargeting: 0
   target:
     mIsShared: 0
     mIsGlobal: 0
