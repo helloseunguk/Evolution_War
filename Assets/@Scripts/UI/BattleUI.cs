@@ -31,6 +31,7 @@ public class BattleUI : MonoBehaviour
             Debug.Log("적 유닛의 카운트");
             emenyCount.text = _.ToString();
             OnEnemyCountChange();
+            CheckBattleState(_);
 
         }).AddTo(this);
         Managers.Battle.teamUnitList.ObserveCountChanged().Subscribe(_ =>
@@ -38,6 +39,7 @@ public class BattleUI : MonoBehaviour
             Debug.Log("아군 유닛의 카운트");
             teamCount.text = _.ToString();
             OnTeamCountChange();
+            CheckBattleState(_);
 
         }).AddTo(this);
     }
@@ -45,6 +47,13 @@ public class BattleUI : MonoBehaviour
     {
         teamCount.text = Managers.Battle.teamUnitList.Count.ToString();
         emenyCount.text = Managers.Battle.enemyUnitList.Count.ToString();
+    }
+    private void CheckBattleState(int unitCount) 
+    {
+        if(unitCount <=0)
+        {
+            Managers.Battle.isDone.Value = true;
+        }
     }
     private void OnTeamCountChange() 
     {

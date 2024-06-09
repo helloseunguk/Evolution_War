@@ -16,7 +16,7 @@ public partial class DataManager
     public async UniTask LoadScriptUnitInfo()
     {
         // Define the path to the folder containing the UnitData scriptable objects
-        string folderPath = "Assets/@ScriptableObject";
+        string folderPath = "Assets/@ScriptableObject/unit";
 
         // Get all asset paths in the specified folder
         string[] assetGUIDs = AssetDatabase.FindAssets("t:UnitData", new[] { folderPath });

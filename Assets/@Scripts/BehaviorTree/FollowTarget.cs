@@ -13,6 +13,7 @@ public class FollowTarget : UnitAction
         if (!navMeshAgent.enabled)
         {
             navMeshAgent.enabled = true;
+            navMeshAgent.speed = unitAgent.speed;
         }
     }
 
@@ -20,14 +21,11 @@ public class FollowTarget : UnitAction
     {
         if (target.Value == null)
         {
-      
+         //   Debug.Log("FollowTarget1");
             animator.SetBool("isRun", false);
             return TaskStatus.Failure;  // 타겟이 없으면 실패
         }
-        if(navMeshAgent == null)
-        {
-            navMeshAgent = GetComponent<NavMeshAgent>();
-        }
+      //  Debug.Log("FollowTarget2");
         navMeshAgent.isStopped = false;
         animator.SetBool("isIdle", false);
         animator.SetBool("isRun", true);

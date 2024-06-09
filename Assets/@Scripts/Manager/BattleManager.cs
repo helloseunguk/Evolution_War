@@ -10,7 +10,7 @@ public class BattleManager
 {
     public ReactiveProperty<bool> isArrived = new ReactiveProperty<bool>(false);
     public ReactiveProperty<bool> isStart = new ReactiveProperty<bool>(false);
-
+    public ReactiveProperty<bool> isDone = new ReactiveProperty<bool>(false);
     public ReactiveCollection<UnitBase> teamUnitList = new ReactiveCollection<UnitBase>();
     public ReactiveCollection<UnitBase> enemyUnitList = new ReactiveCollection<UnitBase>();
     const float offsetDistance = 75f;  // 두 팀 사이의 총 간격이 150f가 되도록 설정
@@ -67,7 +67,7 @@ public class BattleManager
                 float posZ = teamStartPosition.z + (currentColumn * unitSpacingZ);
 
                 Vector3 targetPosition = new Vector3(posX, startY, posZ);
-                unitObj.transform.rotation = Quaternion.Euler(0, 90, 0);  // -90도 회전
+                unitObj.transform.rotation = Quaternion.Euler(0, -90, 0);  // -90도 회전
                 unitObj.GetComponent<NavMeshAgent>().Warp(targetPosition);
                 unitIndex++;
             }
