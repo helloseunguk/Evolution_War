@@ -23,37 +23,37 @@ public class UnitSpawnEffects : ScriptableObject
         legendaryEffectPool = new ObjectPool<ParticleSystem>(legendaryEffect.GetComponent<ParticleSystem>(), initialSize);
     }
 
-    public ParticleSystem GetEffect(int grade)
+    public ParticleSystem GetEffect(Define.SpawnRarity spawnRarity)
     {
-        switch (grade)
+        switch (spawnRarity)
         {
-            case 1: // Normal
+            case Define.SpawnRarity.Normal: // Normal
                 return normalEffectPool.Get();
-            case 2: // Rare
+            case Define.SpawnRarity.Rare: // Rare
                 return rareEffectPool.Get();
-            case 3: // Hero
+            case Define.SpawnRarity.Hero: // Hero
                 return heroEffectPool.Get();
-            case 4: // Legendary
+            case Define.SpawnRarity.Legendary: // Legendary
                 return legendaryEffectPool.Get();
             default:
                 return null;
         }
     }
 
-    public void ReturnEffect(ParticleSystem effect, int grade)
+    public void ReturnEffect(ParticleSystem effect,Define.SpawnRarity spawnRarity)
     {
-        switch (grade)
+        switch (spawnRarity)
         {
-            case 1: // Normal
+            case Define.SpawnRarity.Normal: // Normal
                 normalEffectPool.ReturnToPool(effect);
                 break;
-            case 2: // Rare
+            case Define.SpawnRarity.Rare: // Rare
                 rareEffectPool.ReturnToPool(effect);
                 break;
-            case 3: // Hero
+            case Define.SpawnRarity.Hero: // Hero
                 heroEffectPool.ReturnToPool(effect);
                 break;
-            case 4: // Legendary
+            case Define.SpawnRarity.Legendary: // Legendary
                 legendaryEffectPool.ReturnToPool(effect);
                 break;
         }
