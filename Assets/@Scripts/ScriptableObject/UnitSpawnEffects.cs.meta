@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a8166428a9bc4284787d3322ef606b82
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - normalEffect: {fileID: 2160971355113735004, guid: 3fbea148d7377b245ba7df69efc27caf,
+      type: 3}
+  - rareEffect: {instanceID: 0}
+  - heroEffect: {instanceID: 0}
+  - legendaryEffect: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

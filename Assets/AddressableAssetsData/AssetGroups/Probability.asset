@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Probability
+  m_EditorClassIdentifier: 
+  m_GroupName: Probability
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 7f832b2727a8a7146bbd58138c0a057e
+  m_SerializeEntries:
+  - m_GUID: 0cbf210f79d6aa343b62443d4627ac40
+    m_Address: UnitSpawnProbability
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f80ab84c3b1ad0349a48ade9901230c5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9cd1ef2be04429f45aa1bf6b63d886e7, type: 2}
+    - {fileID: 11400000, guid: 710bc85fef320f844984ea15141d6072, type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8166428a9bc4284787d3322ef606b82, type: 3}
+  m_Name: UnitSpawnEffects
+  m_EditorClassIdentifier: 
+  normalEffect: {fileID: 7590304379160713517, guid: 3fbea148d7377b245ba7df69efc27caf,
+    type: 3}
+  rareEffect: {fileID: 2227855493788824790, guid: fdd636c5697627844abed695ac3a491a,
+    type: 3}
+  heroEffect: {fileID: 6191813242728924510, guid: 5540ccbd472ae14419ab1edb1bb09862,
+    type: 3}
+  legendaryEffect: {fileID: 535463955821022894, guid: d6e8f3b1f1f11a244b4b014e86c0708a,
+    type: 3}

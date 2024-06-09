@@ -17,7 +17,7 @@ public class Managers : MonoBehaviour
 
     SpawnManager spawn = new SpawnManager();
     UnitManager unit = new UnitManager();
-    StringManager stringManager = new StringManager();
+
     ResourceManager resourceManager = new ResourceManager();
     AuthManager authManager = new AuthManager();
     DataManager data = new DataManager();
@@ -26,7 +26,7 @@ public class Managers : MonoBehaviour
 
     public static SpawnManager Spawn => Instance.spawn;
     public static UnitManager Unit => Instance.unit;
-    public static StringManager String => Instance.stringManager; 
+
     public static ResourceManager Resource => Instance.resourceManager;
     public static AuthManager AuthManager => Instance.authManager;
     public static DataManager Data => Instance.data;
@@ -46,6 +46,7 @@ public class Managers : MonoBehaviour
             s_Instance = go.GetComponent<Managers>();
 
             Data.Init();
+            Spawn.Init();
         }
     }
     private void OnApplicationQuit()

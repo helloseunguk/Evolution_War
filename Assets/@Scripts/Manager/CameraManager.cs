@@ -34,7 +34,7 @@ public class CameraManager
         if (dollyCart != null && cameras.ContainsKey(cameraName))
         {
             ActivateCamera(cameraName);
-            dollyCart.m_Speed = 5;
+            dollyCart.m_Speed = 10;
         }
     }
     public void ActivateCamera(string cameraName)

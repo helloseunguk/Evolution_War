@@ -39,22 +39,11 @@ public class ResourceManager
     {
         get { return loadTextAsset.AsObservable(); }
     }
-    public async UniTask<T> LoadAsync<T>(string bundleName, string assetName, int lifeCount = InitialLifeCount,CancellationToken cancellationToken = default(CancellationToken)) where T: UnityEngine.Object
-    {
-        var asset = await EAsset.LoadAsset<T>(bundleName, assetName, lifeCount, cancellationToken);
-        return asset;
-    }
-    public async UniTask<string> LoadScript(string _dirName, string _fileName)
-    {
-        _fileName += ".json";
-        var text = await LoadTextAsync(_dirName, _fileName);
-        return text;
-    }
-    public async UniTask<string> LoadTextAsync(string bundleName, string assetName)
-    {
-        var textAsset = await LoadAsync<TextAsset>(bundleName, assetName, LIFE_COUNT_TEXT_ASSEST);
-        loadTextAsset.OnNext(assetName);
-        var ret = textAsset != null ? textAsset.text : "";
-        return ret;
-    }
+    //public async UniTask<T> LoadAsync<T>(string bundleName, string assetName, int lifeCount = InitialLifeCount,CancellationToken cancellationToken = default(CancellationToken)) where T: UnityEngine.Object
+    //{
+    //    var asset = await EAsset.LoadAsset<T>(bundleName, assetName, lifeCount, cancellationToken);
+    //    return asset;
+    //}
+
+
 }

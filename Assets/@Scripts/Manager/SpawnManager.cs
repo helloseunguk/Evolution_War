@@ -5,9 +5,33 @@ using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SpawnManager 
 {
+    public UnitSpawnProbability spawnProbability;
+    public UnitSpawnEffects spawnEffects;
+
+    public void Init()
+    {
+        Addressables.LoadAssetAsync<UnitSpawnProbability>("UnitSpawnProbability").Completed += handle =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                Debug.Log("È®·ü ÇÒ´ç");
+                spawnProbability = handle.Result;
+            }
+        };
+        Addressables.LoadAssetAsync<UnitSpawnEffects>("UnitSpawnEffects").Completed += handle =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                Debug.Log("ÀÌÆåÆ® ÇÒ´ç");
+                spawnEffects = handle.Result;
+                spawnEffects.InitializePools(10);
+            }
+        };
+    }
     public void SpawnUnit(UnitData _unit, Vector3 spawnPosition, bool isRandomPosition, Transform parent = null)
     {
         if (_unit == null)
@@ -38,7 +62,8 @@ public class SpawnManager
                     }
                 }
                 var unit = new Unit(_unit);
-
+      
+                PlaySpawnEffect(4, spawnPosition);
                 UserInfo.AddUnitData(unit);
                 Managers.Unit.RegisterGameObject(unit, obj);
             }
@@ -96,7 +121,6 @@ public class SpawnManager
                 // Move the second unit to the midpoint and disable it
                 unitObj2.transform.DOMove(midPosition, 0.5f).OnComplete(() =>
                 {
-                    Debug.Log("dd");
                     unitObj2.SetActive(false);
                 });
 
@@ -107,6 +131,20 @@ public class SpawnManager
                 UserInfo.RemoveUnitData(unit2);
                 break; // Exit the loop after merging a pair
             }
+        }
+    }
+    private void PlaySpawnEffect(int grade, Vector3 position)
+    {
+        var effect = spawnEffects.GetEffect(grade);
+        if (effect != null)
+        {
+            effect.transform.position = position;
+            effect.Play();
+            DOVirtual.DelayedCall(effect.main.duration + effect.main.startLifetime.constantMax, () =>
+            {
+                effect.Stop();
+                spawnEffects.ReturnEffect(effect, grade);
+            });
         }
     }
 }

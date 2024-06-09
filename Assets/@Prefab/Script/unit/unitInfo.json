@@ -4,7 +4,7 @@
     "Level": 1,
     "Hp": 30,
     "Damage": 2,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#90EE90",
     "AttackRange": 5.0,
     "AttackSpeed": 1.0
@@ -14,7 +14,7 @@
     "Level": 2,
     "Hp": 33,
     "Damage": 3,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#228B22",
     "AttackRange": 5.0,
     "AttackSpeed": 1.0
@@ -24,7 +24,7 @@
     "Level": 3,
     "Hp": 36,
     "Damage": 4,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#ADD8E6",
     "AttackRange": 5.0,
     "AttackSpeed": 1.0
@@ -34,7 +34,7 @@
     "Level": 4,
     "Hp": 39,
     "Damage": 5,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#00008B",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0
@@ -44,7 +44,7 @@
     "Level": 5,
     "Hp": 45,
     "Damage": 7,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#FFD700",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0
@@ -54,7 +54,7 @@
     "Level": 1,
     "Hp": 48,
     "Damage": 8,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#90EE90",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0
@@ -64,7 +64,7 @@
     "Level": 2,
     "Hp": 51,
     "Damage": 9,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#228B22",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0
@@ -74,7 +74,7 @@
     "Level": 3,
     "Hp": 54,
     "Damage": 10,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#ADD8E6",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0
@@ -84,7 +84,7 @@
     "Level": 4,
     "Hp": 57,
     "Damage": 11,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#00008B",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -94,7 +94,7 @@
     "Level": 5,
     "Hp": 70,
     "Damage": 12,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#FFD700",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -104,7 +104,7 @@
     "Level": 1,
     "Hp": 90,
     "Damage": 15,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#90EE90",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -114,7 +114,7 @@
     "Level": 2,
     "Hp": 120,
     "Damage": 17,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#228B22",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -124,7 +124,7 @@
     "Level": 3,
     "Hp": 130,
     "Damage": 19,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#ADD8E6",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -134,7 +134,7 @@
     "Level": 4,
     "Hp": 150,
     "Damage": 20,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#00008B",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -144,7 +144,7 @@
     "Level": 5,
     "Hp": 160,
     "Damage": 22,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#FFD700",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -154,7 +154,7 @@
     "Level": 1,
     "Hp": 170,
     "Damage": 24,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#90EE90",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -164,7 +164,7 @@
     "Level": 2,
     "Hp": 210,
     "Damage": 25,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#228B22",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -174,7 +174,7 @@
     "Level": 3,
     "Hp": 230,
     "Damage": 27,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#ADD8E6",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -184,7 +184,7 @@
     "Level": 4,
     "Hp": 250,
     "Damage": 29,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#00008B",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -194,7 +194,7 @@
     "Level": 5,
     "Hp": 300,
     "Damage": 30,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#FFD700",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -204,7 +204,7 @@
     "Level": 1,
     "Hp": 330,
     "Damage": 33,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#90EE90",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -214,7 +214,7 @@
     "Level": 2,
     "Hp": 370,
     "Damage": 35,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#228B22",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -224,7 +224,7 @@
     "Level": 3,
     "Hp": 450,
     "Damage": 38,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#ADD8E6",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -234,7 +234,7 @@
     "Level": 4,
     "Hp": 550,
     "Damage": 41,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#00008B",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0
@@ -244,7 +244,7 @@
     "Level": 5,
     "Hp": 650,
     "Damage": 45,
-    "Speed": 1,
+    "Speed": 3,
     "Color": "#FFD700",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0

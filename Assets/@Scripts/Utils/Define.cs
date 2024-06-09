@@ -145,4 +145,12 @@ public class Define
         LeftArrow = 3,
         RightArrow = 4,
     }
+    public enum SpawnRarity
+    {
+        None = 0,
+        Normal = 1,
+        Rare = 2,
+        Hero = 3,
+        Legendary = 4,
+    }
 }
