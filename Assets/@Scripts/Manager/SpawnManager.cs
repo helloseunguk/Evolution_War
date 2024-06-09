@@ -11,6 +11,7 @@ public class SpawnManager
 {
     public UnitSpawnProbability spawnProbability;
     public UnitSpawnEffects spawnEffects;
+    public Define.SpawnRarity spawnRarity = Define.SpawnRarity.None;
 
     public void Init()
     {
@@ -18,7 +19,6 @@ public class SpawnManager
         {
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
-                Debug.Log("확률 할당");
                 spawnProbability = handle.Result;
             }
         };
@@ -26,16 +26,17 @@ public class SpawnManager
         {
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
-                Debug.Log("이펙트 할당");
                 spawnEffects = handle.Result;
                 spawnEffects.InitializePools(10);
             }
         };
     }
-    public void SpawnUnit(UnitData _unit, Vector3 spawnPosition, bool isRandomPosition, Transform parent = null)
+    public void SpawnUnit(Vector3 spawnPosition, bool isRandomPosition, Transform parent = null)
     {
-        if (_unit == null)
+        UnitData unitData = GetRandomUnitData();
+        if (unitData == null)
             return;
+
         if (isRandomPosition)
         {
             Vector2 randomOffset = Random.insideUnitCircle * 10;  // 반경 10 이내의 랜덤 벡터 생성
@@ -44,16 +45,16 @@ public class SpawnManager
                                                 spawnPosition.z + randomOffset.y);
         }
 
-        Addressables.LoadAssetAsync<GameObject>($"unit_{_unit.grade}").Completed += handle =>
+        Addressables.LoadAssetAsync<GameObject>($"unit_{unitData.grade}").Completed += handle =>
         {
             if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
             {
                 GameObject unitPrefab = handle.Result;
 
-                unitPrefab.GetComponent<UnitAgent>().unitData = _unit;
+                unitPrefab.GetComponent<UnitAgent>().unitData = unitData;
                 var obj = GameObject.Instantiate(unitPrefab, spawnPosition, Quaternion.identity, parent); // 부모 Transform을 설정합니다.
                 Color colorValue;
-                if (UnityEngine.ColorUtility.TryParseHtmlString(_unit.color, out colorValue))
+                if (UnityEngine.ColorUtility.TryParseHtmlString(unitData.color, out colorValue))
                 {
                     Renderer renderer = obj.GetComponentInChildren<Renderer>();
                     if (renderer != null)
@@ -61,9 +62,8 @@ public class SpawnManager
                         renderer.material.color = colorValue;
                     }
                 }
-                var unit = new Unit(_unit);
-      
-                PlaySpawnEffect(4, spawnPosition);
+                var unit = new Unit(unitData);
+                PlaySpawnEffect(spawnRarity, spawnPosition);
                 UserInfo.AddUnitData(unit);
                 Managers.Unit.RegisterGameObject(unit, obj);
             }
@@ -115,7 +115,7 @@ public class SpawnManager
                     var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
 
                     // Spawn the new unit at the midpoint position
-                    SpawnUnit(unitData, midPosition, false, parent);
+                    SpawnUnit( midPosition, false, parent);
                 });
 
                 // Move the second unit to the midpoint and disable it
@@ -133,9 +133,9 @@ public class SpawnManager
             }
         }
     }
-    private void PlaySpawnEffect(int grade, Vector3 position)
+    private void PlaySpawnEffect(Define.SpawnRarity spawnRarity, Vector3 position)
     {
-        var effect = spawnEffects.GetEffect(grade);
+        var effect = spawnEffects.GetEffect(spawnRarity);
         if (effect != null)
         {
             effect.transform.position = position;
@@ -143,8 +143,44 @@ public class SpawnManager
             DOVirtual.DelayedCall(effect.main.duration + effect.main.startLifetime.constantMax, () =>
             {
                 effect.Stop();
-                spawnEffects.ReturnEffect(effect, grade);
+                spawnEffects.ReturnEffect(effect, spawnRarity);
             });
         }
     }
+    private UnitData GetRandomUnitData()
+    {
+        float randomValue = Random.value;
+        int levelOffset = 0;
+     
+        if (randomValue < spawnProbability.legendaryProbability)
+        {
+            spawnRarity = Define.SpawnRarity.Legendary;
+            levelOffset = 3;
+        }
+        else if (randomValue < spawnProbability.legendaryProbability + spawnProbability.heroProbability)
+        {
+            spawnRarity = Define.SpawnRarity.Hero;
+            levelOffset = 2;
+        }
+        else if (randomValue < spawnProbability.legendaryProbability + spawnProbability.heroProbability + spawnProbability.rareProbability)
+        {
+            spawnRarity = Define.SpawnRarity.Rare;
+            levelOffset = 1;
+        }
+        else
+        {
+            spawnRarity = Define.SpawnRarity.Normal;
+        }
+        int currentLevel = UserInfo.userData.level;
+        int targetLevel = currentLevel + levelOffset;
+        int targetGrade = (targetLevel - 1) / 5 + 1; // Increase grade every 5 levels
+        targetLevel = (targetLevel - 1) % 5 + 1; // Level cycles from 1 to 5
+
+        var unitList = Managers.Data.GetUnitInfoScript();
+        var unitData = unitList.Find(_ => _.level == targetLevel && _.grade == targetGrade);
+
+        return unitData;
+    }
+
+
 }

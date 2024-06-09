@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8111a1445a32749a06b76359eeef5a, type: 3}
   m_Name: UnitSpawnProbability
   m_EditorClassIdentifier: 
-  normalProbability: 0.6
-  rareProbability: 0.25
-  heroProbability: 0.1
-  legendaryProbability: 0.05
+  normalProbability: 0.75
+  rareProbability: 0.2
+  heroProbability: 0.04
+  legendaryProbability: 0.01

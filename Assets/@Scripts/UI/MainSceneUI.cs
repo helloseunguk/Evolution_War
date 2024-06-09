@@ -32,7 +32,6 @@ public class MainSceneUI : MonoBehaviour
     {
         Init();
         UpdateUI();
-        var unitList = Managers.Data.GetUnitInfoScript();
 
         UserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
                 .Subscribe(_ => UpdateUI());
@@ -41,12 +40,7 @@ public class MainSceneUI : MonoBehaviour
 
         summonBtn.OnClickAsObservable().Subscribe(_ =>
         {
-            int unitGrade = (UserInfo.userData.level - 1) / 5 + 1;  // 매 5 레벨마다 등급이 1씩 증가
-            int unitLevel = (UserInfo.userData.level - 1) % 5 + 1;  // 레벨은 1에서 5까지 반복
-
-            var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
-
-            Managers.Spawn.SpawnUnit(unitData, spawnTransform.position, true, spawnTransform);
+            Managers.Spawn.SpawnUnit(spawnTransform.position, true, spawnTransform);
             UpdateUI();
         }).AddTo(this);
         specialSummonBtn.OnClickAsObservable().Subscribe(_ => {
@@ -84,7 +78,7 @@ public class MainSceneUI : MonoBehaviour
         foreach (var unit in UserInfo.userData.unitList)
         {
             // 유닛을 스폰
-            Managers.Spawn.SpawnUnit(unit, spawnTransform.position, true, spawnTransform);
+            Managers.Spawn.SpawnUnit(spawnTransform.position, true, spawnTransform);
             // 제거할 유닛을 임시 리스트에 추가
             unitsToRemove.Add(unit);
         }
