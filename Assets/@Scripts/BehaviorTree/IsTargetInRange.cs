@@ -12,6 +12,7 @@ public class IsTargetInRange : UnitConditional
 
     public float checkInterval = 1.0f;  // 탐지 주기 (초 단위)
     private float nextCheckTime = 0.0f;
+    private float nextMoveTime = 0.0f;  // 이동 주기 타이머
 
     private bool isMove = false;
 
@@ -20,9 +21,9 @@ public class IsTargetInRange : UnitConditional
         if (target.Value != null)
         {
             Debug.Log("성공");
-            return TaskStatus.Success;  // 조건 실패;
+            return TaskStatus.Success;  // 조건 성공
         }
-        if(Managers.Battle.isDone.Value)
+        if (Managers.Battle.isDone.Value)
         {
             Debug.Log("전투 종료");
             navMeshAgent.isStopped = true;
@@ -39,7 +40,6 @@ public class IsTargetInRange : UnitConditional
             Collider closestCollider = null;
             float closestDistance = Mathf.Infinity;
 
-
             foreach (var collider in hitColliders)
             {
                 if (collider.CompareTag(targetTag))
@@ -50,44 +50,32 @@ public class IsTargetInRange : UnitConditional
                     {
                         closestDistance = distance;
                         closestCollider = collider;
-                        
                     }
                 }
             }
             if (closestCollider != null)
             {
-                // closestCollider.GetComponent<UnitAgent>().isTargeting = true;
                 range += 30;
                 target.Value = closestCollider.gameObject;  // 가장 가까운 타겟 설정
                 GetComponent<UnitAgent>().SetTarget(target.Value);
                 return TaskStatus.Success;  // 조건 성공
             }
         }
-        else 
+
+        // Move logic with interval check
+        if (Time.time >= nextMoveTime)
         {
-            if(isMove == false)
-            {
-                isMove = true;
-                animator.SetBool("isIdle", false);
-                animator.SetBool("isRun", true);
-                navMeshAgent.isStopped = false;
-                navMeshAgent.speed = 5f;
-                Vector3 targetDestination = transform.position + transform.forward * 100;
-                navMeshAgent.SetDestination(targetDestination);
-                Debug.Log("목적지 설정");
-            }
-         
-            //     transform.Translate(transform.forward * unitAgent.speed*Time.deltaTime);
-          
-            // var targetDestination = transform.position + transform.forward * 300;
-            //     navMeshAgent.isStopped = false;
-            //   navMeshAgent.SetDestination(targetDestination);
-
-
-
-            // transform.Translate(Vector3.forward * Time.deltaTime * 3.0f); // Adjust speed as needed
+            nextMoveTime = Time.time + checkInterval;  // Set the next move time
+            isMove = true;
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isRun", true);
+            navMeshAgent.isStopped = false;
+            navMeshAgent.speed = unitAgent.speed;
+            Vector3 targetDestination = transform.position + transform.forward * 10;
+            navMeshAgent.SetDestination(targetDestination);
+            Debug.Log("목적지 설정");
         }
-        
+
         return TaskStatus.Failure;  // 조건 실패
     }
 }
