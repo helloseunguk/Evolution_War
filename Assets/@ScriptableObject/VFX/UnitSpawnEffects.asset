@@ -20,3 +20,5 @@ MonoBehaviour:
     type: 3}
   legendaryEffect: {fileID: 535463955821022894, guid: d6e8f3b1f1f11a244b4b014e86c0708a,
     type: 3}
+  mergeEffect: {fileID: 1511099991454733044, guid: 801bcc9b3274a1846bd2eea20950bc56,
+    type: 3}

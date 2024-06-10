@@ -6,6 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Runtime.CompilerServices;
 
 public class SpawnManager 
 {
@@ -31,11 +32,8 @@ public class SpawnManager
             }
         };
     }
-    public void SpawnUnit(Vector3 spawnPosition, bool isRandomPosition, Transform parent = null)
+    public void SpawnUnit(Vector3 spawnPosition, bool isRandomPosition, Transform parent = null, UnitData unitData = null)
     {
-        UnitData unitData = GetRandomUnitData();
-        if (unitData == null)
-            return;
 
         if (isRandomPosition)
         {
@@ -44,6 +42,19 @@ public class SpawnManager
                                                 spawnPosition.y,
                                                 spawnPosition.z + randomOffset.y);
         }
+
+        if (unitData == null)
+        {
+             unitData = GetRandomUnitData();
+            if (unitData == null)
+                return;
+            PlaySpawnEffect(spawnRarity, spawnPosition);
+        }
+        else
+        {
+            PlayMergeEffect(spawnPosition);
+        }
+      
 
         Addressables.LoadAssetAsync<GameObject>($"unit_{unitData.grade}").Completed += handle =>
         {
@@ -63,7 +74,8 @@ public class SpawnManager
                     }
                 }
                 var unit = new Unit(unitData);
-                PlaySpawnEffect(spawnRarity, spawnPosition);
+                
+             
                 UserInfo.AddUnitData(unit);
                 Managers.Unit.RegisterGameObject(unit, obj);
             }
@@ -115,7 +127,7 @@ public class SpawnManager
                     var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
 
                     // Spawn the new unit at the midpoint position
-                    SpawnUnit( midPosition, false, parent);
+                    SpawnUnit( midPosition, false, parent, unitData);
                 });
 
                 // Move the second unit to the midpoint and disable it
@@ -135,7 +147,7 @@ public class SpawnManager
     }
     private void PlaySpawnEffect(Define.SpawnRarity spawnRarity, Vector3 position)
     {
-        var effect = spawnEffects.GetEffect(spawnRarity);
+        var effect = spawnEffects.GetSpawnEffect(spawnRarity);
         if (effect != null)
         {
             effect.transform.position = position;
@@ -143,7 +155,21 @@ public class SpawnManager
             DOVirtual.DelayedCall(effect.main.duration + effect.main.startLifetime.constantMax, () =>
             {
                 effect.Stop();
-                spawnEffects.ReturnEffect(effect, spawnRarity);
+                spawnEffects.ReturnSpawnEffect(effect, spawnRarity);
+            });
+        }
+    }
+    private void PlayMergeEffect(Vector3 position)
+    {
+        var effect = spawnEffects.GetMergeEffect();
+        if (effect !=null)
+        {
+            effect.transform.position = position;
+            effect.Play();
+            DOVirtual.DelayedCall(effect.main.duration + effect.main.startLifetime.constantMax, () => 
+            {
+                effect.Stop();
+                spawnEffects.ReturnMergeEffect(effect);
             });
         }
     }
