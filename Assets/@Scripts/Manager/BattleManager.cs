@@ -15,6 +15,16 @@ public class BattleManager
     public ReactiveCollection<UnitBase> enemyUnitList = new ReactiveCollection<UnitBase>();
     const float offsetDistance = 75f;  // 두 팀 사이의 총 간격이 150f가 되도록 설정
 
+    public void Init() 
+    {
+        isArrived.Subscribe(_ => 
+        {
+            if(_)
+            {
+                Managers.Camera.ActivateCamera("PlayerCamera");
+            }
+        });
+    }
     public void InitBattleHero(Vector3 battlePosition)
     {
         var hero = UserInfo.userHero;
@@ -23,7 +33,6 @@ public class BattleManager
 
     public void InitBattleUnit(Vector3 battlePosition)
     {
-        isArrived.Value = false;
         const float gridWidth = 150f;
         const float gridHeight = 75f;
 

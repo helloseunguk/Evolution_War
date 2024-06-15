@@ -19,8 +19,11 @@ public class CameraManager
         CinemachineVirtualCamera[] foundCameras = GameObject.FindObjectsOfType<CinemachineVirtualCamera>();
         dollyCart = GameObject.FindObjectOfType<CinemachineDollyCart>();
         dollyTrack = GameObject.FindObjectOfType<CinemachineSmoothPath>();
+
         dollyCart.ObserveEveryValueChanged(_1 => _1.m_Position).Subscribe(_ =>
         {
+            //TODO
+            //카메라 매니저에서 해당 작업은 부적절한것같음 이후 수정하기
             if (_ >= dollyTrack.PathLength) Managers.Battle.isArrived.Value = true;
         });
 

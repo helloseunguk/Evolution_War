@@ -24,6 +24,7 @@ public class MainSceneUI : MonoBehaviour
     public GameObject lobbyCamera;
     public GameObject battleCamera;
     public GameObject battlePosition;
+    public GameObject heroBattlePosition;
 
     public GameObject hero;
 
@@ -58,7 +59,7 @@ public class MainSceneUI : MonoBehaviour
         {
             Debug.Log("배틀 시작");
             Managers.Battle.isStart.Value = true;
-            Managers.Battle.InitBattleHero(battlePosition.transform.position);
+            Managers.Battle.InitBattleHero(heroBattlePosition.transform.position);
             Managers.Battle.InitBattleUnit(battlePosition.transform.position);
             Managers.Battle.InitBattleEnemy(battlePosition.transform.position);
         }).AddTo(this);
