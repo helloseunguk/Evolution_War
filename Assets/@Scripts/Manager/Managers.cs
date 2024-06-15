@@ -47,6 +47,7 @@ public class Managers : MonoBehaviour
 
             Data.Init();
             Spawn.Init();
+            Battle.Init();
         }
     }
     private void OnApplicationQuit()
