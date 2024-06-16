@@ -34,7 +34,7 @@ public partial class DataManager
     private void AssignDataToScriptableObject(UnitData data)
     {
         string assetPath = $"Assets/@ScriptableObject/unit_{data.grade:00}_{data.level:00}.asset";
-        Debug.Log("assetPath" + assetPath);
+
         UnitData unitSO = Resources.Load<UnitData>(assetPath);
 
         if (unitSO == null)

@@ -20,7 +20,6 @@ public class UnitAgent : UnitBase
             if(targetAgent != null)
             {
                 targetAgent.OnDamaged(damage);
-                Debug.Log($"적에게 {damage}만큼 피해를 입힘");
             }
         }
     }

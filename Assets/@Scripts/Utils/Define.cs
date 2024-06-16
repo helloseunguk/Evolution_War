@@ -153,4 +153,17 @@ public class Define
         Hero = 3,
         Legendary = 4,
     }
+    public enum AnimBoolType 
+    {
+        None = 0,
+        isIdle = 1,
+        isMove = 2,
+        isDie = 3,
+    }
+    public enum AnimTriggerType
+    {
+        None = 0,
+        onAttack = 1,
+        
+    }
 }
