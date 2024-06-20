@@ -166,4 +166,16 @@ public class Define
         onAttack = 1,
         
     }
+    public enum TargetLayerType 
+    {
+        None = 0,
+        Team = 1,
+        Enemy = 2,
+    }
+    public enum AttackColliderType
+    {
+        None = 0,
+        Box = 1,
+        Sphere = 2,
+    }
 }

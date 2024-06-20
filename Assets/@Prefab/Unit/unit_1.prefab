@@ -415,6 +415,10 @@ MonoBehaviour:
   attackSpeed: 0
   isTeam: 0
   isTargeting: 0
+  isAreaAttack: 0
+  areaAttackRadius: 5
+  attackColliderType: 0
+  unitRenderer: {fileID: 7610133508925163855}
   target:
     mIsShared: 0
     mIsGlobal: 0
