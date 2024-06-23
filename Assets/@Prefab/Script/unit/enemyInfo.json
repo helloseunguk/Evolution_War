@@ -1,0 +1,252 @@
+[
+  {
+    "Stage": 1,
+    "Level": 1,
+    "UnitAttackType": "Close",
+    "Hp": 30,
+    "Damage": 2,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 1,
+    "UnitAttackType": "Long",
+    "Hp": 33,
+    "Damage": 3,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 1,
+    "UnitAttackType": "Magic",
+    "Hp": 36,
+    "Damage": 4,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 2,
+    "UnitAttackType": "Close",
+    "Hp": 39,
+    "Damage": 5,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 2,
+    "UnitAttackType": "Long",
+    "Hp": 45,
+    "Damage": 7,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 2,
+    "UnitAttackType": "Magic",
+    "Hp": 48,
+    "Damage": 8,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 3,
+    "UnitAttackType": "Close",
+    "Hp": 51,
+    "Damage": 9,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 3,
+    "UnitAttackType": "Long",
+    "Hp": 54,
+    "Damage": 10,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 3,
+    "UnitAttackType": "Magic",
+    "Hp": 57,
+    "Damage": 11,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 4,
+    "UnitAttackType": "Close",
+    "Hp": 70,
+    "Damage": 12,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 4,
+    "UnitAttackType": "Long",
+    "Hp": 90,
+    "Damage": 15,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 4,
+    "UnitAttackType": "Magic",
+    "Hp": 120,
+    "Damage": 17,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 5,
+    "UnitAttackType": "Close",
+    "Hp": 130,
+    "Damage": 19,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 5,
+    "UnitAttackType": "Long",
+    "Hp": 150,
+    "Damage": 20,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 1,
+    "Level": 5,
+    "UnitAttackType": "Magic",
+    "Hp": 160,
+    "Damage": 22,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  },
+  {
+    "Stage": 0,
+    "Level": 0,
+    "UnitAttackType": "",
+    "Hp": 0,
+    "Damage": 0,
+    "Speed": 0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 0.0
+  }
+]

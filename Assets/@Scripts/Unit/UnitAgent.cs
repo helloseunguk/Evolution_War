@@ -17,6 +17,13 @@ public class UnitAgent : UnitBase
     }
     public void ApplyDamage() 
     {
+        if (unitBattleEffects != null)
+        {
+            var hitEffect = unitBattleEffects.GetHitEffect();
+            hitEffect.gameObject.transform.position = target.Value.gameObject.transform.position;
+            hitEffect.Play();
+
+        }
         if (isAreaAttack)
         {
             Debug.Log("데미지 입힘");
@@ -31,6 +38,7 @@ public class UnitAgent : UnitBase
                 directAttack.OnAttack(targetHealth, damage);
             }
         }
+
         //if (target.Value != null)
         //{
         //    if(targetHealth != null)
@@ -39,4 +47,5 @@ public class UnitAgent : UnitBase
         //    }
         //}
     }
+    
 }

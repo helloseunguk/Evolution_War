@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9816242379db134895966b51a0d8322, type: 3}
+  m_Name: Enemy01_01_BattleEffect
+  m_EditorClassIdentifier: 
+  unitName: Enemy01_01
+  hitEffect: {fileID: 303859232195200234, guid: fde8500e986df8049bda21645742ae2b,
+    type: 3}
+  attackEffect: {fileID: 5585077053262447529, guid: 4224f064dae84fe4fa7c89608fb2c00b,
+    type: 3}

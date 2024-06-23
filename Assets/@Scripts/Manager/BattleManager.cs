@@ -127,6 +127,7 @@ public class BattleManager
                     var unitAgent = enemyObj.GetComponent<UnitAgent>();
                     unitAgent.isTeam = false;
                     unitAgent.unitData = unitData;
+                    unitAgent.unitBattleEffects.InitializePools(2);
                     enemyUnitList.Add(unitAgent);
                 }
             };

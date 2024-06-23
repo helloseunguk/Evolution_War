@@ -7,6 +7,7 @@ using System.Collections;
 public class UnitBase : MonoBehaviour, IDamageable
 {
     public UnitData unitData;
+    public UnitBattleEffects unitBattleEffects;
 
     public int hp;
     public int speed;

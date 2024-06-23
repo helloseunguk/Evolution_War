@@ -12,6 +12,7 @@ public class SpawnManager
 {
     public UnitSpawnProbability spawnProbability;
     public UnitSpawnEffects spawnEffects;
+    public UnitBattleEffects battleEffects;
     public Define.SpawnRarity spawnRarity = Define.SpawnRarity.None;
 
     public void Init()
@@ -63,6 +64,7 @@ public class SpawnManager
                 GameObject unitPrefab = handle.Result;
 
                 unitPrefab.GetComponent<UnitAgent>().unitData = unitData;
+
                 var obj = GameObject.Instantiate(unitPrefab, spawnPosition, Quaternion.identity, parent); // 부모 Transform을 설정합니다.
                 Color colorValue;
                 if (UnityEngine.ColorUtility.TryParseHtmlString(unitData.color, out colorValue))
@@ -75,11 +77,12 @@ public class SpawnManager
                 }
                 var unit = new Unit(unitData);
                 
-             
+                
                 UserInfo.AddUnitData(unit);
                 Managers.Unit.RegisterGameObject(unit, obj);
             }
         };
+            
     }
 
     public void MergeUnit(Transform parent = null)
@@ -207,6 +210,5 @@ public class SpawnManager
 
         return unitData;
     }
-
 
 }

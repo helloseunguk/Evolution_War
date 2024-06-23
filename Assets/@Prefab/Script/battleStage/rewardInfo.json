@@ -1,0 +1,302 @@
+[
+  {
+    "Stage": 1,
+    "Level": 1,
+    "RewardGold": 1000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 1,
+    "Level": 2,
+    "RewardGold": 1500,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 1,
+    "Level": 3,
+    "RewardGold": 2000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 1,
+    "Level": 4,
+    "RewardGold": 3000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 1,
+    "Level": 5,
+    "RewardGold": 5000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 2,
+    "Level": 1,
+    "RewardGold": 10000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 2,
+    "Level": 2,
+    "RewardGold": 10000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 2,
+    "Level": 3,
+    "RewardGold": 10000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 2,
+    "Level": 4,
+    "RewardGold": 10000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 2,
+    "Level": 5,
+    "RewardGold": 10000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 3,
+    "Level": 1,
+    "RewardGold": 20000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 3,
+    "Level": 2,
+    "RewardGold": 20000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 3,
+    "Level": 3,
+    "RewardGold": 20000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 3,
+    "Level": 4,
+    "RewardGold": 20000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 3,
+    "Level": 5,
+    "RewardGold": 20000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 4,
+    "Level": 1,
+    "RewardGold": 30000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 4,
+    "Level": 2,
+    "RewardGold": 30000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 4,
+    "Level": 3,
+    "RewardGold": 30000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 4,
+    "Level": 4,
+    "RewardGold": 30000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 4,
+    "Level": 5,
+    "RewardGold": 30000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 5,
+    "Level": 1,
+    "RewardGold": 50000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 5,
+    "Level": 2,
+    "RewardGold": 50000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 5,
+    "Level": 3,
+    "RewardGold": 50000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 5,
+    "Level": 4,
+    "RewardGold": 50000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 5,
+    "Level": 5,
+    "RewardGold": 50000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 6,
+    "Level": 1,
+    "RewardGold": 100000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 6,
+    "Level": 2,
+    "RewardGold": 100000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 6,
+    "Level": 3,
+    "RewardGold": 100000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 6,
+    "Level": 4,
+    "RewardGold": 100000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 6,
+    "Level": 5,
+    "RewardGold": 100000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 7,
+    "Level": 1,
+    "RewardGold": 200000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 7,
+    "Level": 2,
+    "RewardGold": 200000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 7,
+    "Level": 3,
+    "RewardGold": 200000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 7,
+    "Level": 4,
+    "RewardGold": 200000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 7,
+    "Level": 5,
+    "RewardGold": 200000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 8,
+    "Level": 1,
+    "RewardGold": 300000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 8,
+    "Level": 2,
+    "RewardGold": 300000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 8,
+    "Level": 3,
+    "RewardGold": 300000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 8,
+    "Level": 4,
+    "RewardGold": 300000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 8,
+    "Level": 5,
+    "RewardGold": 300000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 9,
+    "Level": 1,
+    "RewardGold": 500000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 9,
+    "Level": 2,
+    "RewardGold": 500000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 9,
+    "Level": 3,
+    "RewardGold": 500000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 9,
+    "Level": 4,
+    "RewardGold": 500000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 9,
+    "Level": 5,
+    "RewardGold": 500000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 10,
+    "Level": 1,
+    "RewardGold": 1000000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 10,
+    "Level": 2,
+    "RewardGold": 1000000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 10,
+    "Level": 3,
+    "RewardGold": 1000000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 10,
+    "Level": 4,
+    "RewardGold": 1000000,
+    "RewardGem": 300
+  },
+  {
+    "Stage": 10,
+    "Level": 5,
+    "RewardGold": 1000000,
+    "RewardGem": 300
+  }
+]

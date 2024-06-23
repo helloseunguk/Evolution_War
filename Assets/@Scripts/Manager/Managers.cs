@@ -23,6 +23,7 @@ public class Managers : MonoBehaviour
     DataManager data = new DataManager();
     BattleManager battle = new BattleManager();
     CameraManager camera = new CameraManager();
+    EffectManager effect = new EffectManager();
 
     public static SpawnManager Spawn => Instance.spawn;
     public static UnitManager Unit => Instance.unit;
@@ -32,7 +33,7 @@ public class Managers : MonoBehaviour
     public static DataManager Data => Instance.data;
     public static BattleManager Battle => Instance.battle;
     public static CameraManager Camera => Instance.camera;
-
+    public static EffectManager Effect => Instance.effect;
     static void Init() 
     {
         if (s_Instance == null)
@@ -48,6 +49,7 @@ public class Managers : MonoBehaviour
             Data.Init();
             Spawn.Init();
             Battle.Init();
+            Effect.Init();
         }
     }
     private void OnApplicationQuit()
