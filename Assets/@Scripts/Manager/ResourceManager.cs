@@ -5,45 +5,39 @@ using System.Collections.Generic;
 using System.Threading;
 using UniRx;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
-[Serializable]
-public class ScenePreLoadAssetBudle 
-{
-    public string sceneName;
-    public List<string> bundleList;
-}
-[Serializable]
-public class ScenePreLoadAssetBundleList 
-{
-    public ScenePreLoadAssetBudle[] loadList;
-}
+
 public class ResourceManager
 {
-    public enum ESIZE 
+    public async UniTask<GameObject> Instantiate(string address, Transform parent = null)
     {
-        S,
-        M,
-        L,
+        // 어드레서블 에셋을 비동기 로드
+        AsyncOperationHandle<GameObject> handle = Addressables.LoadAssetAsync<GameObject>(address);
+
+        // 로드 완료 대기
+        await handle.Task;
+
+        // 로드에 실패한 경우 예외 처리
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError($"Failed to load asset at address: {address}");
+            return null;
+        }
+
+        // 인스턴스화
+        GameObject instantiatedObject = UnityEngine.Object.Instantiate(handle.Result, parent);
+
+        // 인스턴스화한 오브젝트 반환
+        return instantiatedObject;
     }
-    public static readonly int LIFE_COUNT_TEXT_ASSEST = 1;
-    public static readonly int LIFE_COUNT_INGAME_OBJECT = 2;
-    public static readonly int LIFE_COUNT_SOUND_CLIP = 2;
-    public static readonly int LIFE_COUNT_SCENARIO_WEBTOON = 1;
-    public static readonly int LIFE_COUNT_SCENARIO_CHARACTER = 1;
 
-    public const int InitialLifeCount = 1;
-
-    private static Subject<string> loadTextAsset = new Subject<string>();
-
-    public static IObservable<string> OnLoadTextAsset
+    public void Destroy(GameObject go)
     {
-        get { return loadTextAsset.AsObservable(); }
+        if (go == null)
+            return;
+
+        UnityEngine.Object.Destroy(go);
     }
-    //public async UniTask<T> LoadAsync<T>(string bundleName, string assetName, int lifeCount = InitialLifeCount,CancellationToken cancellationToken = default(CancellationToken)) where T: UnityEngine.Object
-    //{
-    //    var asset = await EAsset.LoadAsset<T>(bundleName, assetName, lifeCount, cancellationToken);
-    //    return asset;
-    //}
-
-
 }

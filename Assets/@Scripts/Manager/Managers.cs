@@ -17,7 +17,7 @@ public class Managers : MonoBehaviour
 
     SpawnManager spawn = new SpawnManager();
     UnitManager unit = new UnitManager();
-
+    UIManager ui = new UIManager();
     ResourceManager resourceManager = new ResourceManager();
     AuthManager authManager = new AuthManager();
     DataManager data = new DataManager();
@@ -27,7 +27,7 @@ public class Managers : MonoBehaviour
 
     public static SpawnManager Spawn => Instance.spawn;
     public static UnitManager Unit => Instance.unit;
-
+    public static UIManager UI => Instance.ui;
     public static ResourceManager Resource => Instance.resourceManager;
     public static AuthManager AuthManager => Instance.authManager;
     public static DataManager Data => Instance.data;

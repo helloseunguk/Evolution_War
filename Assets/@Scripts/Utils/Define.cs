@@ -10,7 +10,14 @@ public class Define
         Title = 1,
         Loading = 2,
         MainScene = 3,
+        AuthScene = 4,
 
+
+    }
+    public enum UIEvent 
+    {
+        None = 0,
+        Click = 1,
     }
     public enum AuthType 
     {
@@ -18,6 +25,16 @@ public class Define
         Authenticated = 1,  //로그인 상태
         UnAuthenticated = 2,//로그인 되지않은 상태
 
+
+    }
+    public enum PopupType 
+    {
+        None = 0,
+        PopupStageSelectUI = 1,
+    }
+    public enum ContentsType
+    {
+        None = 0,
 
     }
     public enum SoundType
@@ -177,5 +194,13 @@ public class Define
         None = 0,
         Box = 1,
         Sphere = 2,
+    }
+    public enum UnitAttackType 
+    {
+        None = 0,
+        Close = 1,
+        Long = 2,
+        Magic = 3,
+
     }
 }
