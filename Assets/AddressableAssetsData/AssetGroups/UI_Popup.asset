@@ -20,12 +20,14 @@ MonoBehaviour:
   - m_GUID: b1e9a5e29edcff84eb6222c86f23b3ad
     m_Address: PopupStageSelectUI
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PopupUI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0652814d373b7dc43a3fdf1c9a27d872
     m_Address: PopupCanvas
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PopupUI
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f80ab84c3b1ad0349a48ade9901230c5, type: 2}

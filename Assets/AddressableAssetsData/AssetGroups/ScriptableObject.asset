@@ -10,21 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: UnitEffect
+  m_Name: ScriptableObject
   m_EditorClassIdentifier: 
-  m_GroupName: UnitEffect
+  m_GroupName: ScriptableObject
   m_Data:
     m_SerializedData: []
-  m_GUID: 51c495e7eec979f4192e16eb3ce81416
+  m_GUID: 73519bf824d4c8c40b4e882b06953e4b
   m_SerializeEntries:
+  - m_GUID: 94c7e5ea412170a45960da3a0e2ae397
+    m_Address: UnitSpawnEffects
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ScriptableObject
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82d548cdd422f9044972427023124d5f
     m_Address: Enemy01_01_BattleEffect
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - ScriptableObject
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cbf210f79d6aa343b62443d4627ac40
+    m_Address: UnitSpawnProbability
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ScriptableObject
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f80ab84c3b1ad0349a48ade9901230c5, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 6268714d5d5500b46a3718a9112ca383, type: 2}
-    - {fileID: 11400000, guid: 32626f1e3bb92cb4d92bcb989eff8277, type: 2}
+    - {fileID: 11400000, guid: f82d5aba070926248ab1e6f6edd165a6, type: 2}
+    - {fileID: 11400000, guid: 84a9f8d555adf7445a30ca2282d0d489, type: 2}

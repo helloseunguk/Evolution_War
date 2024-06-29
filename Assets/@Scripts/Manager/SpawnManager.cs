@@ -15,23 +15,29 @@ public class SpawnManager
     public UnitBattleEffects battleEffects;
     public Define.SpawnRarity spawnRarity = Define.SpawnRarity.None;
 
-    public void Init()
+    private void InitSpawnEffect() 
     {
-        Addressables.LoadAssetAsync<UnitSpawnProbability>("UnitSpawnProbability").Completed += handle =>
+        if(spawnProbability == null)
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            Addressables.LoadAssetAsync<UnitSpawnProbability>("UnitSpawnProbability").Completed += handle =>
             {
-                spawnProbability = handle.Result;
-            }
-        };
-        Addressables.LoadAssetAsync<UnitSpawnEffects>("UnitSpawnEffects").Completed += handle =>
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    spawnProbability = handle.Result;
+                }
+            };
+        }
+        if(spawnEffects == null)
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            Addressables.LoadAssetAsync<UnitSpawnEffects>("UnitSpawnEffects").Completed += handle =>
             {
-                spawnEffects = handle.Result;
-                spawnEffects.InitializePools(10);
-            }
-        };
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    spawnEffects = handle.Result;
+                    spawnEffects.InitializePools(10);
+                }
+            };
+        }
     }
     public void SpawnUnit(Vector3 spawnPosition, bool isRandomPosition, Transform parent = null, UnitData unitData = null)
     {
@@ -43,6 +49,7 @@ public class SpawnManager
                                                 spawnPosition.y,
                                                 spawnPosition.z + randomOffset.y);
         }
+        InitSpawnEffect();
 
         if (unitData == null)
         {

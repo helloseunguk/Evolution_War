@@ -7,9 +7,9 @@ using UnityEngine;
 
 public partial class DataManager
 {
-    public string jsonDirectoryPath ="Assets/@Prefab/Script/unit"; // JSON 파일이 있는 디렉토리 경로
+    public string jsonDirectoryPath = "Assets/@Prefab/Script/unit"; // JSON 파일이 있는 디렉토리 경로
 
-     private void LoadDataFromJson()
+    private void LoadDataFromJson()
     {
         string fullPath = Path.Combine(jsonDirectoryPath);
         DirectoryInfo dir = new DirectoryInfo(fullPath);
@@ -35,7 +35,8 @@ public partial class DataManager
     {
         string assetPath = $"Assets/@ScriptableObject/unit_{data.grade:00}_{data.level:00}.asset";
 
-        UnitData unitSO = Resources.Load<UnitData>(assetPath);
+#if UNITY_EDITOR
+        UnitData unitSO = AssetDatabase.LoadAssetAtPath<UnitData>(assetPath);
 
         if (unitSO == null)
         {
@@ -51,9 +52,9 @@ public partial class DataManager
         unitSO.color = data.color;
         unitSO.attackSpeed = data.attackSpeed;
         unitSO.attackRange = data.attackRange;
-#if UNITY_EDITOR
-        UnityEditor.EditorUtility.SetDirty(unitSO);
-        UnityEditor.AssetDatabase.SaveAssets();
+
+        EditorUtility.SetDirty(unitSO);
+        AssetDatabase.SaveAssets();
 #endif
     }
 }

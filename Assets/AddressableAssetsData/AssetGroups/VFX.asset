@@ -17,10 +17,35 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 024c7dbe09b93d644bc3a50c90f18aa5
   m_SerializeEntries:
-  - m_GUID: 94c7e5ea412170a45960da3a0e2ae397
-    m_Address: UnitSpawnEffects
+  - m_GUID: 3fbea148d7377b245ba7df69efc27caf
+    m_Address: NormalSpawnEffect
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Effect
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdd636c5697627844abed695ac3a491a
+    m_Address: RareSpawnEffect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effect
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5540ccbd472ae14419ab1edb1bb09862
+    m_Address: HeroSpawnEffect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effect
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6e8f3b1f1f11a244b4b014e86c0708a
+    m_Address: LegendSpawnEffect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effect
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 801bcc9b3274a1846bd2eea20950bc56
+    m_Address: MergeEffect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effect
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f80ab84c3b1ad0349a48ade9901230c5, type: 2}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Probability_ContentUpdateGroupSchema
+  m_Name: ScriptableObject_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 3bab0407d1a9ae14a91dd5fd57cb1277, type: 2}
+  m_Group: {fileID: 11400000, guid: 8f30bd3fe477ca241882b78d4a451da2, type: 2}
   m_StaticContent: 0

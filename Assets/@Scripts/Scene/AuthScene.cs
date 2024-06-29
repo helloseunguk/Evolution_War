@@ -42,7 +42,7 @@ public class AuthScene : MonoBehaviour
         });
         startBtn.OnClickAsObservable().Subscribe(_ => 
         {
-            LoadingScene.LoadScene("MainScene");
+            LoadingScene.LoadScene("ResourceDownLoadScene");
         });
         logOutBtn.OnClickAsObservable().Subscribe(_ => 
         {

@@ -8,13 +8,14 @@ public partial class DataManager
 {
     public List<UnitData> unitInfo = new List<UnitData>();
 
-
-    public List<UnitData> GetUnitInfoScript() 
+    public List<UnitData> GetUnitInfoScript()
     {
         return unitInfo;
     }
+
     public async UniTask LoadScriptUnitInfo()
     {
+#if UNITY_EDITOR
         // Define the path to the folder containing the UnitData scriptable objects
         string folderPath = "Assets/@ScriptableObject/unit";
 
@@ -37,6 +38,7 @@ public partial class DataManager
                 }
             }
         }
+#endif
 
         // If you need to perform any asynchronous operations, you can use await here
         await UniTask.CompletedTask;

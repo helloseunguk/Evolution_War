@@ -47,7 +47,6 @@ public class Managers : MonoBehaviour
             s_Instance = go.GetComponent<Managers>();
 
             Data.Init();
-            Spawn.Init();
             Battle.Init();
             Effect.Init();
         }

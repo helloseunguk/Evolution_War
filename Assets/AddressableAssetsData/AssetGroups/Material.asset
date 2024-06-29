@@ -10,21 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Probability
+  m_Name: Material
   m_EditorClassIdentifier: 
-  m_GroupName: Probability
+  m_GroupName: Material
   m_Data:
     m_SerializedData: []
-  m_GUID: 7f832b2727a8a7146bbd58138c0a057e
+  m_GUID: ad0a5b49a85470a428ac31c440b213a0
   m_SerializeEntries:
-  - m_GUID: 0cbf210f79d6aa343b62443d4627ac40
-    m_Address: UnitSpawnProbability
+  - m_GUID: 150aee38b5d848b42b75593618992bb7
+    m_Address: SpawnMat
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abe28b05fedf0e34c9e88bda16e2160c
+    m_Address: EggMat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Material
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f80ab84c3b1ad0349a48ade9901230c5, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 9cd1ef2be04429f45aa1bf6b63d886e7, type: 2}
-    - {fileID: 11400000, guid: 710bc85fef320f844984ea15141d6072, type: 2}
+    - {fileID: 11400000, guid: 485239442a88a4743b23663e4d2898f6, type: 2}
+    - {fileID: 11400000, guid: ceb7f0203a9d97f45aef91e158039537, type: 2}
