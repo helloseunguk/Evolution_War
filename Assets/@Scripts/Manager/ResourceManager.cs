@@ -32,7 +32,20 @@ public class ResourceManager
         // 인스턴스화한 오브젝트 반환
         return instantiatedObject;
     }
-
+    public async UniTask<T> LoadAssetAsync<T>(string key) where T : class
+    {
+        var handle = Addressables.LoadAssetAsync<T>(key);
+        await handle.Task;
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            return handle.Result;
+        }
+        else
+        {
+            Debug.LogError($"에셋 로드 실패 : {key}");
+            return null;
+        }
+    }
     public void Destroy(GameObject go)
     {
         if (go == null)

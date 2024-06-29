@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UniRx;
+using UnityEditor.AddressableAssets;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -29,6 +30,8 @@ public class ResourceDownLoadScene : BaseScene
     private long patchSize;
     private Dictionary<string, long> patchMap = new Dictionary<string, long>();
 
+    private HashSet<string> labels;
+
     public override void Start()
     {
         waitMessageObj.SetActive(true);
@@ -42,27 +45,40 @@ public class ResourceDownLoadScene : BaseScene
             downLoadBtn.gameObject.SetActive(false);
             OnDownLoad();
         });
+
     }
 
     IEnumerator InitAddressable()
     {
+     
         var init = Addressables.InitializeAsync();
         yield return init;
+    }
+    private void GetLabels() 
+    {
+        var settings = AddressableAssetSettingsDefaultObject.Settings;
+        if (settings == null)
+        {
+            Debug.Log("settings 없음");
+            return;
+        }
+
+         labels = settings.groups
+            .SelectMany(group => group.entries)
+            .SelectMany(entry => entry.labels)
+            .ToHashSet();
+
+        foreach (var label in labels)
+        {
+            Debug.Log(label);
+        }
+
     }
 
     IEnumerator CheckUpdateFiles()
     {
-        var labels = new List<string>() {
-            effectLabel.labelString,
-            matLabel.labelString,
-            unitLabel.labelString,
-            enemyLabel.labelString,
-            popupUILabel.labelString,
-            scriptableObjectLabel.labelString
-        };
-
         patchSize = 0;
-
+        GetLabels();
         foreach (var label in labels)
         {
             var handle = Addressables.GetDownloadSizeAsync(label);
@@ -70,7 +86,6 @@ public class ResourceDownLoadScene : BaseScene
 
             if (handle.Status == AsyncOperationStatus.Failed)
             {
-                Debug.LogError($"Failed to get download size for label: {label}");
                 continue;
             }
 
@@ -123,14 +138,10 @@ public class ResourceDownLoadScene : BaseScene
 
     IEnumerator PatchFile()
     {
-        var labels = new List<string>() {
-            effectLabel.labelString,
-            matLabel.labelString,
-            unitLabel.labelString,
-            enemyLabel.labelString,
-            popupUILabel.labelString,
-            scriptableObjectLabel.labelString
-        };
+        foreach (var label in labels)
+        {
+            Debug.Log(label);
+        }
 
         foreach (var label in labels)
         {
@@ -173,12 +184,9 @@ public class ResourceDownLoadScene : BaseScene
 
             if (total == patchSize)
             {
-                Debug.Log("패치 완료");
                 LoadingScene.LoadScene("MainScene");
                 break;
             }
-
-            Debug.Log("패치 진행중: " + total + " / 패치 사이즈: " + patchSize);
             yield return new WaitForEndOfFrame();
         }
     }

@@ -34,7 +34,7 @@ public class AuthScene : MonoBehaviour
         auth = FirebaseAuth.DefaultInstance;
         googleBtn.OnClickAsObservable().Subscribe(_ =>
         {
-         //   OnClickGoogleLogin();
+            OnClickGoogleLogin();
         });
         guestBtn.OnClickAsObservable().Subscribe(_ => 
         {
@@ -113,46 +113,46 @@ userID.gameObject.SetActive(false);
         Managers.Data.DeleteUserDataFile();
         SetAuthState(Define.AuthType.UnAuthenticated);
     }
-    //public void OnClickGoogleLogin()
-    //{
-    //    PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().RequestIdToken().Build();
-    //    PlayGamesPlatform.InitializeInstance(config);
-    //    PlayGamesPlatform.DebugLogEnabled = false;
-    //    PlayGamesPlatform.Activate();
+    public void OnClickGoogleLogin()
+    {
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().RequestIdToken().Build();
+        PlayGamesPlatform.InitializeInstance(config);
+        PlayGamesPlatform.DebugLogEnabled = false;
+        PlayGamesPlatform.Activate();
 
-    //    Social.localUser.Authenticate((bool success) =>
-    //    {
-    //        if (success)
-    //        {
-    //            StartCoroutine(GoogleLogin());
-    //            SetAuthState(Define.AuthType.Authenticated);
-    //            Debug.Log("로그인 성공");
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("로그인 실패");
-    //        }
-    //    });
-    //}
-    //public IEnumerator GoogleLogin() 
-    //{
-    //    while(System.String.IsNullOrEmpty(((PlayGamesLocalUser)Social.localUser).GetIdToken()))
-    //        yield return null;
+        Social.localUser.Authenticate((bool success) =>
+        {
+            if (success)
+            {
+                StartCoroutine(GoogleLogin());
+                SetAuthState(Define.AuthType.Authenticated);
+                Debug.Log("로그인 성공");
+            }
+            else
+            {
+                Debug.Log("로그인 실패");
+            }
+        });
+    }
+    public IEnumerator GoogleLogin()
+    {
+        while (System.String.IsNullOrEmpty(((PlayGamesLocalUser)Social.localUser).GetIdToken()))
+            yield return null;
 
-    //    string idToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
+        string idToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
 
-    //    Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+        Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
 
-    //    Firebase.Auth.Credential credential = Firebase.Auth.GoogleAuthProvider.GetCredential(idToken, null);
-    //    auth.SignInWithCredentialAsync(credential).ContinueWith(
-    //        task =>
-    //        {
-    //            if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
-    //            {
-    //                Firebase.Auth.FirebaseUser newUser = task.Result;
-    //            }
-    //        });
-    //}
+        Firebase.Auth.Credential credential = Firebase.Auth.GoogleAuthProvider.GetCredential(idToken, null);
+        auth.SignInWithCredentialAsync(credential).ContinueWith(
+            task =>
+            {
+                if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
+                {
+                    Firebase.Auth.FirebaseUser newUser = task.Result;
+                }
+            });
+    }
     void CheckLogin() 
     {
         if (auth.CurrentUser != null)

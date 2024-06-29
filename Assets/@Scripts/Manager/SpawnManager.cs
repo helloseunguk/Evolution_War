@@ -7,6 +7,7 @@ using DG.Tweening;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Runtime.CompilerServices;
+using Cysharp.Threading.Tasks;
 
 public class SpawnManager 
 {
@@ -15,31 +16,26 @@ public class SpawnManager
     public UnitBattleEffects battleEffects;
     public Define.SpawnRarity spawnRarity = Define.SpawnRarity.None;
 
-    private void InitSpawnEffect() 
+    public async UniTask InitSpawnEffect() 
     {
-        if(spawnProbability == null)
+        // spawnProbability 로드
+        if (spawnProbability == null)
         {
-            Addressables.LoadAssetAsync<UnitSpawnProbability>("UnitSpawnProbability").Completed += handle =>
-            {
-                if (handle.Status == AsyncOperationStatus.Succeeded)
-                {
-                    spawnProbability = handle.Result;
-                }
-            };
+            spawnProbability = await Managers.Resource.LoadAssetAsync<UnitSpawnProbability>("UnitSpawnProbability");
         }
-        if(spawnEffects == null)
+
+        // spawnEffects 로드
+        if (spawnEffects == null)
         {
-            Addressables.LoadAssetAsync<UnitSpawnEffects>("UnitSpawnEffects").Completed += handle =>
+            spawnEffects = await Managers.Resource.LoadAssetAsync<UnitSpawnEffects>("UnitSpawnEffects");
+            if (spawnEffects != null)
             {
-                if (handle.Status == AsyncOperationStatus.Succeeded)
-                {
-                    spawnEffects = handle.Result;
-                    spawnEffects.InitializePools(10);
-                }
-            };
+                spawnEffects.InitializePools(10);
+            }
         }
     }
-    public void SpawnUnit(Vector3 spawnPosition, bool isRandomPosition, Transform parent = null, UnitData unitData = null)
+  
+    public void SpawnUnit(Vector3 spawnPosition, bool isRandomPosition, bool isPlayEffect = false, Transform parent = null, UnitData unitData = null)
     {
 
         if (isRandomPosition)
@@ -49,14 +45,14 @@ public class SpawnManager
                                                 spawnPosition.y,
                                                 spawnPosition.z + randomOffset.y);
         }
-        InitSpawnEffect();
 
         if (unitData == null)
         {
              unitData = GetRandomUnitData();
             if (unitData == null)
                 return;
-            PlaySpawnEffect(spawnRarity, spawnPosition);
+            if(isPlayEffect == true)
+                PlaySpawnEffect(spawnRarity, spawnPosition);
         }
         else
         {
@@ -137,7 +133,7 @@ public class SpawnManager
                     var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
 
                     // Spawn the new unit at the midpoint position
-                    SpawnUnit( midPosition, false, parent, unitData);
+                    SpawnUnit( midPosition, false,false, parent, unitData);
                 });
 
                 // Move the second unit to the midpoint and disable it

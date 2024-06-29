@@ -31,7 +31,6 @@ public class MainSceneUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Init();
         UpdateUI();
 
         UserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
@@ -41,7 +40,7 @@ public class MainSceneUI : MonoBehaviour
 
         summonBtn.OnClickAsObservable().Subscribe(_ =>
         {
-            Managers.Spawn.SpawnUnit(spawnTransform.position, true, spawnTransform);
+            Managers.Spawn.SpawnUnit(spawnTransform.position, true,true, spawnTransform);
             UpdateUI();
         }).AddTo(this);
         specialSummonBtn.OnClickAsObservable().Subscribe(_ => {
@@ -72,22 +71,5 @@ public class MainSceneUI : MonoBehaviour
         ownTicketText.SetText(UserInfo.userData.ticket.ToString());
     //    userLevelText.SetText(UserInfo.userData.level.ToString());
     }
-    private void Init()
-    {
-        List<UnitData> unitsToRemove = new List<UnitData>();
-
-        foreach (var unit in UserInfo.userData.unitList)
-        {
-            // 유닛을 스폰
-            Managers.Spawn.SpawnUnit(spawnTransform.position, true, spawnTransform);
-            // 제거할 유닛을 임시 리스트에 추가
-            unitsToRemove.Add(unit);
-        }
-
-        // 모든 유닛을 스폰한 후, 임시 리스트에서 unitList에서 제거
-        foreach (var unit in unitsToRemove)
-        {
-            UserInfo.userData.unitList.Remove(unit);
-        }
-    }
+   
 }

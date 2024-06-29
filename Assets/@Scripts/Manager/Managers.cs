@@ -22,7 +22,7 @@ public class Managers : MonoBehaviour
     AuthManager authManager = new AuthManager();
     DataManager data = new DataManager();
     BattleManager battle = new BattleManager();
-    CameraManager camera = new CameraManager();
+    CameraManager m_camera = new CameraManager();
     EffectManager effect = new EffectManager();
 
     public static SpawnManager Spawn => Instance.spawn;
@@ -32,7 +32,7 @@ public class Managers : MonoBehaviour
     public static AuthManager AuthManager => Instance.authManager;
     public static DataManager Data => Instance.data;
     public static BattleManager Battle => Instance.battle;
-    public static CameraManager Camera => Instance.camera;
+    public static CameraManager Camera => Instance.m_camera;
     public static EffectManager Effect => Instance.effect;
     static void Init() 
     {
