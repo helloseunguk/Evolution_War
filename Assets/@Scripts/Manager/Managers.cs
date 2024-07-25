@@ -24,7 +24,7 @@ public class Managers : MonoBehaviour
     BattleManager battle = new BattleManager();
     CameraManager m_camera = new CameraManager();
     EffectManager effect = new EffectManager();
-
+    FloatingManager floating = new FloatingManager();
     public static SpawnManager Spawn => Instance.spawn;
     public static UnitManager Unit => Instance.unit;
     public static UIManager UI => Instance.ui;
@@ -34,6 +34,8 @@ public class Managers : MonoBehaviour
     public static BattleManager Battle => Instance.battle;
     public static CameraManager Camera => Instance.m_camera;
     public static EffectManager Effect => Instance.effect;
+    public static FloatingManager Floating => Instance.floating;
+
     static void Init() 
     {
         if (s_Instance == null)

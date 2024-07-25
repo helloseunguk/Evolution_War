@@ -1,5 +1,5 @@
 using Cysharp.Threading.Tasks;
-using Firebase.Database;
+//using Firebase.Database;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ public partial class DataManager
 {
     public async void Init()
     {
-        reference = FirebaseDatabase.DefaultInstance.RootReference;
+     //   reference = FirebaseDatabase.DefaultInstance.RootReference;
         userDataFilePath = Path.Combine(Application.persistentDataPath, "userData.json");
 
          LoadDataFromJson();

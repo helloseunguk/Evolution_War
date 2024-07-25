@@ -34,6 +34,7 @@ public class MainScene : BaseScene
     private async UniTask Init()
     {
        await Managers.Spawn.InitSpawnEffect();
+       await Managers.Floating.InitSpawnFloating();
 
         Managers.Camera.RegistAllCamera();
         Managers.Camera.ActivateCamera("LobbyCamera");

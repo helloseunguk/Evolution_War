@@ -39,6 +39,11 @@ public class UnitBase : MonoBehaviour, IDamageable
         damage = unitData.damage;
         attackRange = unitData.attackRange;
         attackSpeed = unitData.attackSpeed;
+        if(unitRenderer != null)
+        {
+            originalColor = unitRenderer.material.color;
+        }
+
         SetTargetLayer();
 
         if (isAreaAttack)

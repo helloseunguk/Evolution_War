@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Firebase;
-using Firebase.Database;
+//using Firebase;
+//using Firebase.Database;
 using System.IO;
 using UnityEngine.Networking;
 using Cysharp.Threading.Tasks;
@@ -15,7 +15,7 @@ using System;
 public partial class DataManager 
 {
 
-    public DatabaseReference reference;
+  //  public DatabaseReference reference;
 
     public async Task LocalDBCreate()
     {
@@ -153,16 +153,16 @@ public partial class DataManager
     //}
     private void SaveUserDataToFirebase(string userId, string jsonData)
     {
-        reference.Child("users").Child(userId).SetRawJsonValueAsync(jsonData).ContinueWith(task =>
-        {
-            if (task.IsFaulted)
-            {
-                Debug.LogError("Error saving user data: " + task.Exception);
-            }
-            else
-            {
-                Debug.Log("User data saved successfully!");
-            }
-        });
+        //reference.Child("users").Child(userId).SetRawJsonValueAsync(jsonData).ContinueWith(task =>
+        //{
+        //    if (task.IsFaulted)
+        //    {
+        //        Debug.LogError("Error saving user data: " + task.Exception);
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("User data saved successfully!");
+        //    }
+        //});
     }
 }

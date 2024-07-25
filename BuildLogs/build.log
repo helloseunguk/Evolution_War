@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    environment {
+        UNITY_PATH = "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.18f1\\Editor\\Unity.exe"
+        PROJECT_PATH = "C:\\Users\\HAN\\Documents\\GitHub\\Evolution_War"
+        BUILD_SCRIPT_PATH = "C:\\Users\\HAN\\Documents\\GitHub\\Evolution_War\\Assets\\Editor\\BuildPlayer.cs"
+        LOG_FILE = "C:\\Users\\HAN\\Documents\\GitHub\\Evolution_War\\BuildLogs\\build.log"
+        BUILD_FILE = "C:\\Users\\HAN\\Documents\\GitHub\\Evolution_War\\Builds\\AOS_1.0.apk"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // 유니티 빌드를 수행합니다.
+                bat "\"${UNITY_PATH}\" -quit -batchmode -buildTarget Android -projectPath \"${PROJECT_PATH}\" -executeMethod BuildPlayer.StartBuildAOS -logFile \"${LOG_FILE}\""
+            }
+        }
+
+    }
+
+    post {
+        always {
+            // 빌드 후 항상 실행되는 단계입니다.
+            echo 'Build finished.'
+        }
+        success {
+            // 빌드 성공 시 실행되는 단계입니다.
+            echo 'Build succeeded!'
+        }
+        failure {
+            // 빌드 실패 시 실행되는 단계입니다.
+            echo 'Build failed.'
+            // 유니티 빌드 로그를 출력합니다.
+            script {
+                def logFile = readFile("${LOG_FILE}")
+                echo "Unity Build Log:\n${logFile}"
+            }
+            // 콘솔 로그에 빌드 로그 다운로드 링크를 추가합니다.
+            archiveArtifacts artifacts: "${LOG_FILE}", allowEmptyArchive: true
+            echo "Build log can be downloaded from: ${env.BUILD_URL}artifact/${LOG_FILE}"
+        }
+    }
+}

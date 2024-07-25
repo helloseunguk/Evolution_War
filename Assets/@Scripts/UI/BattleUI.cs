@@ -47,6 +47,7 @@ public class BattleUI : MonoBehaviour
     {
         teamCount.text = Managers.Battle.teamUnitList.Count.ToString();
         emenyCount.text = Managers.Battle.enemyUnitList.Count.ToString();
+     
     }
     private void CheckBattleState(int unitCount) 
     {

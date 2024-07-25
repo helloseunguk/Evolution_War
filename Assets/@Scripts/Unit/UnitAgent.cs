@@ -15,15 +15,17 @@ public class UnitAgent : UnitBase
         target = newTarget;
         targetHealth = target.Value.GetComponent<IDamageable>();
     }
-    public void ApplyDamage() 
+
+    public void ApplyDamage()
     {
         if (unitBattleEffects != null)
         {
             var hitEffect = unitBattleEffects.GetHitEffect();
-            hitEffect.gameObject.transform.position = target.Value.gameObject.transform.position;
+            Vector3 targetCenterPosition = GetTargetCenterPosition(target.Value);
+            hitEffect.gameObject.transform.position = targetCenterPosition;
             hitEffect.Play();
-
         }
+
         if (isAreaAttack)
         {
             Debug.Log("µ•πÃ¡ˆ ¿‘»˚");
@@ -38,14 +40,22 @@ public class UnitAgent : UnitBase
                 directAttack.OnAttack(targetHealth, damage);
             }
         }
-
-        //if (target.Value != null)
-        //{
-        //    if(targetHealth != null)
-        //    {
-        //        targetHealth.OnDamage(damage);
-        //    }
-        //}
     }
-    
+
+    private Vector3 GetTargetCenterPosition(GameObject target)
+    {
+        Collider targetCollider = target.GetComponent<Collider>();
+        if (targetCollider != null)
+        {
+            return targetCollider.bounds.center;
+        }
+
+        Renderer targetRenderer = target.GetComponent<Renderer>();
+        if (targetRenderer != null)
+        {
+            return targetRenderer.bounds.center;
+        }
+
+        return target.transform.position;
+    }
 }

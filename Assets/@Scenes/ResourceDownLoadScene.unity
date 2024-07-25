@@ -1248,14 +1248,14 @@ MonoBehaviour:
     m_LabelString: Unit
   enemyLabel:
     m_LabelString: Enemy
-  popupUILabel:
-    m_LabelString: PopupUI
-  scriptableObjectLabel:
-    m_LabelString: ScriptableObject
-  matLabel:
-    m_LabelString: Material
   effectLabel:
     m_LabelString: Effect
+  popupUILabel:
+    m_LabelString: PopupUI
+  materialLabel:
+    m_LabelString: Material
+  scriptableObjectLabel:
+    m_LabelString: ScriptableObject
 --- !u!1 &1836496793
 GameObject:
   m_ObjectHideFlags: 0

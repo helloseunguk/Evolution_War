@@ -52,6 +52,7 @@ public class IsPlayerTargetInRange : PlayerConditional
         {
             Debug.Log("타겟 설정");
             target.Value = closestCollider.gameObject; // 가장 가까운 적을 타겟으로 설정
+            playerControl.targetUnit = target.Value.GetComponent<UnitBase>();
             return TaskStatus.Success; // 범위 내에 적이 있을 경우 Success 반환
         }
         target.Value = null;

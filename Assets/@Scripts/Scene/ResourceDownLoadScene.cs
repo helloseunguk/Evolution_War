@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UniRx;
-using UnityEditor.AddressableAssets;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -20,17 +19,18 @@ public class ResourceDownLoadScene : BaseScene
     public TMP_Text sizeInfoText;
     public TMP_Text downPercentText;
 
-    public AssetLabelReference unitLabel;
-    public AssetLabelReference enemyLabel;
-    public AssetLabelReference popupUILabel;
-    public AssetLabelReference scriptableObjectLabel;
-    public AssetLabelReference matLabel;
-    public AssetLabelReference effectLabel;
-
     private long patchSize;
     private Dictionary<string, long> patchMap = new Dictionary<string, long>();
 
-    private HashSet<string> labels;
+    [Header("Label")]
+    public AssetLabelReference unitLabel;
+    public AssetLabelReference enemyLabel;
+    public AssetLabelReference effectLabel;
+    public AssetLabelReference popupUILabel;
+    public AssetLabelReference materialLabel;
+    public AssetLabelReference scriptableObjectLabel;
+
+
 
     public override void Start()
     {
@@ -54,31 +54,19 @@ public class ResourceDownLoadScene : BaseScene
         var init = Addressables.InitializeAsync();
         yield return init;
     }
-    private void GetLabels() 
-    {
-        var settings = AddressableAssetSettingsDefaultObject.Settings;
-        if (settings == null)
-        {
-            Debug.Log("settings ¾øÀ½");
-            return;
-        }
-
-         labels = settings.groups
-            .SelectMany(group => group.entries)
-            .SelectMany(entry => entry.labels)
-            .ToHashSet();
-
-        foreach (var label in labels)
-        {
-            Debug.Log(label);
-        }
-
-    }
 
     IEnumerator CheckUpdateFiles()
     {
         patchSize = 0;
-        GetLabels();
+        var labels = new List<string>()
+        {
+            unitLabel.labelString,
+            enemyLabel.labelString,
+            effectLabel.labelString,
+            popupUILabel.labelString,
+            materialLabel.labelString,
+            scriptableObjectLabel.labelString,
+        };
         foreach (var label in labels)
         {
             var handle = Addressables.GetDownloadSizeAsync(label);
@@ -138,11 +126,15 @@ public class ResourceDownLoadScene : BaseScene
 
     IEnumerator PatchFile()
     {
-        foreach (var label in labels)
+        var labels = new List<string>()
         {
-            Debug.Log(label);
-        }
-
+            unitLabel.labelString,
+            enemyLabel.labelString,
+            effectLabel.labelString,
+            popupUILabel.labelString,
+            materialLabel.labelString,
+            scriptableObjectLabel.labelString,
+        };
         foreach (var label in labels)
         {
             var handle = Addressables.GetDownloadSizeAsync(label);

@@ -47,6 +47,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Effect
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fde8500e986df8049bda21645742ae2b
+    m_Address: SwordHitRed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effect
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f80ab84c3b1ad0349a48ade9901230c5, type: 2}
   m_SchemaSet:
