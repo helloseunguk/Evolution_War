@@ -57,7 +57,6 @@ public class UnitBase : MonoBehaviour, IDamageable
 
         if (isAreaAttack)
         {
-            Debug.Log("타겟 레이어" + targetLayer.value);
             areaAttack = new AreaAttack { enemyLayer = targetLayer, attackColliderType = attackColliderType }; // 광역 공격 전략 설정
         }
         else
@@ -69,7 +68,6 @@ public class UnitBase : MonoBehaviour, IDamageable
     {
         if (showGizmos && areaAttack != null)
         {
-            Debug.Log("기즈모 그리기");
             ((AreaAttack)areaAttack).DrawGizmos(transform.position, stat.attackRadius);
         }
     }

@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class UIManager
 {
@@ -35,18 +36,17 @@ public class UIManager
         sceneUI = _sceneUI;
         return _sceneUI;
     }
-    public async UniTask<T> ShowPopupUI<T>(string name = null) where T : UI_Popup
+    public async UniTask<UI_Popup> ShowPopupUI(PopupType popupType)
     {
-        if(string.IsNullOrEmpty(name))
-            name = typeof(T).Name;
+        string name = popupType.ToString();
 
         if (UI_Canvas.PopupCanvas == null)
         {
             await Managers.Resource.Instantiate("PopupCanvas");
         }
         GameObject go = await Managers.Resource.Instantiate($"{name}", UI_Canvas.PopupCanvas.transform);
-        
-        T popup = Util.GetOrAddComponent<T>(go);
+
+        UI_Popup popup = Util.GetOrAddComponent<UI_Popup>(go);
         popupStack.Push(popup);
         return popup;
     }

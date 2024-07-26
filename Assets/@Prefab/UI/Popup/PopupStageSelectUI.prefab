@@ -1292,7 +1292,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 2500}
+  m_SizeDelta: {x: 1200, y: 3000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7558604409075945321
 CanvasRenderer:
@@ -1494,6 +1494,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4411768809445707385}
   - component: {fileID: 1759243850962056516}
+  - component: {fileID: 3154726627382161783}
+  - component: {fileID: 6612022923051795548}
   m_Layer: 5
   m_Name: PopupStageSelectUI
   m_TagString: Untagged
@@ -1532,6 +1534,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7205378249955780902}
   m_CullTransparentMesh: 1
+--- !u!114 &3154726627382161783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205378249955780902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4100983cb3a254a8de727586d68389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6612022923051795548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205378249955780902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a175b47c8f7ec4dba658f831e45fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 0.5
+  fadeType: 2
 --- !u!1 &8220256399673691039
 GameObject:
   m_ObjectHideFlags: 0

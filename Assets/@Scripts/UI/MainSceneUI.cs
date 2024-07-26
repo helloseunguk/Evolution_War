@@ -11,6 +11,7 @@ public class MainSceneUI : MonoBehaviour
     public Button specialSummonBtn;
     public Button mergeBtn;
     public Button battleBtn;
+    public Button battleStageBtn;
 
     public Transform spawnTransform;
 
@@ -62,6 +63,11 @@ public class MainSceneUI : MonoBehaviour
             Managers.Battle.InitBattleUnit(battlePosition.transform.position);
             Managers.Battle.InitBattleEnemy(battlePosition.transform.position);
         }).AddTo(this);
+        battleStageBtn.OnClickAsObservable().Subscribe(async _ => 
+        {
+            Debug.Log("스테이지 팝업");
+           await Managers.UI.ShowPopupUI(Define.PopupType.PopupStageSelectUI);
+        });
     }
     private void UpdateUI() 
     {
