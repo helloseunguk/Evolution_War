@@ -1,0 +1,167 @@
+[
+  {
+    "Grade": 1,
+    "Level": 1,
+    "AttackType": "Close",
+    "Hp": 30,
+    "Damage": 2,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 1,
+    "AttackType": "Long",
+    "Hp": 33,
+    "Damage": 3,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 1,
+    "AttackType": "Magic",
+    "Hp": 36,
+    "Damage": 4,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 2,
+    "AttackType": "Close",
+    "Hp": 39,
+    "Damage": 5,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 2,
+    "AttackType": "Long",
+    "Hp": 45,
+    "Damage": 7,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 2,
+    "AttackType": "Magic",
+    "Hp": 48,
+    "Damage": 8,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 3,
+    "AttackType": "Close",
+    "Hp": 51,
+    "Damage": 9,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 3,
+    "AttackType": "Long",
+    "Hp": 54,
+    "Damage": 10,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 3,
+    "AttackType": "Magic",
+    "Hp": 57,
+    "Damage": 11,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 4,
+    "AttackType": "Close",
+    "Hp": 70,
+    "Damage": 12,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 4,
+    "AttackType": "Long",
+    "Hp": 90,
+    "Damage": 15,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 4,
+    "AttackType": "Magic",
+    "Hp": 120,
+    "Damage": 17,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 5,
+    "AttackType": "Close",
+    "Hp": 130,
+    "Damage": 19,
+    "Speed": 3,
+    "AttackRange": 3.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 5,
+    "AttackType": "Long",
+    "Hp": 150,
+    "Damage": 20,
+    "Speed": 3,
+    "AttackRange": 10.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  },
+  {
+    "Grade": 1,
+    "Level": 5,
+    "AttackType": "Magic",
+    "Hp": 160,
+    "Damage": 22,
+    "Speed": 3,
+    "AttackRange": 8.0,
+    "AttackSpeed": 1.0,
+    "AttackRadius": 5.0
+  }
+]

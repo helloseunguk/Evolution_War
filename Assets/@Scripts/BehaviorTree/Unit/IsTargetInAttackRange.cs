@@ -12,7 +12,7 @@ public class IsTargetInAttackRange : UnitConditional
     public override void OnStart()
     {
         base.OnStart();
-        attackRange = GetComponent<UnitBase>().attackRange;
+        attackRange = GetComponent<UnitBase>().stat.attackRange;
     }
     public override TaskStatus OnUpdate()
     {

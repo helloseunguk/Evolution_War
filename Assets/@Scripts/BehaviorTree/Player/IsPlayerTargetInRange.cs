@@ -58,11 +58,4 @@ public class IsPlayerTargetInRange : PlayerConditional
         target.Value = null;
         return TaskStatus.Failure; // 범위 내에 적이 없을 경우 Failure 반환
     }
-    public override void OnDrawGizmos()
-    {
-        if (agentTransform == null) return;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(agentTransform.position, detectionRange);
-    }
 }

@@ -11,6 +11,14 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class ResourceManager
 {
+
+
+    private static Subject<string> loadTextAsset = new Subject<string>();
+
+    public static IObservable<string> OnLoadTextAsset
+    {
+        get { return loadTextAsset.AsObservable(); }
+    }
     public async UniTask<GameObject> Instantiate(string address, Transform parent = null)
     {
         // 어드레서블 에셋을 비동기 로드
@@ -32,6 +40,20 @@ public class ResourceManager
         // 인스턴스화한 오브젝트 반환
         return instantiatedObject;
     }
+    public async UniTask<string> LoadScript(string _fileName)
+    {
+        var text = await LoadTextAsync(_fileName);
+        return text;
+    }
+    public async UniTask<string> LoadTextAsync(string assetName)
+    {
+        var textAsset = await LoadAssetAsync<TextAsset>($"{assetName}");
+        loadTextAsset.OnNext(assetName);
+        var ret = textAsset != null ? textAsset.text : "";
+        return ret;
+
+    }
+
     public async UniTask<T> LoadAssetAsync<T>(string key) where T : class
     {
         var handle = Addressables.LoadAssetAsync<T>(key);

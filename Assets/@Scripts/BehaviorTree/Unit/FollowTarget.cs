@@ -13,7 +13,7 @@ public class FollowTarget : UnitAction
         if (!navMeshAgent.enabled)
         {
             navMeshAgent.enabled = true;
-            navMeshAgent.speed = unitAgent.speed;
+            navMeshAgent.speed = unitAgent.stat.moveSpeed;
         }
     }
 

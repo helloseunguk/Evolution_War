@@ -3429,17 +3429,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitData: {fileID: 0}
   unitBattleEffects: {fileID: 11400000, guid: 82d548cdd422f9044972427023124d5f, type: 2}
-  hp: 0
-  speed: 0
-  damage: 0
-  attackRange: 0
-  attackSpeed: 0
   isTeam: 0
   isTargeting: 0
   isAreaAttack: 1
   areaAttackRadius: 5
-  attackColliderType: 1
+  attackColliderType: 2
   unitRenderer: {fileID: 0}
+  showGizmos: 0
+  isPlayable: 0
   target:
     mIsShared: 0
     mIsGlobal: 0

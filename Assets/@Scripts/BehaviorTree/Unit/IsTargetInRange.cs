@@ -68,7 +68,7 @@ public class IsTargetInRange : UnitConditional
             animator.SetBool("isIdle", false);
             animator.SetBool("isRun", true);
             navMeshAgent.isStopped = false;
-            navMeshAgent.speed = unitAgent.speed;
+            navMeshAgent.speed = unitAgent.stat.moveSpeed;
             Vector3 targetDestination = transform.position + transform.forward * 10;
             navMeshAgent.SetDestination(targetDestination);
         }

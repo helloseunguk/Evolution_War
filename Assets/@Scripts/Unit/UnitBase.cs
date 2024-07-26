@@ -8,38 +8,47 @@ public class UnitBase : MonoBehaviour, IDamageable
 {
     public UnitData unitData;
     public UnitBattleEffects unitBattleEffects;
-
-    public int hp;
-    public int speed;
-    public int damage;
-    public float attackRange;
-    public float attackSpeed;
+    public Stat stat = new Stat();
     public bool isTeam ;
     public bool isTargeting = false;
 
     public bool isAreaAttack; // 단일 공격과 광역 공격을 구분하는 플래그
-    public float areaAttackRadius = 5f; // 광역 공격 반경
     public Define.AttackColliderType attackColliderType;
 
     public IDirectAttack directAttack;
     public IAreaAttack areaAttack;
 
-    LayerMask targetLayer;
+    public LayerMask targetLayer;
     public SkinnedMeshRenderer unitRenderer;
     private Color originalColor;
     private Color hitColor = Color.red;
     private float colorChangeDuration = 0.5f;
-    private bool showGizmos = false;
+    public bool showGizmos = false;
     private float gizmoDisplayTime = 0.5f;
     private float gizmoTimer;
+
+    public bool isPlayable = false;
+
     virtual public void Start()
     {
-        hp = unitData.hp;
-        speed = unitData.speed;
-        damage = unitData.damage;
-        attackRange = unitData.attackRange;
-        attackSpeed = unitData.attackSpeed;
-        if(unitRenderer != null)
+        if (isPlayable)
+        {
+            //저장된 플레이어의 스텟 읽어오기
+            stat.damage = 10;
+            stat.attackRadius = 5;
+        }
+        else
+        {
+            stat.hp = unitData.hp;
+            stat.moveSpeed = unitData.speed;
+            stat.damage = unitData.damage;
+            stat.attackRange = unitData.attackRange;
+            stat.attackSpeed = unitData.attackSpeed;
+            stat.attackRadius = unitData.attackRadius;
+        }
+
+
+        if (unitRenderer != null)
         {
             originalColor = unitRenderer.material.color;
         }
@@ -60,7 +69,8 @@ public class UnitBase : MonoBehaviour, IDamageable
     {
         if (showGizmos && areaAttack != null)
         {
-            ((AreaAttack)areaAttack).DrawGizmos(transform.position, areaAttackRadius);
+            Debug.Log("기즈모 그리기");
+            ((AreaAttack)areaAttack).DrawGizmos(transform.position, stat.attackRadius);
         }
     }
     private void Update()
@@ -98,9 +108,9 @@ public class UnitBase : MonoBehaviour, IDamageable
     }
     public void OnDamage(int damage)
     {
-        hp -= damage;
+        stat.hp -= damage;
         StartCoroutine(ChangeColorOnHit());
-        if (hp <= 0)
+        if (stat.hp <= 0)
         {
             if (isTeam)
                 Managers.Battle.teamUnitList.Remove(this);

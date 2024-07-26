@@ -20,7 +20,7 @@ public class UnitConditional : Conditional
         if(unitAgent == null)
         {
             unitAgent = GetComponent<UnitAgent>();
-            navMeshAgent.speed = unitAgent.speed;
+            navMeshAgent.speed = unitAgent.stat.moveSpeed;
             navMeshAgent.ResetPath();
         }
         if(animator == null)

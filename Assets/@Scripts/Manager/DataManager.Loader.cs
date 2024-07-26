@@ -8,8 +8,10 @@ public partial class DataManager
     public async UniTask LoadAllParser() 
     {
         await UniTask.WhenAll(
-                    LoadScriptUnitInfo()
+                    LoadScriptUnitInfo(),
+                    LoadScriptEnemyInfo(),
+                    LoadScriptStageInfo()
             );
-
+       
     }
 }

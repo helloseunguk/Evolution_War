@@ -8,5 +8,6 @@ public class PlayerStat
     public int health;
     public int damage;
     public float attackRange;
+    public float attackRadius;
     
 }

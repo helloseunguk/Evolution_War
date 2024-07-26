@@ -8,12 +8,14 @@ public class UnitData : ScriptableObject
 {
     public int grade;
     public int level;
+    public Define.UnitAttackType attackType;
     public int hp;
     public int damage;
     public int speed;
     public string color;
     public float attackSpeed;
     public float attackRange;
+    public float attackRadius;
 
     public bool IsDefault()
     {
@@ -24,6 +26,7 @@ public class UnitData : ScriptableObject
                speed == 0 &&
                string.IsNullOrEmpty(color) &&
                attackSpeed == 0.0f &&
-               attackRange == 0.0f;
+               attackRange == 0.0f &&
+               attackRadius == 0.0f;
     }
 }

@@ -12,5 +12,7 @@ public class UnitStat
     public float damage;
     public float avoidRate;
     public bool longAttack = false;
+    public float attackRange;
+    public float attackSpeed;
 
 }

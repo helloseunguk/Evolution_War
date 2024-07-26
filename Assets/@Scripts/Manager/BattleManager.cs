@@ -14,7 +14,7 @@ public class BattleManager
     public ReactiveCollection<UnitBase> teamUnitList = new ReactiveCollection<UnitBase>();
     public ReactiveCollection<UnitBase> enemyUnitList = new ReactiveCollection<UnitBase>();
     const float offsetDistance = 75f;  // 두 팀 사이의 총 간격이 150f가 되도록 설정
-
+    
     public void Init() 
     {
         isArrived.Subscribe(_ => 
@@ -123,7 +123,7 @@ public class BattleManager
                     GameObject enemyPrefab = handle.Result;
 
                     var enemyObj = GameObject.Instantiate(enemyPrefab, enemyPosition, Quaternion.Euler(0, 90, 0));
-                    var unitData = Managers.Data.GetUnitInfoScript().Find(_ => _.grade == 1 && _.level == 2);
+                    var unitData = Managers.Data.GetEnemyInfoScript().Find(_ => _.grade == 1);
                     var unitAgent = enemyObj.GetComponent<UnitAgent>();
                     unitAgent.isTeam = false;
                     unitAgent.unitData = unitData;

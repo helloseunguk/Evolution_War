@@ -2,30 +2,28 @@ using UniRx;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 [RequireComponent(typeof(PlayerAnimation))]
 [RequireComponent(typeof(PlayerMovement))]
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : UnitAgent
 {
    public PlayerAnimation animator;
    public PlayerMovement movement;
    public UnitBase targetUnit;
-    PlayerStat stat;
 
-    public void Init(PlayerStat _stat) 
-    {
-        stat = _stat;
-    }
-    
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        isPlayable = true;
+        base.Start();
         //임시용
-        stat = new PlayerStat();
-        stat.damage = 10;
 
+  
+        
         animator = GetComponent<PlayerAnimation>();
         movement = GetComponent<PlayerMovement>();
+        areaAttack = new AreaAttack { enemyLayer = targetLayer, attackColliderType = attackColliderType }; // 광역 공격 전략 설정
         movement.isMove.Value = false;
         // Subscribe 설정
         movement.isMove
@@ -45,7 +43,8 @@ public class PlayerControl : MonoBehaviour
     public void OnAttackUnit() 
     {
 
-        targetUnit.OnDamage(stat.damage);
+        Vector3 attackCenter = transform.position; // 공격 중심
+        areaAttack.OnAttack(attackCenter, stat.damage, stat.attackRadius);
         Managers.Floating.OnFloatingDamage(targetUnit.transform, stat.damage);
       //  targetUnit.OnDamage();
     }
