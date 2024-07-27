@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDirectAttack
 {
-    void OnAttack(IDamageable target, int damage);
+    void OnAttack(IDamageable target, Stat stat);
 }

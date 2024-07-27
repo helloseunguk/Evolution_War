@@ -23,10 +23,10 @@ public class FloatingManager
             }
         }
     }
-    public void OnFloatingDamage(Transform targetUnit, int damage)
+    public void OnFloatingDamage(Transform targetUnit, float damage, bool isCritical)
     {
         var floating = floatingText.GetFloatingDamage();
-        floating.Init(targetUnit, damage);
+        floating.Init(targetUnit, (int)damage, isCritical);
     }
     public FloatingCanvas GetFloatingCanvas() 
     {

@@ -44,16 +44,16 @@ public class UIFade : MonoBehaviour
         switch (fadeInType)
         {
             case Define.FadeArrowType.UpArrow:
-                startPos = new Vector2(startPos.x, startPos.y - 100); // 아래에서 위로
+                rectTransform.anchoredPosition = new Vector2(startPos.x, startPos.y - 100); // 아래에서 위로
                 break;
             case Define.FadeArrowType.DownArrow:
-                startPos = new Vector2(startPos.x, startPos.y + 100); // 위에서 아래로
+                rectTransform.anchoredPosition = new Vector2(startPos.x, startPos.y + 100); // 위에서 아래로
                 break;
             case Define.FadeArrowType.LeftArrow:
-                startPos = new Vector2(startPos.x + 100, startPos.y); // 오른쪽에서 왼쪽으로
+                rectTransform.anchoredPosition = new Vector2(startPos.x + 100, startPos.y); // 오른쪽에서 왼쪽으로
                 break;
             case Define.FadeArrowType.RightArrow:
-                startPos = new Vector2(startPos.x - 100, startPos.y); // 왼쪽에서 오른쪽으로
+                rectTransform.anchoredPosition = new Vector2(startPos.x - 100, startPos.y); // 왼쪽에서 오른쪽으로
                 break;
         }
 
@@ -82,7 +82,7 @@ public class UIFade : MonoBehaviour
         }
 
         // 위치 이동 및 페이드 아웃 애니메이션
-        rectTransform.DOAnchorPos(endPos, fadeDuration);
         canvasGroup.DOFade(0, fadeDuration).OnComplete(() => gameObject.SetActive(false));
+        rectTransform.DOAnchorPos(endPos, fadeDuration);
     }
 }

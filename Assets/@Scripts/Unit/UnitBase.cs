@@ -34,8 +34,10 @@ public class UnitBase : MonoBehaviour, IDamageable
         if (isPlayable)
         {
             //저장된 플레이어의 스텟 읽어오기
-            stat.damage = 10;
+            stat.damage = 1;
             stat.attackRadius = 5;
+            stat.criticalRate = 0.5f;
+            stat.criticalDamage = 1f;
         }
         else
         {
@@ -104,16 +106,29 @@ public class UnitBase : MonoBehaviour, IDamageable
             targetLayer = 1 << enemyLayer; // 비트마스크로 변환
         }
     }
-    public void OnDamage(int damage)
+
+    public void OnDamage(Stat _stat)
     {
-        stat.hp -= damage;
+        float damageToApply = _stat.damage;
+        bool isCritical = false;
+        // 크리티컬 계산
+        if (Random.value <= _stat.criticalRate)
+        {
+            damageToApply += (_stat.damage * _stat.criticalDamage);
+            isCritical = true;
+        }
+
+        stat.hp -= damageToApply;
+        Managers.Floating.OnFloatingDamage(transform, damageToApply, isCritical);
         StartCoroutine(ChangeColorOnHit());
+
         if (stat.hp <= 0)
         {
             if (isTeam)
                 Managers.Battle.teamUnitList.Remove(this);
             else
                 Managers.Battle.enemyUnitList.Remove(this);
+
             isTargeting = false;
             Destroy(gameObject);
         }

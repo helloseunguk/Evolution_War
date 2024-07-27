@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DirectAttack : IDirectAttack
 {
-    public void OnAttack(IDamageable target, int damage)
+    public void OnAttack(IDamageable target, Stat stat)
     {
-        target.OnDamage(damage);
+        target.OnDamage(stat);
     }
 }

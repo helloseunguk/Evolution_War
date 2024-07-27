@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class AttackTrigger : MonoBehaviour
 {
-    private int damage;
+    private Stat stat;
     private float lifeTime = 0.1f;
     private ObjectPool<AttackTrigger> objectPool;
 
-    public void Initialize(int damage, Vector3 size, Vector3 offset, ObjectPool<AttackTrigger> pool)
+    public void Initialize(Stat _stat, Vector3 size, Vector3 offset, ObjectPool<AttackTrigger> pool)
     {
-        this.damage = damage;
+        stat = _stat;
         this.objectPool = pool;
         SetTriggerBox(size, offset);
         Invoke(nameof(Deactivate), lifeTime);
@@ -36,7 +36,7 @@ public class AttackTrigger : MonoBehaviour
         if (targetHealth != null)
         {
             Debug.Log("AttackTrigger의 데미지");
-            targetHealth.OnDamage(damage);
+            targetHealth.OnDamage(stat);
         }
     }
 

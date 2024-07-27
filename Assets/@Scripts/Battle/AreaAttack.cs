@@ -6,21 +6,21 @@ public class AreaAttack : IAreaAttack
     public LayerMask enemyLayer;
     public Define.AttackColliderType attackColliderType;
 
-    public void OnAttack(Vector3 center, int damage, float radius)
+    public void OnAttack(Vector3 center, Stat _stat)
     {
         if (attackColliderType == AttackColliderType.Box)
         {
-            OnBoxAttack(center, damage, radius);
+            OnBoxAttack(center, _stat);
         }
         else if (attackColliderType == AttackColliderType.Sphere)
         {
-            OnSphereAttack(center, damage, radius);
+            OnSphereAttack(center, _stat);
         }
     }
 
-    private void OnBoxAttack(Vector3 center, int damage, float radius)
+    private void OnBoxAttack(Vector3 center, Stat _stat)
     {
-        Vector3 halfExtents = new Vector3(radius, radius, radius);
+        Vector3 halfExtents = new Vector3(_stat.attackRadius, _stat.attackRadius, _stat.attackRadius);
         Collider[] hitColliders = Physics.OverlapBox(center, halfExtents, Quaternion.identity, enemyLayer);
         foreach (var hitCollider in hitColliders)
         {
@@ -28,20 +28,20 @@ public class AreaAttack : IAreaAttack
             IDamageable target = hitCollider.GetComponent<IDamageable>();
             if (target != null)
             {
-                target.OnDamage(damage);
+                target.OnDamage(_stat);
             }
         }
     }
 
-    private void OnSphereAttack(Vector3 center, int damage, float radius)
+    private void OnSphereAttack(Vector3 center, Stat _stat)
     {
-        Collider[] hitColliders = Physics.OverlapSphere(center, radius, enemyLayer);
+        Collider[] hitColliders = Physics.OverlapSphere(center, _stat.attackRadius, enemyLayer);
         foreach (var hitCollider in hitColliders)
         {
             IDamageable target = hitCollider.GetComponent<IDamageable>();
             if (target != null)
             {
-                target.OnDamage(damage);
+                target.OnDamage(_stat);
             }
         }
     }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IAreaAttack
 {
-    void OnAttack(Vector3 center, int damage, float radius);
+    void OnAttack(Vector3 center, Stat _stat);
 }

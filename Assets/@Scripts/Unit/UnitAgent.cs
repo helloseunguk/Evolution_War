@@ -28,16 +28,15 @@ public class UnitAgent : UnitBase
 
         if (isAreaAttack)
         {
-            Debug.Log("데미지 입힘");
             Vector3 attackCenter = transform.position; // 공격 중심
-            areaAttack.OnAttack(attackCenter, stat.damage, stat.attackRadius);
+            areaAttack.OnAttack(attackCenter, stat);
             ShowGizmosForAttack();
         }
         else
         {
             if (target.Value != null && targetHealth != null)
             {
-                directAttack.OnAttack(targetHealth, stat.damage);
+                directAttack.OnAttack(targetHealth, stat);
             }
         }
     }

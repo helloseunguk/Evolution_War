@@ -44,8 +44,8 @@ public class PlayerControl : UnitAgent
     {
 
         Vector3 attackCenter = transform.position; // 공격 중심
-        areaAttack.OnAttack(attackCenter, stat.damage, stat.attackRadius);
-        Managers.Floating.OnFloatingDamage(targetUnit.transform, stat.damage);
+        areaAttack.OnAttack(attackCenter, stat);
+
       //  targetUnit.OnDamage();
     }
 }
