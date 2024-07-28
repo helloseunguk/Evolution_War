@@ -20,6 +20,8 @@ public class BattleUI : MonoBehaviour
     [Header("유닛 아이콘 이미지 세팅값")]
     public float duration = 0.2f;
     public float scaleFactor = 1.2f;
+    [Header("스테이지 정보")]
+    public TMP_Text stageText;
 
     private Tween teamIconTwwen;
     private Tween enemyIconTwwen;   
@@ -47,7 +49,7 @@ public class BattleUI : MonoBehaviour
     {
         teamCount.text = Managers.Battle.teamUnitList.Count.ToString();
         emenyCount.text = Managers.Battle.enemyUnitList.Count.ToString();
-     
+        stageText.text = string.Format(Managers.Battle.GetCurStageInfo().Stage + " - " +Managers.Battle.GetCurStageInfo().Level);
     }
     private void CheckBattleState(int unitCount) 
     {

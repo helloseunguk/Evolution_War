@@ -45,7 +45,7 @@ public class MainScene : BaseScene
     {
         List<UnitData> unitsToRemove = new List<UnitData>();
 
-        foreach (var unit in UserInfo.userData.unitList)
+        foreach (var unit in EWUserInfo.userData.unitList)
         {
             // 유닛을 스폰
             Managers.Spawn.SpawnUnit(spawnTransform.position, true,false, spawnTransform);
@@ -56,7 +56,7 @@ public class MainScene : BaseScene
         // 모든 유닛을 스폰한 후, 임시 리스트에서 unitList에서 제거
         foreach (var unit in unitsToRemove)
         {
-            UserInfo.userData.unitList.Remove(unit);
+            EWUserInfo.userData.unitList.Remove(unit);
         }
     }
 }

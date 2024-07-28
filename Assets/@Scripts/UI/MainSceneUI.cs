@@ -34,10 +34,10 @@ public class MainSceneUI : MonoBehaviour
     {
         UpdateUI();
 
-        UserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
+        EWUserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
                 .Subscribe(_ => UpdateUI());
 
-        UserInfo.userHero = hero;
+        EWUserInfo.userHero = hero;
 
         summonBtn.OnClickAsObservable().Subscribe(_ =>
         {
@@ -46,35 +46,33 @@ public class MainSceneUI : MonoBehaviour
         }).AddTo(this);
         specialSummonBtn.OnClickAsObservable().Subscribe(_ => {
             Debug.Log("스페셜 소환");
-            UserInfo.userData.gold += 100;
-            UserInfo.userData.gem += 50;
-            UserInfo.userData.level += 1;
+            EWUserInfo.userData.gold += 100;
+            EWUserInfo.userData.gem += 50;
+            EWUserInfo.userData.level += 1;
         }).AddTo(this);
         mergeBtn.OnClickAsObservable().Subscribe(_ => 
         {
             Managers.Spawn.MergeUnit(spawnTransform);
             UpdateUI();
         }).AddTo(this);
-        battleBtn.OnClickAsObservable().Subscribe(_ => 
-        {
-            Debug.Log("배틀 시작");
-            Managers.Battle.isStart.Value = true;
-            Managers.Battle.InitBattleHero(heroBattlePosition.transform.position);
-            Managers.Battle.InitBattleUnit(battlePosition.transform.position);
-            Managers.Battle.InitBattleEnemy(battlePosition.transform.position);
-        }).AddTo(this);
         battleStageBtn.OnClickAsObservable().Subscribe(async _ => 
         {
-            Debug.Log("스테이지 팝업");
-           await Managers.UI.ShowPopupUI(Define.PopupType.PopupStageSelectUI);
+            //await Managers.UI.ShowPopupUI(Define.PopupType.PopupStageSelectUI, new PBStageSelectUI
+            //{
+            //    battlePosition = battlePosition.transform.position
+            //});
+            await Managers.UI.ShowPopupUI(Define.PopupType.PopupStageSelectUI, new PBStageSelectUI 
+            {
+                battlePosition = battlePosition.transform.position
+            });
         });
     }
     private void UpdateUI() 
     {
-        unitCountText.SetText(UserInfo.GetUnitListData().Count.ToString());
-        ownGoldText.SetText(UserInfo.userData.gold.ToString());
-        ownGemText.SetText(UserInfo.userData.gem.ToString());
-        ownTicketText.SetText(UserInfo.userData.ticket.ToString());
+        unitCountText.SetText(EWUserInfo.GetUnitListData().Count.ToString());
+        ownGoldText.SetText(EWUserInfo.userData.gold.ToString());
+        ownGemText.SetText(EWUserInfo.userData.gem.ToString());
+        ownTicketText.SetText(EWUserInfo.userData.ticket.ToString());
     //    userLevelText.SetText(UserInfo.userData.level.ToString());
     }
    

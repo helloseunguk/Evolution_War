@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class UI_Popup : UI_Base
 {
     public Button backBtn;
-
-    private void Start()
+    public PopupArg popupArg { get; private set; }
+    public virtual void Start()
     {
         backBtn.OnClickAsObservable().Subscribe(_ =>
         {
@@ -18,6 +18,10 @@ public class UI_Popup : UI_Base
     public virtual void Init() 
     {
         Managers.UI.SetCanvas(gameObject, true);
+    }
+    public virtual void SetPopupArg(PopupArg arg)
+    {
+        popupArg = arg;
     }
     public virtual void ClosePopupUI() 
     {

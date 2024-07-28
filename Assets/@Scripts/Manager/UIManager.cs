@@ -2,8 +2,13 @@ using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using static Define;
 
+public class PopupArg
+{
+    public static readonly PopupArg empty = new PopupArg();
+}
 public class UIManager
 {
     int order = 0;
@@ -36,7 +41,7 @@ public class UIManager
         sceneUI = _sceneUI;
         return _sceneUI;
     }
-    public async UniTask<UI_Popup> ShowPopupUI(PopupType popupType)
+    public async UniTask<UI_Popup> ShowPopupUI(Define.PopupType popupType, PopupArg arg = null)
     {
         string name = popupType.ToString();
 
@@ -47,25 +52,40 @@ public class UIManager
         GameObject go = await Managers.Resource.Instantiate($"{name}", UI_Canvas.PopupCanvas.transform);
 
         UI_Popup popup = Util.GetOrAddComponent<UI_Popup>(go);
+        if(arg != null)
+        {
+            popup.SetPopupArg(arg);
+        }
         popupStack.Push(popup);
         return popup;
     }
     public void ClosePopupUI(UI_Popup popup)
     {
+        Debug.Log("ClosePopupUI2");
         if (popupStack.Count == 0)
-            return;
-        if (popupStack.Peek() != popup)
         {
-            Debug.LogError("Close Popup Failed");
+            Debug.LogWarning("No popups to close.");
             return;
         }
+
+        if (popupStack.Peek() != popup)
+        {
+            Debug.LogError("Close Popup Failed: The popup to close is not the top popup.");
+            return;
+        }
+
         ClosePopupUI();
     }
     public void ClosePopupUI() 
     {
         if (popupStack.Count == 0)
+        {
+            Debug.LogWarning("No popups to close.");
             return;
+        }
+
         UI_Popup popup = popupStack.Pop();
+        Debug.Log($"Closing popup {popup.name}. Current stack count: {popupStack.Count}");
         Managers.Resource.Destroy(popup.gameObject);
         popup = null;
     }

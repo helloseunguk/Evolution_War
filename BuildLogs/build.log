@@ -1,44 +1,18 @@
-pipeline {
-    agent any
+4. 스크롤뷰 추가 
+- 스테이지 스크롤 뷰 스테이지 선택 후 진입 기능 구현 o
+- 상단 스테이지 정보 추가 o
+- 적 근접, 원거리, 마법 타입 유닛 구현 
+-스테이지 진입 전 보상 정보 표기
+- 스테이지 클리어 후 보상 지급 구현
+- 직전 스테이지 클리어 안했다면 진입 막기
+- 스테이지 별 획득 조건 구현 
+- 별 획득에 따른 보상 획득 구현
 
-    environment {
-        UNITY_PATH = "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.18f1\\Editor\\Unity.exe"
-        PROJECT_PATH = "C:\\Users\\HAN\\Documents\\GitHub\\Evolution_War"
-        BUILD_SCRIPT_PATH = "C:\\Users\\HAN\\Documents\\GitHub\\Evolution_War\\Assets\\Editor\\BuildPlayer.cs"
-        LOG_FILE = "C:\\Users\\HAN\\Documents\\GitHub\\Evolution_War\\BuildLogs\\build.log"
-        BUILD_FILE = "C:\\Users\\HAN\\Documents\\GitHub\\Evolution_War\\Builds\\AOS_1.0.apk"
-    }
+5. 플레이어 전투 퀄리티업
+- 좀 더 조작감 좋게 변경
+- 손에 무기 쥐어주기
+- 공격 반경 직관적으로 보이게 수정 
+- 피격  이펙트 추가
+- 공격 효과 추가 
 
-    stages {
-        stage('Build') {
-            steps {
-                // 유니티 빌드를 수행합니다.
-                bat "\"${UNITY_PATH}\" -quit -batchmode -buildTarget Android -projectPath \"${PROJECT_PATH}\" -executeMethod BuildPlayer.StartBuildAOS -logFile \"${LOG_FILE}\""
-            }
-        }
-
-    }
-
-    post {
-        always {
-            // 빌드 후 항상 실행되는 단계입니다.
-            echo 'Build finished.'
-        }
-        success {
-            // 빌드 성공 시 실행되는 단계입니다.
-            echo 'Build succeeded!'
-        }
-        failure {
-            // 빌드 실패 시 실행되는 단계입니다.
-            echo 'Build failed.'
-            // 유니티 빌드 로그를 출력합니다.
-            script {
-                def logFile = readFile("${LOG_FILE}")
-                echo "Unity Build Log:\n${logFile}"
-            }
-            // 콘솔 로그에 빌드 로그 다운로드 링크를 추가합니다.
-            archiveArtifacts artifacts: "${LOG_FILE}", allowEmptyArchive: true
-            echo "Build log can be downloaded from: ${env.BUILD_URL}artifact/${LOG_FILE}"
-        }
-    }
-}
+5. setTest GetText 기능 구현하기 ( stringID로)

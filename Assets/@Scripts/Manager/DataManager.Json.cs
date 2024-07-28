@@ -17,15 +17,15 @@ public partial class DataManager
     }
     public void SaveUserData()
     {
-        if (UserInfo.userData == null)
+        if (EWUserInfo.userData == null)
         {
             Debug.LogError("UserData is null, not saving to file.");
             return;
         }
-        UserInfo.RemoveDefaultUnits();
+        EWUserInfo.RemoveDefaultUnits();
 
 
-        string json = JsonConvert.SerializeObject(UserInfo.userData, Formatting.Indented);
+        string json = JsonConvert.SerializeObject(EWUserInfo.userData, Formatting.Indented);
         File.WriteAllText(userDataFilePath, json);
         Debug.Log("UserData saved.");
     }
@@ -34,7 +34,7 @@ public partial class DataManager
         if (File.Exists(userDataFilePath))
         {
             string json = File.ReadAllText(userDataFilePath);
-            UserInfo.userData = JsonConvert.DeserializeObject<UserData>(json);
+            EWUserInfo.userData = JsonConvert.DeserializeObject<UserData>(json);
             Debug.Log("UserData loaded.");
         }
         else
@@ -46,7 +46,7 @@ public partial class DataManager
     private void CreateNewJson()
     {
         // 초기 데이터 설정
-        UserInfo.userData = new UserData
+        EWUserInfo.userData = new UserData
         {
             name = "Default User",
             id = "0001",

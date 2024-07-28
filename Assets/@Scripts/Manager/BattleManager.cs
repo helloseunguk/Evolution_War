@@ -14,7 +14,7 @@ public class BattleManager
     public ReactiveCollection<UnitBase> teamUnitList = new ReactiveCollection<UnitBase>();
     public ReactiveCollection<UnitBase> enemyUnitList = new ReactiveCollection<UnitBase>();
     const float offsetDistance = 75f;  // 두 팀 사이의 총 간격이 150f가 되도록 설정
-    
+    private StageInfoScript curStageInfo;
     public void Init() 
     {
         isArrived.Subscribe(_ => 
@@ -25,9 +25,17 @@ public class BattleManager
             }
         });
     }
+    public void OnStartBattle(StageInfoScript info, Vector3 battlePosition)
+    {
+        InitBattleHero(battlePosition);
+        InitBattleUnit(battlePosition);
+        InitBattleEnemy(info, battlePosition);
+        isStart.Value = true;
+        curStageInfo = info;
+    }
     public void InitBattleHero(Vector3 battlePosition)
     {
-        var hero = UserInfo.userHero;
+        var hero = EWUserInfo.userHero;
         hero.transform.position = battlePosition;
     }
 
@@ -36,7 +44,7 @@ public class BattleManager
         const float gridWidth = 150f;
         const float gridHeight = 75f;
 
-        var units = UserInfo.GetUnitListData();
+        var units = EWUserInfo.GetUnitListData();
         teamUnitList.Clear();
         foreach (var unit in units.OrderBy(_ => _.Data.grade).ThenBy(_ => _.Data.level))
         {
@@ -83,17 +91,19 @@ public class BattleManager
         }
     }
 
-    public void InitBattleEnemy(Vector3 battlePosition)
+    public void InitBattleEnemy(StageInfoScript info, Vector3 battlePosition)
     {
         const float gridWidth = 150f;
         const float gridHeight = 75f;
 
-        var units = UserInfo.GetUnitListData();
         enemyUnitList.Clear();
-        int unitCount = units.Count;
+        int closeUnitCount = info.CloseUnitCount;
+        int longUnitCount = info.LongUnitCount;
+        int magicUnitCount = info.MagicUnitCount;
+        int totalUnitCount = closeUnitCount + longUnitCount + magicUnitCount;
 
-        int columns = Mathf.CeilToInt(Mathf.Sqrt(unitCount * (gridWidth / gridHeight)));
-        int rows = Mathf.CeilToInt((float)unitCount / columns);
+        int columns = Mathf.CeilToInt(Mathf.Sqrt(totalUnitCount * (gridWidth / gridHeight)));
+        int rows = Mathf.CeilToInt((float)totalUnitCount / columns);
 
         float unitSpacingX = gridWidth / columns;
         float unitSpacingZ = gridHeight / rows;
@@ -106,7 +116,8 @@ public class BattleManager
         Vector3 enemyStartPosition = new Vector3(startX - offsetDistance / 2, startY, startZ);
 
         int unitIndex = 0;
-        for (int i = 0; i < unitCount; i++)
+   
+        for (int i = 0; i < longUnitCount; i++)
         {
             int currentRow = unitIndex / columns;
             int currentColumn = unitIndex % columns;
@@ -116,14 +127,14 @@ public class BattleManager
 
             Vector3 enemyPosition = new Vector3(posX, startY, posZ);
 
-            Addressables.LoadAssetAsync<GameObject>("Enemy_01").Completed += handle =>
+            Addressables.LoadAssetAsync<GameObject>($"Enemy_{info.Stage:00}_Long").Completed += handle =>
             {
                 if (handle.Status == AsyncOperationStatus.Succeeded)
                 {
                     GameObject enemyPrefab = handle.Result;
 
                     var enemyObj = GameObject.Instantiate(enemyPrefab, enemyPosition, Quaternion.Euler(0, 90, 0));
-                    var unitData = Managers.Data.GetEnemyInfoScript().Find(_ => _.grade == 1);
+                    var unitData = Managers.Data.GetEnemyInfoScript().Find(_ => _.grade == info.Stage && _.level == info.Level && _.attackType == Define.UnitAttackType.Long);
                     var unitAgent = enemyObj.GetComponent<UnitAgent>();
                     unitAgent.isTeam = false;
                     unitAgent.unitData = unitData;
@@ -134,5 +145,65 @@ public class BattleManager
 
             unitIndex++;
         }
+        for (int i = 0; i <longUnitCount; i++)
+        {
+            int currentRow = unitIndex / columns;
+            int currentColumn = unitIndex % columns;
+
+            float posX = enemyStartPosition.x + (currentRow * unitSpacingX);
+            float posZ = enemyStartPosition.z + (currentColumn * unitSpacingZ);
+
+            Vector3 enemyPosition = new Vector3(posX, startY, posZ);
+
+            Addressables.LoadAssetAsync<GameObject>($"Enemy_{info.Stage:00}_Magic").Completed += handle =>
+            {
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    GameObject enemyPrefab = handle.Result;
+
+                    var enemyObj = GameObject.Instantiate(enemyPrefab, enemyPosition, Quaternion.Euler(0, 90, 0));
+                    var unitData = Managers.Data.GetEnemyInfoScript().Find(_ => _.grade == info.Stage && _.level == info.Level && _.attackType == Define.UnitAttackType.Magic);
+                    var unitAgent = enemyObj.GetComponent<UnitAgent>();
+                    unitAgent.isTeam = false;
+                    unitAgent.unitData = unitData;
+                    unitAgent.unitBattleEffects.InitializePools(2);
+                    enemyUnitList.Add(unitAgent);
+                }
+            };
+
+            unitIndex++;
+        }
+        for (int i = 0; i < closeUnitCount; i++)
+        {
+            int currentRow = unitIndex / columns;
+            int currentColumn = unitIndex % columns;
+
+            float posX = enemyStartPosition.x + (currentRow * unitSpacingX);
+            float posZ = enemyStartPosition.z + (currentColumn * unitSpacingZ);
+
+            Vector3 enemyPosition = new Vector3(posX, startY, posZ);
+
+            Addressables.LoadAssetAsync<GameObject>($"Enemy_{info.Stage:00}_Close").Completed += handle =>
+            {
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    GameObject enemyPrefab = handle.Result;
+
+                    var enemyObj = GameObject.Instantiate(enemyPrefab, enemyPosition, Quaternion.Euler(0, 90, 0));
+                    var unitData = Managers.Data.GetEnemyInfoScript().Find(_ => _.grade == info.Stage && _.level == info.Level && _.attackType == Define.UnitAttackType.Close);
+                    var unitAgent = enemyObj.GetComponent<UnitAgent>();
+                    unitAgent.isTeam = false;
+                    unitAgent.unitData = unitData;
+                    unitAgent.unitBattleEffects.InitializePools(2);
+                    enemyUnitList.Add(unitAgent);
+                }
+            };
+
+            unitIndex++;
+        }
+    }
+    public StageInfoScript GetCurStageInfo() 
+    {
+        return curStageInfo;
     }
 }

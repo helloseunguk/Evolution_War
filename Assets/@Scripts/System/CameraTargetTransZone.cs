@@ -15,7 +15,7 @@ public class CameraTargetTransZone : MonoBehaviour
         {
             if(transCameraName != null) Managers.Camera.ActivateCamera(transCameraName);
 
-            Managers.Camera.SetCameraTarget(UserInfo.GetUserHero().transform, UserInfo.GetUserHero().transform) ;
+            Managers.Camera.SetCameraTarget(EWUserInfo.GetUserHero().transform, EWUserInfo.GetUserHero().transform) ;
 
         }
     }

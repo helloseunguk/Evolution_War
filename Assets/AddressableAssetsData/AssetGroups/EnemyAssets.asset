@@ -18,10 +18,21 @@ MonoBehaviour:
   m_GUID: 77e27885138ec9342b15f061b1909acb
   m_SerializeEntries:
   - m_GUID: 0e0e1f16a491f424b92953bb5ca2cbbb
-    m_Address: Enemy_01
+    m_Address: Enemy_01_Close
     m_ReadOnly: 0
     m_SerializedLabels:
     - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b659cb4cf41adf7418d5ccc67f98f526
+    m_Address: Enemy_01_Long
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e2647c5316d6d342a40e35ac7c47da4
+    m_Address: Enemy_01_Magic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f80ab84c3b1ad0349a48ade9901230c5, type: 2}

@@ -17,6 +17,7 @@ public class FloatingBase : MonoBehaviour
     {
         target = _target;
         text = GetComponent<TMP_Text>();
+        text.color = Color.white;
         var color = text.color;
         color.a = 1f;
 
