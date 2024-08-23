@@ -13,6 +13,8 @@ public partial class DataManager
         userDataFilePath = Path.Combine(Application.persistentDataPath, "userData.json");
 
          LoadDataFromJson();
+
+        await Managers.String.LoadStringInfo();
         await LoadScript();
           await LocalDBCreate();
         

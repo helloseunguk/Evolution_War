@@ -31,6 +31,7 @@ public class Define
     {
         None = 0,
         PopupStageSelectUI = 1,
+        PopupUserProfile = 2,
     }
     public enum ContentsType
     {
@@ -201,6 +202,16 @@ public class Define
         Close = 1,
         Long = 2,
         Magic = 3,
+    }
+    public enum RuntimePlatfirm
+    {
+        Android = 0,
+        Ios = 1,
+        GooglePlayGames = 2,
+    }
+    public enum AreaGroupType
+    {
+        Asia = 0,
 
     }
 }

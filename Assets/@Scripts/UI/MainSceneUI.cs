@@ -12,6 +12,7 @@ public class MainSceneUI : MonoBehaviour
     public Button mergeBtn;
     public Button battleBtn;
     public Button battleStageBtn;
+    public Button userProfileBtn;
 
     public Transform spawnTransform;
 
@@ -65,6 +66,10 @@ public class MainSceneUI : MonoBehaviour
             {
                 battlePosition = battlePosition.transform.position
             });
+        });
+        userProfileBtn.OnClickAsObservable().Subscribe(async _ => 
+        {
+            await Managers.UI.ShowPopupUI(Define.PopupType.PopupUserProfile, PopupArg.empty);
         });
     }
     private void UpdateUI() 

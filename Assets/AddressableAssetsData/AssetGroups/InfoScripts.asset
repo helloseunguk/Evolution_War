@@ -17,8 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: c779b283f93cfd540bc85008e490b687
   m_SerializeEntries:
-  - m_GUID: 810d2351f4817884486ff5055c025fa3
+  - m_GUID: dafcbe7ee9208da41a83e9cca9b82d13
     m_Address: stageInfo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29122f25a7742c743aede8d9e5ebc558
+    m_Address: stringEnglish.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bdfb39764aece44ea24afe6de967877
+    m_Address: stringKorean.json
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

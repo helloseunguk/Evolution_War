@@ -17,8 +17,9 @@ public class StageSelectScrollView : BaseScrollView<StageSelectScrollViewItem,St
             {
                 if(mit.info.Stage == _.info.Stage && mit.info.Level == _.info.Level)
                 {
-                    mit.OnSelect();
                     selectedItem = mit;
+                    mit.OnSelect();
+
                 }
                 else
                 {

@@ -100,6 +100,7 @@ public class BattleManager
         int closeUnitCount = info.CloseUnitCount;
         int longUnitCount = info.LongUnitCount;
         int magicUnitCount = info.MagicUnitCount;
+        Debug.Log("매직유닛 카운트" + info.MagicUnitCount);
         int totalUnitCount = closeUnitCount + longUnitCount + magicUnitCount;
 
         int columns = Mathf.CeilToInt(Mathf.Sqrt(totalUnitCount * (gridWidth / gridHeight)));
@@ -145,7 +146,7 @@ public class BattleManager
 
             unitIndex++;
         }
-        for (int i = 0; i <longUnitCount; i++)
+        for (int i = 0; i <magicUnitCount; i++)
         {
             int currentRow = unitIndex / columns;
             int currentColumn = unitIndex % columns;

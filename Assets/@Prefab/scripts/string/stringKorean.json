@@ -1,0 +1,18 @@
+[
+  {
+    "stringID": 1,
+    "stringData": "{0}"
+  },
+  {
+    "stringID": 2,
+    "stringData": "{0}/{1}"
+  },
+  {
+    "stringID": 3,
+    "stringData": "유저 이름 : {0}"
+  },
+  {
+    "stringID": 4,
+    "stringData": "유저 아이디 : {0}"
+  }
+]

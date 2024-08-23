@@ -25,6 +25,8 @@ public class Managers : MonoBehaviour
     CameraManager m_camera = new CameraManager();
     EffectManager effect = new EffectManager();
     FloatingManager floating = new FloatingManager();
+    StringManager stringManager = new StringManager();
+    ServiceInfoManager serviceInfo = new ServiceInfoManager();
     public static SpawnManager Spawn => Instance.spawn;
     public static UnitManager Unit => Instance.unit;
     public static UIManager UI => Instance.ui;
@@ -35,7 +37,8 @@ public class Managers : MonoBehaviour
     public static CameraManager Camera => Instance.m_camera;
     public static EffectManager Effect => Instance.effect;
     public static FloatingManager Floating => Instance.floating;
-
+    public static StringManager String => Instance.stringManager;
+    public static ServiceInfoManager ServiceInfo => Instance.serviceInfo;
     static void Init() 
     {
         if (s_Instance == null)
