@@ -68,7 +68,7 @@ public class SpawnManager
 
                 unitPrefab.GetComponent<UnitAgent>().unitData = unitData;
 
-                var obj = GameObject.Instantiate(unitPrefab, spawnPosition, Quaternion.identity, parent); // 부모 Transform을 설정합니다.
+                var obj = GameObject.Instantiate(unitPrefab, spawnPosition, Quaternion.identity, parent); // 부모 Transform을 설정
                 Color colorValue;
                 if (UnityEngine.ColorUtility.TryParseHtmlString(unitData.color, out colorValue))
                 {

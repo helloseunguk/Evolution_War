@@ -91,18 +91,15 @@ public class UnitBase : MonoBehaviour, IDamageable
     }
     public void SetTargetLayer() 
     {
-        Debug.Log("타겟레이어 진입" + gameObject.layer);
         int enemyLayer = LayerMask.NameToLayer(Define.TargetLayerType.Enemy.ToString());
         int teamLayer = LayerMask.NameToLayer(Define.TargetLayerType.Team.ToString());
 
         if (gameObject.layer == enemyLayer)
         {
-            Debug.Log("타겟레이어 설정" + teamLayer);
             targetLayer = 1 << teamLayer; // 비트마스크로 변환
         }
         else if (gameObject.layer == teamLayer)
         {
-            Debug.Log("타겟레이어 설정" + enemyLayer);
             targetLayer = 1 << enemyLayer; // 비트마스크로 변환
         }
     }

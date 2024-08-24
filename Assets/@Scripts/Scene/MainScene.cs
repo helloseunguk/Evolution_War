@@ -48,7 +48,7 @@ public class MainScene : BaseScene
         foreach (var unit in EVUserInfo.userData.unitList)
         {
             // 유닛을 스폰
-            Managers.Spawn.SpawnUnit(spawnTransform.position, true,false, spawnTransform);
+            Managers.Spawn.SpawnUnit(spawnTransform.position, true,false, spawnTransform,unit);
             // 제거할 유닛을 임시 리스트에 추가
             unitsToRemove.Add(unit);
         }

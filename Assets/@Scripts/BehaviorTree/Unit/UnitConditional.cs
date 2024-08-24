@@ -14,7 +14,6 @@ public class UnitConditional : Conditional
     public override void OnAwake()
     {
         base.OnAwake();
-        Debug.Log("Start »£√‚");
         if(navMeshAgent == null)
             navMeshAgent = GetComponent<NavMeshAgent>();
         if(unitAgent == null)
