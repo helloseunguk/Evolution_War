@@ -17,7 +17,7 @@ public class PopupUserProfile : UI_Popup
     }
     public void UpdateUI() 
     {
-        userName.SetText("³ª´Â½Â¿í");
-        userID.SetText("12321321321");
+        userName.SetText(EVUserInfo.userData.name);
+        userID.SetText(EVUserInfo.userData.id);
     }
 }

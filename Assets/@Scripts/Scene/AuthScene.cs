@@ -72,7 +72,7 @@ public class AuthScene : MonoBehaviour
                     Managers.Data.LoadUserData();
                     EVUserInfo.userData.name = auth.CurrentUser.UserId;
                     EVUserInfo.userData.id = auth.CurrentUser.UserId;
-                    await Managers.Data.SaveUserDataToLocal(EVUserInfo.userData);
+              //      await Managers.Data.SaveUserDataToLocal(EVUserInfo.userData);
 
                     startPanel.SetActive(true);
                     break;
