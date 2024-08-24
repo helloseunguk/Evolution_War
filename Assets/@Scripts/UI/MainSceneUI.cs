@@ -35,10 +35,10 @@ public class MainSceneUI : MonoBehaviour
     {
         UpdateUI();
 
-        EWUserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
+        EVUserInfo.GetUnitListData().ObserveEveryValueChanged(units => units.Count)
                 .Subscribe(_ => UpdateUI());
 
-        EWUserInfo.userHero = hero;
+        EVUserInfo.userHero = hero;
 
         summonBtn.OnClickAsObservable().Subscribe(_ =>
         {
@@ -46,10 +46,9 @@ public class MainSceneUI : MonoBehaviour
             UpdateUI();
         }).AddTo(this);
         specialSummonBtn.OnClickAsObservable().Subscribe(_ => {
-            Debug.Log("½ºÆä¼È ¼ÒÈ¯");
-            EWUserInfo.userData.gold += 100;
-            EWUserInfo.userData.gem += 50;
-            EWUserInfo.userData.level += 1;
+            EVUserInfo.userData.gold += 100;
+            EVUserInfo.userData.gem += 50;
+            EVUserInfo.userData.level += 1;
         }).AddTo(this);
         mergeBtn.OnClickAsObservable().Subscribe(_ => 
         {
@@ -58,10 +57,6 @@ public class MainSceneUI : MonoBehaviour
         }).AddTo(this);
         battleStageBtn.OnClickAsObservable().Subscribe(async _ => 
         {
-            //await Managers.UI.ShowPopupUI(Define.PopupType.PopupStageSelectUI, new PBStageSelectUI
-            //{
-            //    battlePosition = battlePosition.transform.position
-            //});
             await Managers.UI.ShowPopupUI(Define.PopupType.PopupStageSelectUI, new PBStageSelectUI 
             {
                 battlePosition = battlePosition.transform.position
@@ -74,11 +69,10 @@ public class MainSceneUI : MonoBehaviour
     }
     private void UpdateUI() 
     {
-        unitCountText.SetText(EWUserInfo.GetUnitListData().Count.ToString());
-        ownGoldText.SetText(EWUserInfo.userData.gold.ToString());
-        ownGemText.SetText(EWUserInfo.userData.gem.ToString());
-        ownTicketText.SetText(EWUserInfo.userData.ticket.ToString());
-    //    userLevelText.SetText(UserInfo.userData.level.ToString());
+        unitCountText.SetText(EVUserInfo.GetUnitListData().Count.ToString());
+        ownGoldText.SetText(EVUserInfo.userData.gold.ToString());
+        ownGemText.SetText(EVUserInfo.userData.gem.ToString());
+        ownTicketText.SetText(EVUserInfo.userData.ticket.ToString());
     }
    
 }

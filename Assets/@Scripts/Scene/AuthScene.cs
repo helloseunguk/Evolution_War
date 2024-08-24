@@ -11,6 +11,7 @@ using UniRx;
 using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks.Triggers;
 using TMPro;
+using Firebase.Auth;
 public class AuthScene : MonoBehaviour
 {
     public Button googleBtn;
@@ -21,29 +22,32 @@ public class AuthScene : MonoBehaviour
     public GameObject loginPanel;
     public GameObject startPanel;
 
-    public TMP_Text userID;
     public TMP_Text buildVersion;
+    public TMP_Text accountState;
 
 
     ReactiveProperty<Define.AuthType> authState = new ReactiveProperty<Define.AuthType>();
     public IReadOnlyReactiveProperty<Define.AuthType> AuthState => authState;
 
 
-  //  FirebaseAuth auth;
+    FirebaseAuth auth;  
     private void Start()
     {
         buildVersion.text = $"buildVersion : {Application.version}";
-    //    auth = FirebaseAuth.DefaultInstance;
+        auth = FirebaseAuth.DefaultInstance;
         googleBtn.OnClickAsObservable().Subscribe(_ =>
         {
             OnClickGoogleLogin();
         });
         guestBtn.OnClickAsObservable().Subscribe(_ => 
         {
-            OnClickLoginAnonymouse();
+            OnClickLoginGuest();
+            Debug.Log("Guest Login");
         });
         startBtn.OnClickAsObservable().Subscribe(_ => 
         {
+            //임시
+            OnClickLoginGuest();
             LoadingScene.LoadScene("ResourceDownLoadScene");
         });
         logOutBtn.OnClickAsObservable().Subscribe(_ => 
@@ -65,11 +69,10 @@ public class AuthScene : MonoBehaviour
             switch (_) 
             {
                 case Define.AuthType.Authenticated:
-                    // Managers.Data.DBConnectionCheck();
                     Managers.Data.LoadUserData();
-                    //UserInfo.userData.name = auth.CurrentUser.UserId;
-                    //UserInfo.userData.id = auth.CurrentUser.UserId;
-                    //      await Managers.Data.SaveUserDataToLocal(UserInfo.userData);
+                    EVUserInfo.userData.name = auth.CurrentUser.UserId;
+                    EVUserInfo.userData.id = auth.CurrentUser.UserId;
+                    await Managers.Data.SaveUserDataToLocal(EVUserInfo.userData);
 
                     startPanel.SetActive(true);
                     break;
@@ -78,9 +81,7 @@ public class AuthScene : MonoBehaviour
                     break;
             }
         });
-#if !(UNITY_EDITOR || DEVELOPMENT_BUILD)
-userID.gameObject.SetActive(false);
-#endif
+
         CheckLogin();
 
     }
@@ -88,29 +89,30 @@ userID.gameObject.SetActive(false);
     {
         authState.Value = _authState;
     }
-    void OnClickLoginAnonymouse() 
+    void OnClickLoginGuest() 
     {
-        //auth.SignInAnonymouslyAsync().ContinueWith(task => {
-        //    if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
-        //    {
-     
-        //        FirebaseUser newUser = task.Result.User;
-        //        UnityMainThreadDispatcher.Instance().Enqueue(() =>
-        //        {
-        //            Debug.Log("게스트 로그인 성공");
-        //            userID.text = task.Result.User.UserId;
-        //            UserInfo.userData.name = task.Result.User.UserId;
-        //            UserInfo.userData.id = task.Result.User.UserId;
-        //            SetAuthState(Define.AuthType.Authenticated);
+        auth.SignInAnonymouslyAsync().ContinueWith(task =>
+        {
+            if (task.IsCompleted && !task.IsCanceled && !task.IsFaulted)
+            {
 
-        //        });
-     
-        //    }
-        //});
+                FirebaseUser newUser = task.Result.User;
+                UnityMainThreadDispatcher.Instance().Enqueue(() =>
+                {
+                    Debug.Log("게스트 로그인 성공");
+
+                    EVUserInfo.userData.name = task.Result.User.UserId;
+                    EVUserInfo.userData.id = task.Result.User.UserId;
+                    SetAuthState(Define.AuthType.Authenticated);
+
+                });
+
+            }
+        });
     }
     void OnClickLogout() 
     {
-    //    auth.SignOut();
+        auth.SignOut();
         Debug.Log("User has been logged out.");
         Managers.Data.DeleteUserDataFile();
         SetAuthState(Define.AuthType.UnAuthenticated);
@@ -157,21 +159,21 @@ userID.gameObject.SetActive(false);
     //}
     void CheckLogin() 
     {
-        //if (auth.CurrentUser != null)
-        //{
-        //    // 사용자가 이미 로그인되어 있음
-        //    UserInfo.userData.id = auth.CurrentUser.UserId;
+        if (auth.CurrentUser != null)
+        {
+            // 사용자가 이미 로그인되어 있음
+            EVUserInfo.userData.id = auth.CurrentUser.UserId;
 
-        //    Debug.Log("User is already logged in as " + auth.CurrentUser.UserId);
-        //    UserInfo.userData.name = auth.CurrentUser.UserId;
-        //    UserInfo.userData.id = auth.CurrentUser.UserId;
-        //    userID.text = auth.CurrentUser.UserId;
-        //    SetAuthState(Define.AuthType.Authenticated);
-        //}
-        //else
-        //{
-        //    SetAuthState(Define.AuthType.UnAuthenticated);
-        //    Debug.Log("No user is currently logged in.");
-        //}
+            Debug.Log("User is already logged in as " + auth.CurrentUser.UserId);
+            EVUserInfo.userData.name = auth.CurrentUser.UserId;
+            EVUserInfo.userData.id = auth.CurrentUser.UserId;
+            SetAuthState(Define.AuthType.Authenticated);
+        }
+        else
+        {
+            SetAuthState(Define.AuthType.UnAuthenticated);
+            Debug.Log("No user is currently logged in.");
+        }
     }
+
 }

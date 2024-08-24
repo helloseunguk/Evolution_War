@@ -24,7 +24,12 @@ public class Define
         None = 0,
         Authenticated = 1,  //로그인 상태
         UnAuthenticated = 2,//로그인 되지않은 상태
-
+    }
+    public enum AccountState
+    {
+        None = 0,
+        Guest = 1,
+        Google = 2,
 
     }
     public enum PopupType 

@@ -47,6 +47,7 @@ public class ServiceInfoManager
 #endif
             var lanLong = PlayerPrefs.GetInt(EVOption.LocalLanguageOptionString, 0);
             lan = (SystemLanguage)lanLong;
+            return lan;
         }
     }
 }

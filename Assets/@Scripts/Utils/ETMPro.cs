@@ -57,7 +57,6 @@ public class ETMPro : MonoBehaviour
             {
                 //    NMAuth.LoadData();
                 text.text = StringManagerEditor.GetString(stringID);
-                Debug.Log(StringManagerEditor.GetString(stringID));
             }
         }
     }

@@ -81,7 +81,7 @@ public class SpawnManager
                 var unit = new Unit(unitData);
                 
                 
-                EWUserInfo.AddUnitData(unit);
+                EVUserInfo.AddUnitData(unit);
                 Managers.Unit.RegisterGameObject(unit, obj);
             }
         };
@@ -91,7 +91,7 @@ public class SpawnManager
     public void MergeUnit(Transform parent = null)
     {
         // Get the list of units the user currently owns
-        var units = EWUserInfo.GetUnitListData();
+        var units = EVUserInfo.GetUnitListData();
         if (units.Count < 2)
         {
             return;
@@ -144,9 +144,9 @@ public class SpawnManager
 
                 // Remove the merged units from the list
                 units.Remove(unit1);
-                EWUserInfo.RemoveUnitData(unit1);
+                EVUserInfo.RemoveUnitData(unit1);
                 units.Remove(unit2);
-                EWUserInfo.RemoveUnitData(unit2);
+                EVUserInfo.RemoveUnitData(unit2);
                 break; // Exit the loop after merging a pair
             }
         }
@@ -203,7 +203,7 @@ public class SpawnManager
         {
             spawnRarity = Define.SpawnRarity.Normal;
         }
-        int currentLevel = EWUserInfo.userData.level;
+        int currentLevel = EVUserInfo.userData.level;
         int targetLevel = currentLevel + levelOffset;
         int targetGrade = (targetLevel - 1) / 5 + 1; // Increase grade every 5 levels
         targetLevel = (targetLevel - 1) % 5 + 1; // Level cycles from 1 to 5

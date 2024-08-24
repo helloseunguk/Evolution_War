@@ -35,7 +35,7 @@ public class BattleManager
     }
     public void InitBattleHero(Vector3 battlePosition)
     {
-        var hero = EWUserInfo.userHero;
+        var hero = EVUserInfo.userHero;
         hero.transform.position = battlePosition;
     }
 
@@ -44,7 +44,7 @@ public class BattleManager
         const float gridWidth = 150f;
         const float gridHeight = 75f;
 
-        var units = EWUserInfo.GetUnitListData();
+        var units = EVUserInfo.GetUnitListData();
         teamUnitList.Clear();
         foreach (var unit in units.OrderBy(_ => _.Data.grade).ThenBy(_ => _.Data.level))
         {

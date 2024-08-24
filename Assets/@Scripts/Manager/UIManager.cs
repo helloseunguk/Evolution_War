@@ -61,7 +61,6 @@ public class UIManager
     }
     public void ClosePopupUI(UI_Popup popup)
     {
-        Debug.Log("ClosePopupUI2");
         if (popupStack.Count == 0)
         {
             Debug.LogWarning("No popups to close.");
@@ -85,7 +84,6 @@ public class UIManager
         }
 
         UI_Popup popup = popupStack.Pop();
-        Debug.Log($"Closing popup {popup.name}. Current stack count: {popupStack.Count}");
         Managers.Resource.Destroy(popup.gameObject);
         popup = null;
     }

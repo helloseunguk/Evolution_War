@@ -1,0 +1,271 @@
+[33mcommit c30dfdef3368a1a295b3d40a39fc75f0e19e5362[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Aug 24 00:52:41 2024 +0900
+
+    string 자동화
+    
+    .
+
+[33mcommit 54b08fc55ddc844efbdc3b502296571790737bfd[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Mon Jul 29 00:10:34 2024 +0900
+
+    원거리 유닛 구현
+    
+    .
+
+[33mcommit 2a6048d76ef12bc650f90c973f04df11d889986c[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun Jul 28 22:16:40 2024 +0900
+
+    라이브러리 폴더 삭제, 에셋 폴더 이동 및 정리
+    
+    .
+
+[33mcommit d94f5f85525dfe77806357597ea26e6f934ce015[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jul 27 17:15:30 2024 +0900
+
+    적 공격 데미지 적용 로직 수정 및 크리티컬 , 확률 추가
+    
+    .
+
+[33mcommit b5b1336d719e7d630d65019caa4e0fa6d613baa2[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jul 27 00:05:27 2024 +0900
+
+    팝업 ui Define(Enum)으로 팝업하도록 수정
+    
+    .
+
+[33mcommit 32d37dc2d1aec902a03264b68b7021795cee36da[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Fri Jul 26 23:29:12 2024 +0900
+
+    적 UnitData 생성 추가, 스테이지 json 스크립트 변경 추가, 유닛 및 적 로직 수정
+    
+    .
+
+[33mcommit 42d2d9251984166e82beb467a93cad4d62db7c3a[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Thu Jul 25 19:40:03 2024 +0900
+
+    적 공격시 데미지 텍스트 뜨도록 수정
+    
+    .
+
+[33mcommit c8297ad944adcf10c0d368d65024d7e81f62a27a[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jun 29 19:19:48 2024 +0900
+
+    어드레서블 cdn시 라벨 모두 받아오도록 수정
+    
+    .
+
+[33mcommit 16932d4a3fd4da224ed1444fc1070ccd0f580823[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jun 29 15:22:39 2024 +0900
+
+    어드레서블 앱 업데이트 자동화 구현
+    
+    .
+
+[33mcommit 4896431667a5952de7f83c5ba96649e5dd1b015e[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Fri Jun 28 15:21:19 2024 +0900
+
+    어드레서블 aws 주소 설정, 플랫폼 스위칭
+    
+    .
+
+[33mcommit c323df2e034e138aaabaf5cd31b1bf97e4c6152a[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun Jun 23 22:49:38 2024 +0900
+
+    엑셀컨버터 수정
+    
+    .
+
+[33mcommit 7fb33a6e29821233256e1456c0d3a0c3da8b27c6[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Fri Jun 21 01:13:10 2024 +0900
+
+    범위공격 구현
+    
+    .
+
+[33mcommit 451379c642293bfd134694dd9500939132818a05[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun Jun 16 23:04:44 2024 +0900
+
+    유닛 전투 로직 구현
+    
+    .
+
+[33mcommit fd49d199eb79716cc2579916a23539fd7baa28df[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jun 15 18:58:07 2024 +0900
+
+    카메라 댐핑 삭제
+    
+    .
+
+[33mcommit 423da5e8c08ac96d1eb8183966bb0d8c39631a72[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jun 15 18:53:16 2024 +0900
+
+    Update Managers.cs
+
+[33mcommit 2c6abd46f630856a2010dca5d35f10ef07f30bff[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jun 15 18:53:11 2024 +0900
+
+    유닛 조이스틱 움직임, 터치 카메라 회전구현, 카메라 시퀀스 추가
+    
+    시퀀스
+    - 전장 보여주기 -> 다 보여주면 플레이어 카메라로 전환
+
+[33mcommit 388e4fd414093a6e19b98b1b128667e69e2f5a71[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Tue Jun 11 00:54:41 2024 +0900
+
+    유닛 공격하도록 수정 + 이동속도 슨크립트 적용
+    
+    .
+
+[33mcommit bf73dde4192c21fd859703d6e21073eba4c6906a[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Mon Jun 10 23:55:58 2024 +0900
+
+    유닛 머지 효과 추가
+    
+    ,
+
+[33mcommit 459224bd3d1aef9cb8f5f9aeddd23317add38114[m
+Merge: 5400d2e8 5ce1a82f
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Mon Jun 10 00:51:32 2024 +0900
+
+    Merge pull request #3 from helloseunguk/branch_newBattle
+    
+    확률 소환 적용
+
+[33mcommit 5ce1a82f26b4246cc46a25ecb93633b653e1b70f[m[33m ([m[1;31morigin/branch_newBattle[m[33m)[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Mon Jun 10 00:51:04 2024 +0900
+
+    확률 소환 적용
+    
+    .
+
+[33mcommit 5400d2e863d9fee475f51519b06885d4f36eaad4[m
+Merge: aa5c62fa 4ee9d76b
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun Jun 9 22:50:28 2024 +0900
+
+    Merge pull request #2 from helloseunguk/branch_newBattle
+    
+    유닛소환 파티클 적용
+
+[33mcommit 4ee9d76b33cd82fe9387c721a28d353ea9466e0e[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun Jun 9 22:43:26 2024 +0900
+
+    유닛소환 파티클 적용
+    
+    .
+
+[33mcommit aa5c62fa6520fa4ee7051c2262528e36cce3a29f[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun Jun 2 17:02:32 2024 +0900
+
+    유닛 생성 좌우 폭 수정
+    
+    .
+
+[33mcommit eb8f1bfdfb0c1ded9d6d9eeca71e9abd168de171[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun Jun 2 00:59:22 2024 +0900
+
+    유닛 체력 수정
+    
+    .
+
+[33mcommit edcb7fea1e336fb2e9dd3492ae069a649a69b337[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jun 1 23:51:29 2024 +0900
+
+    전투 유닛 카운트 및 ui 애니메이션 추가, 하이어라키 에셋 및 터치패드 에셋 임포트
+    
+    .
+
+[33mcommit 51eb788d712156850cdb18f52e5cc09f7fd4d678[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sat Jun 1 01:15:17 2024 +0900
+
+    아군유닛 ai 완성
+    
+    .
+
+[33mcommit 9039629e0772398fba567261e1ebb18d13692018[m
+Merge: 2060c7fe 4af4183f
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Fri May 31 22:52:48 2024 +0900
+
+    Merge pull request #1 from helloseunguk/sub_branch
+    
+    전투 로직 개발중
+
+[33mcommit 4af4183fc487a2a99e5742574d5786d46b7229db[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Fri May 31 22:52:22 2024 +0900
+
+    전투 로직 개발중
+    
+    .
+
+[33mcommit 2060c7fefd9337cf4a841358be39d0be70607293[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Fri May 31 21:48:39 2024 +0900
+
+    내 유닛 이동 로직 및 카메라 전환 로직 구현
+    
+    .
+
+[33mcommit 1f7a1f307df45174cedb5718da9f741a161fa380[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Fri May 31 17:39:41 2024 +0900
+
+    적 ai 구현 완료
+    
+    .
+
+[33mcommit c5e55bbfadf6b91445defcf7867eb7fa45033acb[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun May 19 02:08:47 2024 +0900
+
+    게임 시작시 유닛 불러오기 기능 추가
+    
+    .
+
+[33mcommit c9fe1db0519d1128bc7a5ea8c4d4f52081145dbd[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Sun May 19 00:12:17 2024 +0900
+
+    애니메이션 에셋 임포트, 적 ai 행동트리 일부 구현 완료
+    
+    - 적 이동 및 타겟 탐지 로직, 공격 로직 구현
+
+[33mcommit 1e79d19bd38879ba1e57ac223d03575aa2594c7b[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Wed May 15 23:13:07 2024 +0900
+
+    적 유닛 에셋 임포트
+    
+    .
+
+[33mcommit 43a28564b416b85371c57a9b00f8fcf13b33966a[m
+Author: helloseunguk <101809968+helloseunguk@users.noreply.github.com>
+Date:   Wed May 15 18:37:51 2024 +0900
+
+    behavior tree 에셋 임포�

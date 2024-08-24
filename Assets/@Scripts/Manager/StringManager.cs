@@ -5,7 +5,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class StringManager

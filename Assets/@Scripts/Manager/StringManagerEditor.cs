@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using TMPro;
 using Unity.Linq;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
