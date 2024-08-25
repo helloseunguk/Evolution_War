@@ -26,6 +26,7 @@ public class AuthScene : MonoBehaviour
     public TMP_Text accountState;
 
 
+
     ReactiveProperty<Define.AuthType> authState = new ReactiveProperty<Define.AuthType>();
     public IReadOnlyReactiveProperty<Define.AuthType> AuthState => authState;
 
@@ -70,10 +71,10 @@ public class AuthScene : MonoBehaviour
             {
                 case Define.AuthType.Authenticated:
                     Managers.Data.LoadUserData();
-                    EVUserInfo.userData.name = auth.CurrentUser.UserId;
-                    EVUserInfo.userData.id = auth.CurrentUser.UserId;
-              //      await Managers.Data.SaveUserDataToLocal(EVUserInfo.userData);
-
+                    if(EVUserInfo.userData.name == "")
+                    {
+                        EVUserInfo.userData.name = "Guest User" + UnityEngine.Device.SystemInfo.deviceUniqueIdentifier;
+                    }
                     startPanel.SetActive(true);
                     break;
                 case Define.AuthType.UnAuthenticated:
@@ -100,8 +101,7 @@ public class AuthScene : MonoBehaviour
                 UnityMainThreadDispatcher.Instance().Enqueue(() =>
                 {
                     Debug.Log("게스트 로그인 성공");
-
-                    EVUserInfo.userData.name = task.Result.User.UserId;
+                    EVUserInfo.userData.name = "Guest User" +  UnityEngine.Device.SystemInfo.deviceUniqueIdentifier;
                     EVUserInfo.userData.id = task.Result.User.UserId;
                     SetAuthState(Define.AuthType.Authenticated);
 
@@ -161,18 +161,14 @@ public class AuthScene : MonoBehaviour
     {
         if (auth.CurrentUser != null)
         {
-            // 사용자가 이미 로그인되어 있음
-            EVUserInfo.userData.id = auth.CurrentUser.UserId;
-
-            Debug.Log("User is already logged in as " + auth.CurrentUser.UserId);
-            EVUserInfo.userData.name = auth.CurrentUser.UserId;
-            EVUserInfo.userData.id = auth.CurrentUser.UserId;
+            Debug.Log("이미 로그인 되어있음");
+            //EVUserInfo.userData.name = auth.CurrentUser.DisplayName;
+            //EVUserInfo.userData.id = auth.CurrentUser.UserId;
             SetAuthState(Define.AuthType.Authenticated);
         }
         else
         {
             SetAuthState(Define.AuthType.UnAuthenticated);
-            Debug.Log("No user is currently logged in.");
         }
     }
 

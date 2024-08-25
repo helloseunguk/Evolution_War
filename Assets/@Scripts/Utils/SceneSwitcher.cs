@@ -1,10 +1,13 @@
 ﻿using UnityEditor;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
 
 namespace UnityToolbarExtender.Examples
 {
+#if UNITY_EDITOR
 	static class ToolbarStyles
 	{
 		public static readonly GUIStyle commandButtonStyle;
@@ -85,4 +88,5 @@ namespace UnityToolbarExtender.Examples
 			sceneToOpen = null;
 		}
 	}
+#endif
 }
