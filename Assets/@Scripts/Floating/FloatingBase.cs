@@ -13,7 +13,8 @@ public class FloatingBase : MonoBehaviour
     public Vector3 offset;
     TMP_Text text;
 
-    public virtual void Init(Transform _target, int damage, bool isCritical)
+
+    public virtual void Init(Transform _target, int damage, bool isCritical, bool isLoop = false)
     {
         target = _target;
         text = GetComponent<TMP_Text>();
@@ -35,7 +36,10 @@ public class FloatingBase : MonoBehaviour
         }
 
         mainCam = Camera.main.transform;
-        offset.y = collider.bounds.max.y + 0.5f;
+        if (collider != null)
+            offset.y = collider.bounds.max.y + 0.5f;
+        else
+            offset.y = 3f;
         worldSpaceCanvas = Managers.Floating.GetFloatingCanvas().transform;
 
         transform.SetParent(worldSpaceCanvas);
@@ -62,9 +66,18 @@ public class FloatingBase : MonoBehaviour
         sequence.Append(transform.DOMoveY(transform.position.y + 1, 1.0f).SetEase(Ease.OutQuad));
         sequence.Join(text.DOFade(0, 1.0f).SetEase(Ease.OutQuad));
 
-        // 애니메이션이 끝난 후 오브젝트 반환
-        sequence.OnComplete(() => Managers.Floating.ReturnFloatingText(this));
+        // 만약 isLoop가 true라면 loop 설정
+        if (isLoop)
+        {
+            sequence.SetLoops(-1, LoopType.Restart); // 무한 반복
+        }
+        else
+        {
+            // 애니메이션이 끝난 후 오브젝트 반환
+            sequence.OnComplete(() => Managers.Floating.ReturnFloatingText(this));
+        }
     }
+
 
     // Update is called once per frame
     public virtual void Update()

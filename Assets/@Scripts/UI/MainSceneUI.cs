@@ -5,15 +5,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Runtime.CompilerServices;
+using System;
 public class MainSceneUI : MonoBehaviour
 {
+    private enum CamState 
+    {
+        Main = 0,
+        GoldMine = 1,
+    }
+    private CamState curCamState;
     public Button summonBtn;
     public Button specialSummonBtn;
     public Button mergeBtn;
     public Button battleBtn;
     public Button battleStageBtn;
     public Button userProfileBtn;
-
+    public Button leftArrowBtn;
+    public Button rightArrowBtn;
+    
     public Transform spawnTransform;
 
     public TMP_Text unitCountText;
@@ -30,6 +39,7 @@ public class MainSceneUI : MonoBehaviour
 
     public GameObject hero;
 
+    public List<GameObject> mainStateObjects= new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +76,34 @@ public class MainSceneUI : MonoBehaviour
         {
             await Managers.UI.ShowPopupUI(Define.PopupType.PopupUserProfile, PopupArg.empty);
         });
+        leftArrowBtn.OnClickAsObservable().Subscribe(_ => 
+        {
+            switch (curCamState)
+            {
+                case CamState.Main:
+                    break;
+                case CamState.GoldMine:
+                    SetCamState(CamState.Main);
+                    break;
+                default:
+                    break;
+            }
+        });
+        rightArrowBtn.OnClickAsObservable().Subscribe(_ => 
+        {
+            switch(curCamState)
+            {
+                case CamState.Main:
+                    SetCamState(CamState.GoldMine);
+                    break;
+                case CamState.GoldMine:
+                    break;
+                default:
+                    break;
+            }
+
+        });
+
     }
     private void UpdateUI() 
     {
@@ -73,6 +111,22 @@ public class MainSceneUI : MonoBehaviour
         ownGoldText.SetText(EVUserInfo.userData.gold.ToString());
         ownGemText.SetText(EVUserInfo.userData.gem.ToString());
         ownTicketText.SetText(EVUserInfo.userData.ticket.ToString());
+    }
+    private void SetCamState(CamState state) 
+    {
+        switch(state)
+        {
+            case CamState.GoldMine:
+                Managers.Camera.ActivateCamera("GoldMineCamera");
+                curCamState = CamState.GoldMine;
+                break;
+            case CamState.Main:
+                Managers.Camera.ActivateCamera("LobbyCamera");
+                curCamState = CamState.Main;
+                break;
+            default:
+                break;
+        }
     }
    
 }

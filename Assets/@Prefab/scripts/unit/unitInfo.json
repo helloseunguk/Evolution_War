@@ -9,7 +9,8 @@
     "Color": "#90EE90",
     "AttackRange": 5.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 10
   },
   {
     "Grade": 1,
@@ -21,7 +22,8 @@
     "Color": "#228B22",
     "AttackRange": 5.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 13
   },
   {
     "Grade": 1,
@@ -33,7 +35,8 @@
     "Color": "#ADD8E6",
     "AttackRange": 5.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 16
   },
   {
     "Grade": 1,
@@ -45,7 +48,8 @@
     "Color": "#00008B",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 20
   },
   {
     "Grade": 1,
@@ -57,7 +61,8 @@
     "Color": "#FFD700",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 24
   },
   {
     "Grade": 2,
@@ -69,7 +74,8 @@
     "Color": "#90EE90",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 20
   },
   {
     "Grade": 2,
@@ -81,7 +87,8 @@
     "Color": "#228B22",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 25
   },
   {
     "Grade": 2,
@@ -93,7 +100,8 @@
     "Color": "#ADD8E6",
     "AttackRange": 6.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 31
   },
   {
     "Grade": 2,
@@ -105,7 +113,8 @@
     "Color": "#00008B",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 39
   },
   {
     "Grade": 2,
@@ -117,7 +126,8 @@
     "Color": "#FFD700",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 49
   },
   {
     "Grade": 3,
@@ -129,7 +139,8 @@
     "Color": "#90EE90",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 40
   },
   {
     "Grade": 3,
@@ -141,7 +152,8 @@
     "Color": "#228B22",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 50
   },
   {
     "Grade": 3,
@@ -153,7 +165,8 @@
     "Color": "#ADD8E6",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 63
   },
   {
     "Grade": 3,
@@ -165,7 +178,8 @@
     "Color": "#00008B",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 78
   },
   {
     "Grade": 3,
@@ -177,7 +191,8 @@
     "Color": "#FFD700",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 98
   },
   {
     "Grade": 4,
@@ -189,7 +204,8 @@
     "Color": "#90EE90",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 80
   },
   {
     "Grade": 4,
@@ -201,7 +217,8 @@
     "Color": "#228B22",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 100
   },
   {
     "Grade": 4,
@@ -213,7 +230,8 @@
     "Color": "#ADD8E6",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 125
   },
   {
     "Grade": 4,
@@ -225,7 +243,8 @@
     "Color": "#00008B",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 156
   },
   {
     "Grade": 4,
@@ -237,7 +256,8 @@
     "Color": "#FFD700",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 195
   },
   {
     "Grade": 5,
@@ -249,7 +269,8 @@
     "Color": "#90EE90",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 160
   },
   {
     "Grade": 5,
@@ -261,7 +282,8 @@
     "Color": "#228B22",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 200
   },
   {
     "Grade": 5,
@@ -273,7 +295,8 @@
     "Color": "#ADD8E6",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 250
   },
   {
     "Grade": 5,
@@ -285,7 +308,8 @@
     "Color": "#00008B",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 313
   },
   {
     "Grade": 5,
@@ -297,6 +321,7 @@
     "Color": "#FFD700",
     "AttackRange": 7.0,
     "AttackSpeed": 1.0,
-    "AttackRadius": 0.0
+    "AttackRadius": 0.0,
+    "GoldIncome": 391
   }
 ]

@@ -22,3 +22,4 @@ MonoBehaviour:
   attackSpeed: 1
   attackRange: 5
   attackRadius: 0
+  goldIncome: 16

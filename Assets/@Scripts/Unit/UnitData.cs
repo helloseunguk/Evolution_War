@@ -16,7 +16,7 @@ public class UnitData : ScriptableObject
     public float attackSpeed;
     public float attackRange;
     public float attackRadius;
-
+    public int goldIncome;
     public bool IsDefault()
     {
         return grade == 0 &&
@@ -27,6 +27,7 @@ public class UnitData : ScriptableObject
                string.IsNullOrEmpty(color) &&
                attackSpeed == 0.0f &&
                attackRange == 0.0f &&
-               attackRadius == 0.0f;
+               attackRadius == 0.0f &&
+               goldIncome == 0;
     }
 }

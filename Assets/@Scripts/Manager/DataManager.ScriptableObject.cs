@@ -67,7 +67,7 @@ public partial class DataManager
         unitSO.attackRange = data.attackRange;
         unitSO.attackSpeed = data.attackSpeed;
         unitSO.attackRadius = data.attackRadius;
-
+        unitSO.goldIncome = data.goldIncome;
         EditorUtility.SetDirty(unitSO);
         AssetDatabase.SaveAssets();
 #endif

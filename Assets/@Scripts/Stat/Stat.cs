@@ -17,4 +17,5 @@ public class Stat
     public float attackRadius;
     public float criticalRate;
     public float criticalDamage;
+    public int goldIncome;
 }

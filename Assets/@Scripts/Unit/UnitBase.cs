@@ -11,7 +11,7 @@ public class UnitBase : MonoBehaviour, IDamageable
     public Stat stat = new Stat();
     public bool isTeam ;
     public bool isTargeting = false;
-
+    public bool isGoldMining = false;
     public bool isAreaAttack; // 단일 공격과 광역 공격을 구분하는 플래그
     public Define.AttackColliderType attackColliderType;
 
@@ -47,6 +47,7 @@ public class UnitBase : MonoBehaviour, IDamageable
             stat.attackRange = unitData.attackRange;
             stat.attackSpeed = unitData.attackSpeed;
             stat.attackRadius = unitData.attackRadius;
+            stat.goldIncome = unitData.goldIncome;
         }
 
 
