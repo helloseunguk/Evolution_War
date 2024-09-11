@@ -3,9 +3,13 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 using System.Collections;
+using UnityEngine.UI;
+using Sirenix.OdinInspector;
+
 
 public class UnitBase : MonoBehaviour, IDamageable
 {
+    [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
     public UnitData unitData;
     public UnitBattleEffects unitBattleEffects;
     public Stat stat = new Stat();
@@ -28,9 +32,11 @@ public class UnitBase : MonoBehaviour, IDamageable
     private float gizmoTimer;
 
     public bool isPlayable = false;
-
+    Outline outline;
     virtual public void Start()
     {
+        outline= gameObject.AddComponent<Outline>();
+        OffOutline();
         if (isPlayable)
         {
             //저장된 플레이어의 스텟 읽어오기
@@ -105,6 +111,16 @@ public class UnitBase : MonoBehaviour, IDamageable
         }
     }
 
+    public void OnOutline(Outline.Mode mode,Color color, float width)
+    {
+        outline.OutlineMode = mode;
+        outline.OutlineColor = color;
+        outline.OutlineWidth = width;
+    }
+    public void OffOutline()
+    {
+        outline.OutlineMode = Outline.Mode.SilhouetteOnly;
+    }
     public void OnDamage(Stat _stat)
     {
         float damageToApply = _stat.damage;

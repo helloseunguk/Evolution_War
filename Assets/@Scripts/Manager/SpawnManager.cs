@@ -88,6 +88,32 @@ public class SpawnManager
             
     }
 
+    public void MergeUnit(UnitAgent unit1, UnitAgent unit2)
+    {
+        Vector3 midPosition = Vector3.Lerp(unit1.transform.position, unit2.transform.position, 0.5f);
+        var unitList = Managers.Data.GetUnitInfoScript();
+        int nextLevel = (unit1.unitData.grade - 1) * 5 + unit1.unitData.level + 1;
+        int unitGrade = (nextLevel - 1) / 5 + 1; // Increase grade every 5 levels
+        int unitLevel = (nextLevel - 1) % 5 + 1; // Level cycles from 1 to 5
+
+        var unitData = unitList.Find(_ => _.level == unitLevel && _.grade == unitGrade);
+        unit1.gameObject.SetActive(false);
+        unit2.gameObject.SetActive(false);
+
+        var units = EVUserInfo.GetUnitListData();
+        for(int i = units.Count - 1; i>= 0; i--)
+        {
+            if (units[i].Data.level == unit1.unitData.level && units[i].Data.grade == unit1.unitData.grade)
+            {
+                EVUserInfo.RemoveUnitData(units[i]);
+            }
+            else if (units[i].Data.level == unit2.unitData.level && units[i].Data.grade == unit2.unitData.grade)
+            {
+                EVUserInfo.RemoveUnitData(units[i]);
+            }    
+        }
+        SpawnUnit(midPosition, false, false, null, unitData);
+    }
     public void MergeUnit(Transform parent = null)
     {
         // Get the list of units the user currently owns
